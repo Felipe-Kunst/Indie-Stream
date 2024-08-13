@@ -1,5 +1,3 @@
-/*
-
 import React from "react";
 import Cadastro from "../components/Cadastro/Cadastro";
 
@@ -10,6 +8,3 @@ export default function Main() {
     </div>
   );
 }
-
-*/
-

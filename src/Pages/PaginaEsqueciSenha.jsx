@@ -1,15 +1,13 @@
-/*
-
 import React from "react";
-import Cadastro from "../components/Cadastro/Cadastro";
+import EsqueceuSenha from '../components/EsqueceuSenha/EsqueciSenha';
 
 export default function Main() {
   return (
     <div>
-        <Cadastro/>
+        <EsqueceuSenha/>
     </div>
   );
 }
 
-*/
+
 

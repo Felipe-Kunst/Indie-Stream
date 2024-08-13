@@ -1,0 +1,102 @@
+body {
+    background-color: #1c1c1c;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-cadastro {
+    background-color: #2a2a2a;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+}
+
+.container-cadastro img {
+    width: 80px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.container-cadastro h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.grupo-input {
+    margin-bottom: 20px;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b3b3b3;
+}
+
+.grupo-input input,
+.grupo-input select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 14px;
+}
+
+.grupo-input input::placeholder,
+.grupo-input select {
+    color: #b3b3b3;
+}
+
+.grupo-input select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.botao-cadastro {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffce00;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-cadastro:hover {
+    background-color: #e6b800;
+}
+
+.separator {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+p a {
+    color: #ffce00;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
