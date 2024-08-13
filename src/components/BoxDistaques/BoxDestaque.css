@@ -1,0 +1,27 @@
+.Box_Destaques {
+  background-color: #222222; 
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: 200px; 
+  margin: 0 20px; 
+  border: none;
+  
+}
+
+.Box_Destaques img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 3px solid #ffffff; 
+}
+
+.Info_Projetos h2 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #ffffff; 
+}
+
+
+  

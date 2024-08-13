@@ -1,0 +1,86 @@
+.header-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.header-public {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 20; 
+}
+
+.logo {
+    height: 50px; 
+}
+
+.header-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.register-button {
+    background-color: #FFDD00;
+    color: #000000;
+}
+
+.login-button {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.header-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    text-align: center;
+    z-index: 10; 
+}
+
+.content {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6); 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'SuaFonteEscolhida', sans-serif; 
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: 'SuaFonteEscolhida', sans-serif; 
+}
+
+.juntar-se-btn {
+    background-color: #FFDD00;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.juntar-se-btn:hover {
+    background-color: #FFC107; 
+}
