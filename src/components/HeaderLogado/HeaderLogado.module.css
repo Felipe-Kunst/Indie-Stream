@@ -1,0 +1,91 @@
+.cabecalhoLogado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 58.17px;
+}
+
+.logo {
+  height: 40px;
+}
+
+.searchContainer {
+  flex-grow: 2;
+  margin-right: 58.17px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.navLinks {
+  display: flex;
+  gap: 58.17px;
+  flex-grow: 1;
+  justify-content: center;
+  margin-right: 58.17px;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.profileContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profileImage {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background-color: #444;
+}
+
+.sairItem {
+  background-color: #d9534f;
+}
+
+.sairItem:hover {
+  background-color: #c9302c;
+}

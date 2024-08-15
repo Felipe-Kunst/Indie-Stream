@@ -1,0 +1,47 @@
+.boxDestaques {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px ; /* Borda vermelha */
+  border-radius: 5px;
+  background-color: #1F1F1F; /* Cor de fundo preta */
+  color: white;
+}
+
+.imagem {
+  width: 70px; /* Tamanho da imagem */
+  height: 70px;
+  border-radius: 50%; /* Tornar a imagem circular */
+  object-fit: cover;
+  margin-right: 20px; /* Espaçamento maior entre a imagem e o texto */
+}
+
+.infoUsuarios {
+  flex: 1; /* Faz o conteúdo ocupar o espaço restante */
+  text-align: left; /* Garante que todo o texto esteja alinhado à esquerda */
+}
+
+.nome {
+  margin: 0;
+  font-size: 1.2em; /* Tamanho da fonte do nome */
+  font-weight: bold;
+}
+
+.ramo, .localizacao {
+  margin: 0;
+  padding-left: 0;
+  text-align: left; /* Garante que o texto do cargo e da localização fique bem à esquerda */
+}
+
+.localizacao {
+  font-style: italic;
+  color: #a0a0a0; /* Cor cinza para a localização */
+}
+
+
+
+
+
+
+
+  

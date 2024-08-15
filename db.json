@@ -1,5 +1,5 @@
 {
-  "Projetos": [
+  "ProjetosDestaque": [
     {
       "id": "1",
       "title": "Bacurau",
@@ -26,13 +26,16 @@
       "imagem": "https://www.cineweb.com.br/img/uploads/textos//0915d0d5628edd9e642ec2bde7910f9a.webp"
     }
   ],
+  
   "usuarios": [
     {
       "id": "1",
       "email": "usuario1@example.com",
       "senha": "senha123",
       "nome": "Usuário Um",
-      "imagem": "https://example.com/imagem1.jpg",
+      "imagem": "https://img.freepik.com/fotos-gratis/designer-trabalhando-no-modelo-3d_23-2149371896.jpg?size=626&ext=jpg",
+      "Ramos": ["Diretor", "Produtor"],
+      "Localizacao": "Fortaleza-ce",
       "Premiom": true
     },
     {
@@ -41,6 +44,8 @@
       "senha": "senha456",
       "nome": "Usuário Dois",
       "imagem": "https://example.com/imagem2.jpg",
+      "Ramos": ["Diretor", "Produtor"],
+      "Localizacao": "Fortaleza-ce",
       "Premiom": false
     },
     {
@@ -49,15 +54,49 @@
       "senha": "Manoel123",
       "nome": "Manoel",
       "imagem": "https://example.com/default-image.jpg",
+      "Ramos": ["Duble"],
+      "Localizacao": "Fortaleza-ce",
       "premiom": true
+    }
+ 
+  ],
+
+  "projetos": [
+    {
+      "id": 1,
+      "titulo": "Filme 1",
+      "descricao": "Filme legal.",
+      "localizacao": "São Paulo, SP",
+      "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
+      "tipo": "Ação",
+      "status": "Em andamento"
     },
     {
-      "id": "9a92",
-      "email": "1@email.com",
-      "senha": "1",
-      "nome": "1",
-      "imagem": "https://example.com/default-image.jpg",
-      "premiom": false
+      "id": 2,
+      "titulo": "Capivara o filme",
+      "descricao": "Filme sobre capivaras.",
+      "localizacao": "Rio de Janeiro",
+      "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
+      "tipo": "Drama",
+      "status": "Concluído"
+    },
+    {
+      "id": 3,
+      "titulo": "Capivara o filme",
+      "descricao": "Filme sobre capivaras.",
+      "localizacao": "Rio de Janeiro",
+      "imagem": "https://i.pinimg.com/736x/f0/b7/76/f0b7760fcba517412724eccfa73c5bb7.jpg",
+      "tipo": "Drama",
+      "status": "Concluído"
+    },
+    {
+      "id": 4,
+      "titulo": "Capivara o filme",
+      "descricao": "Filme sobre capivaras.",
+      "localizacao": "Rio de Janeiro",
+      "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
+      "tipo": "Drama",
+      "status": "Concluído"
     }
   ]
 }

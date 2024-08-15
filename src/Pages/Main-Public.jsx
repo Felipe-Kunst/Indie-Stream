@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header/Header"
 import AquivcPode from "../components/Funcionalidades/Funcionalidades"
-import TopProjetos from "../components/ProjetosDistaques/ProjetosDistaque"
+import TopProjetos from "../components/ProjetosDestaques/ProjetosDestaque"
 import Flutter from "../components/Flutter/Flutter"
 
 export default function Main() {

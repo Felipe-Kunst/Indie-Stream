@@ -1,0 +1,100 @@
+.container {
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    color: #fff;
+}
+  
+.titulo {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+.projetos {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espaçamento entre os projetos */
+}
+  
+.link {
+    display: flex;
+    margin-top: 20px;
+    color: #ffd700;
+    text-align: left; 
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10;
+}
+
+  
+.link:hover {
+    text-decoration: underline;
+}
+  
+.boxProjeto {
+    background-color: #1c1c1c;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    color: #fff;
+    text-align: left;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.imagemProjeto {
+    width: 160px; /* Nova largura da imagem */
+    height: 240px; /* Nova altura da imagem */
+    border-radius: 8px;
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+}
+  
+.textoContainer {
+    margin-top: 10px;
+    text-align: center;
+}
+  
+.titulo {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+  
+.descricao {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+  
+.localizacao,
+.tipo {
+    font-size: 12px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+  
+.statusContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o status */
+}
+  
+.statusIcone {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+  
+.concluido {
+    background-color: #4caf50; /* Verde para concluído */
+}
+  
+.andamento {
+    background-color: #ff9800; /* Laranja para em andamento */
+}
+  
+.statusTexto {
+    font-size: 12px;
+    color: #fff;
+}

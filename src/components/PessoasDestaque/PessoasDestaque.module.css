@@ -1,0 +1,33 @@
+.container {
+  background-color: #000000; /* Cor de fundo preta */
+  padding: 20px;
+  border-radius: 8px; /* Bordas arredondadas para o container */
+}
+
+.pessoasEmDestaque {
+  color: white;
+}
+
+.pessoasEmDestaque h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.gridPessoas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.verMais {
+  display: block;
+  margin-top: 20px;
+  color: #ffd700; /* Amarelo */
+  text-decoration: none;
+  font-weight: bold;
+  text-align: left; /* Alinhamento à esquerda */
+}
+
+
+
+  

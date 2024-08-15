@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./ProjetoDistaque.css";
+import "./ProjetoDestaque.css";
 import { Link, useNavigate } from "react-router-dom";
-import BoxProjeto from "../../components/BoxDistaques/BoXDestaque";
+import BoxProjeto from "../BoxDestaques/BoXDestaque";
 
 function Top_Projetos() {
   const [Projetos, setProjetos] = useState([]);
@@ -14,7 +14,7 @@ function Top_Projetos() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:3001/Projetos")
+      .get("http://localhost:3001/ProjetosDestaque")
       .then((response) => {
         const data = response.data.map((Projetos) => ({
           ...Projetos,

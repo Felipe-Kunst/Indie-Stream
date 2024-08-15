@@ -7,6 +7,8 @@ import Teste from "./Pages/Pageteste.jsx";
 import EsqueceuSenha from "./Pages/PaginaEsqueciSenha.jsx";
 import Login from "./Pages/PaginadeLogin.jsx";
 import Cadastro from "./Pages/PaginadeCadastro.jsx";
+import ConhecaPlanos from "./Pages/ConhecaPlanosPage.jsx";
+import HomelogadoPage from "./Pages/HomaLogadoPage.jsx";
 
 ReactDOM.render(
     <BrowserRouter>
@@ -16,6 +18,9 @@ ReactDOM.render(
             <Route path="EsqueceuSenha" element={<EsqueceuSenha />} />
             <Route path="Login" element={<Login />} />
             <Route path="Cadastro" element={<Cadastro />} />
+            <Route path="HomelogadoPage" element={<HomelogadoPage />} />
+            <Route path="ConhecaPlanos" element={<ConhecaPlanos />} />
+
 
         </Routes>
     </BrowserRouter>,

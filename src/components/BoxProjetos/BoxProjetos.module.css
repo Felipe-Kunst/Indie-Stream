@@ -1,0 +1,97 @@
+.container {
+  padding: 20px;
+  background-color: #0e0e0e;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.titulo {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.projetos {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Espaçamento entre os projetos */
+}
+
+.link {
+  display: block;
+  margin-top: 20px;
+  color: #f0ad4e;
+  text-align: left; /* Alinha o link à esquerda */
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.boxProjeto {
+  background-color: #000;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 296px; /* Largura máxima igual à da imagem */
+  color: #fff;
+}
+
+.imagemProjeto {
+  width: 296px; /* Define a largura exata da imagem */
+  height: 169px; /* Define a altura exata da imagem */
+  border-radius: 8px;
+  margin-bottom: 12px; /* Espaçamento abaixo da imagem */
+}
+
+.textoContainer {
+  margin-top: 12px;
+  text-align: left; /* Garante que todo o texto dentro do contêiner fique à esquerda */
+}
+
+.titulo {
+  font-size: 20px; 
+  margin-bottom: 8px;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+  text-align: left; /* Garante que a descrição fique à esquerda */
+}
+
+.localizacao,
+.tipo {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 8px;
+  text-align: left; /* Garante que a localização e o tipo fiquem à esquerda */
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  text-align: left; /* Garante que o status fique à esquerda */
+}
+
+.statusIcone {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.andamento {
+  background-color: orange;
+}
+
+.concluido {
+  background-color: green;
+}
+
+.statusTexto {
+  font-size: 14px;
+  color: #ccc;
+}
