@@ -1,7 +1,7 @@
 .container {
-  background-color: #000000; /* Cor de fundo preta */
+  background-color: #000000; 
   padding: 20px;
-  border-radius: 8px; /* Bordas arredondadas para o container */
+  border-radius: 8px; 
 }
 
 .pessoasEmDestaque {

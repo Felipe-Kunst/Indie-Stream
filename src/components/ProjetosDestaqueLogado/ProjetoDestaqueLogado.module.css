@@ -13,7 +13,7 @@
 .projetos {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Espaçamento entre os projetos */
+    gap: 20px; 
 }
   
 .link {
@@ -44,10 +44,10 @@
 }
   
 .imagemProjeto {
-    width: 160px; /* Nova largura da imagem */
-    height: 240px; /* Nova altura da imagem */
+    width: 160px; 
+    height: 240px; 
     border-radius: 8px;
-    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+    margin: 0 auto; 
 }
   
 .textoContainer {
@@ -76,7 +76,7 @@
 .statusContainer {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza o status */
+    justify-content: center;
 }
   
 .statusIcone {
@@ -87,11 +87,11 @@
 }
   
 .concluido {
-    background-color: #4caf50; /* Verde para concluído */
+    background-color: #4caf50; 
 }
   
 .andamento {
-    background-color: #ff9800; /* Laranja para em andamento */
+    background-color: #ff9800;
 }
   
 .statusTexto {

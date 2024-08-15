@@ -2,40 +2,40 @@
   display: flex;
   align-items: center;
   padding: 15px;
-  border: 2px ; /* Borda vermelha */
+  border: 2px ; 
   border-radius: 5px;
-  background-color: #1F1F1F; /* Cor de fundo preta */
+  background-color: #1F1F1F; 
   color: white;
 }
 
 .imagem {
-  width: 70px; /* Tamanho da imagem */
+  width: 70px; 
   height: 70px;
-  border-radius: 50%; /* Tornar a imagem circular */
+  border-radius: 50%; 
   object-fit: cover;
-  margin-right: 20px; /* Espaçamento maior entre a imagem e o texto */
+  margin-right: 20px; 
 }
 
 .infoUsuarios {
-  flex: 1; /* Faz o conteúdo ocupar o espaço restante */
-  text-align: left; /* Garante que todo o texto esteja alinhado à esquerda */
+  flex: 1; 
+  text-align: left; 
 }
 
 .nome {
   margin: 0;
-  font-size: 1.2em; /* Tamanho da fonte do nome */
+  font-size: 1.2em; 
   font-weight: bold;
 }
 
 .ramo, .localizacao {
   margin: 0;
   padding-left: 0;
-  text-align: left; /* Garante que o texto do cargo e da localização fique bem à esquerda */
+  text-align: left;
 }
 
 .localizacao {
   font-style: italic;
-  color: #a0a0a0; /* Cor cinza para a localização */
+  color: #a0a0a0; 
 }
 
 
