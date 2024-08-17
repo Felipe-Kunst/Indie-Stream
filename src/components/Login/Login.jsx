@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css';
+import styles from './Login.module.css';
 import Logo from "../../assets/Logo.png";
 
 function Login() {
@@ -27,13 +27,13 @@ function Login() {
   };
 
   return (
-    <div className="container-login">
+    <div className={styles.containerLogin}>
       {!user ? (
         <form onSubmit={handleLogin}>
-            <img src={Logo} alt="Logo_IndieStream" className="logo" /> 
-            <h2>Entre em sua conta</h2>
+            <img src={Logo} alt="Logo_IndieStream" className={styles.logo} /> 
+            <h2 className={styles.h2}>Entre em sua conta</h2>
 
-          <div className="grupo-input">
+          <div className={styles.grupoInput}>
             <label htmlFor="email">Nome de usuário</label>
             <input 
               type="email" 
@@ -41,10 +41,11 @@ function Login() {
               placeholder="Insira seu email" 
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 
+              className={styles.input}
             />
           </div>
 
-          <div className="grupo-input">
+          <div className={styles.grupoInput}>
             <label htmlFor="password">Senha</label>
             <input 
               type="password" 
@@ -52,22 +53,23 @@ function Login() {
               placeholder="Insira sua senha" 
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
+              className={styles.input}
             />
           </div>
 
-          <a href="/EsqueceuSenha" className="link-esqueci-senha">Esqueceu sua senha?</a>
+          <a href="/EsqueceuSenha" className={styles.linkEsqueciSenha}>Esqueceu sua senha?</a>
 
-          {error && <p className="erro">{error}</p>}
+          {error && <p className={styles.erro}>{error}</p>}
 
-          <button type="submit">Login</button>
+          <button type="submit" className={styles.botao}>Login</button>
 
-          <p>Não possui conta? <a href="/cadastro">Cadastre-se</a></p>
+          <p className={styles.text}>Não possui conta? <a href="/cadastro" className={styles.link}>Cadastre-se</a></p>
         </form>
       ) : (
-        <div className="perfil-usuario">
-          <img src={user.imagem} alt={user.nome} />
-          <h2>Bem-vindo, {user.nome}</h2>
-          {user.Premiom && <p>Você é um usuário Premium!</p>}
+        <div className={styles.perfilUsuario}>
+          <img src={user.imagem} alt={user.nome} className={styles.perfilUsuarioImg} />
+          <h2 className={styles.perfilUsuarioH2}>Bem-vindo, {user.nome}</h2>
+          {user.Premiom && <p className={styles.perfilUsuarioP}>Você é um usuário Premium!</p>}
         </div>
       )}
     </div>

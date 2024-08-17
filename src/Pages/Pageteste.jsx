@@ -1,12 +1,18 @@
 import React from "react";
-import PessoasEmDestaque from '../components/PessoasDestaque/PessoasDestaque';
-import ProjetoDestaqueLogado from "../components/ProjetosDestaqueLogado/ProjetosDestaqueLogado";
-
+import HeaderPublic from '../components/HeaderTeste/HeaderTeste';
+import ImagemFundo from "../components/ImagemFundo/ImagemFundo";
+import TopProjetos from "../components/ProjetosDestaques/ProjetosDestaque";
+import AquivcPode from "../components/Funcionalidades/Funcionalidades";
+import Flutter from "../components/Flutter/Flutter";
+import Header from "../components/HeaderTeste/HeaderTeste2";
 export default function Main() {
   return (
     <div>
-        <PessoasEmDestaque/>
-        <ProjetoDestaqueLogado/>
+        <Header/>
+        <TopProjetos/>
+        <AquivcPode/>
+        <Flutter/>
+    
     </div>
   );
 }

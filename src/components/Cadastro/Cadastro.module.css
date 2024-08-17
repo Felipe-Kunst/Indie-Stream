@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 
-.container-cadastro {
+.containerCadastro {
     background-color: #2a2a2a;
     padding: 40px;
     border-radius: 10px;
@@ -20,30 +20,30 @@ body {
     text-align: center;
 }
 
-.container-cadastro img {
-    width: 80px;
+.containerCadastro img {
+    width: 125px;
     margin: 0 auto 20px;
     display: block;
 }
 
-.container-cadastro h2 {
+.h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.grupo-input {
+.grupoInput {
     margin-bottom: 20px;
 }
 
-.grupo-input label {
+.grupoInput label {
     display: block;
     margin-bottom: 5px;
     color: #b3b3b3;
 }
 
-.grupo-input input,
-.grupo-input select {
-    width: 100%;
+.input,
+.select {
+    width: 350px;
     padding: 15px;
     border-radius: 5px;
     border: none;
@@ -52,18 +52,18 @@ body {
     font-size: 14px;
 }
 
-.grupo-input input::placeholder,
-.grupo-input select {
+.input::placeholder,
+.select {
     color: #b3b3b3;
 }
 
-.grupo-input select {
+.select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
 
-.botao-cadastro {
+.botaoCadastro {
     width: 100%;
     padding: 15px;
     background-color: #ffce00;
@@ -75,7 +75,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.botao-cadastro:hover {
+.botaoCadastro:hover {
     background-color: #e6b800;
 }
 
@@ -85,18 +85,18 @@ body {
     color: #b3b3b3;
 }
 
-p {
+.p {
     text-align: center;
     margin-top: 20px;
     font-size: 14px;
     color: #d3d3d3;
 }
 
-p a {
+.link {
     color: #ffce00;
     text-decoration: none;
 }
 
-p a:hover {
+.link:hover {
     text-decoration: underline;
 }

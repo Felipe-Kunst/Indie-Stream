@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Cadastro.css";
+import styles from "./Cadastro.module.css";
 import Logo from "../../assets/Logo.png";
 
 const Cadastro = () => {
@@ -56,13 +56,13 @@ const Cadastro = () => {
   };
 
   return (
-    <div className="container-cadastro">
-      <div className="logo">
+    <div className={styles.containerCadastro}>
+      <div className={styles.logo}>
         <img src={Logo} alt="Logo_IndieStream" />
       </div>
-      <h2>Cadastre sua conta</h2>
+      <h2 className={styles.h2}>Cadastre sua conta</h2>
       <form onSubmit={handleSubmit}>
-        <div className="grupo-input">
+        <div className={styles.grupoInput}>
           <input
             type="email"
             name="email"
@@ -70,9 +70,10 @@ const Cadastro = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            className={styles.input}
           />
         </div>
-        <div className="grupo-input">
+        <div className={styles.grupoInput}>
           <input
             type="text"
             name="nome"
@@ -80,9 +81,10 @@ const Cadastro = () => {
             value={formData.nome}
             onChange={handleChange}
             required
+            className={styles.input}
           />
         </div>
-        <div className="grupo-input">
+        <div className={styles.grupoInput}>
           <input
             type="password"
             name="senha"
@@ -90,9 +92,10 @@ const Cadastro = () => {
             value={formData.senha}
             onChange={handleChange}
             required
+            className={styles.input}
           />
         </div>
-        <div className="grupo-input">
+        <div className={styles.grupoInput}>
           <input
             type="password"
             name="confirmarSenha"
@@ -100,9 +103,10 @@ const Cadastro = () => {
             value={formData.confirmarSenha}
             onChange={handleChange}
             required
+            className={styles.input}
           />
         </div>
-        <div className="grupo-input">
+        <div className={styles.grupoInput}>
           <select
             name="premiom"
             value={formData.premiom}
@@ -110,21 +114,22 @@ const Cadastro = () => {
               setFormData({ ...formData, premiom: e.target.value === "true" })
             }
             required
+            className={styles.select}
           >
             <option value="false">Selecione seu perfil</option>
             <option value="true">Premium</option>
             <option value="false">Standard</option>
           </select>
         </div>
-        <button type="submit" className="botao-cadastro">
+        <button type="submit" className={styles.botaoCadastro}>
           Avançar
         </button>
       </form>
-      <div className="separator">
+      <div className={styles.separator}>
         <span>– OU –</span>
       </div>
-      <p>
-        Já possui conta? <a href="/login">Entre</a>
+      <p className={styles.p}>
+        Já possui conta? <a href="/login" className={styles.link}>Entre</a>
       </p>
     </div>
   );

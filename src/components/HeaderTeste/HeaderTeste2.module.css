@@ -1,0 +1,61 @@
+
+.headerContainer {
+    position: relative;
+    overflow: hidden; 
+}
+
+.headerPublic {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 20;
+    background-color: transparent; 
+}
+
+.logo {
+    height: 50px; 
+}
+
+.headerButtons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.registerButton {
+    background-color: #FFDD00;
+    color: #000000;
+}
+
+.loginButton {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.headerSection {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px; 
+    color: white;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.juntarSeBtn {
+    background-color: #FFDD00;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}

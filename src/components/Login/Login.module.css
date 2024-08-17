@@ -5,7 +5,7 @@ body {
     color: #fff;
 }
 
-.container-login {
+.containerLogin {
     background-color: #282828;
     padding: 40px;
     border-radius: 8px;
@@ -14,26 +14,27 @@ body {
     color: #fff;
 }
 
-.container-login img {
+.containerLogin img {
+    width: 150px;
     display: block;
     margin: 0 auto 20px;
 }
 
-.container-login h2 {
+.h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.grupo-input {
+.grupoInput {
     margin-bottom: 15px;
 }
 
-.grupo-input label {
+.grupoInput label {
     display: block;
     margin-bottom: 5px;
 }
 
-.grupo-input input {
+.input {
     width: 100%;
     padding: 10px;
     border-radius: 4px;
@@ -41,7 +42,7 @@ body {
     font-size: 14px;
 }
 
-.link-esqueci-senha {
+.linkEsqueciSenha {
     display: block;
     text-align: left;
     color: #fdd835;
@@ -51,7 +52,7 @@ body {
     text-decoration: none;
 }
 
-.link-esqueci-senha:hover {
+.linkEsqueciSenha:hover {
     text-decoration: underline;
 }
 
@@ -60,7 +61,7 @@ body {
     margin-bottom: 10px;
 }
 
-botao {
+.botao {
     width: 100%;
     padding: 10px;
     background-color: #fdd835;
@@ -71,42 +72,42 @@ botao {
     cursor: pointer;
 }
 
-botao:hover {
+.botao:hover {
     background-color: #fbc02d;
 }
 
-p {
+.text {
     text-align: center;
     margin-top: 10px;
 }
 
-p a {
+.text a {
     color: #fdd835;
     text-decoration: none;
 }
 
-p a:hover {
+.text a:hover {
     text-decoration: underline;
 }
 
-.perfil-usuario {
+.perfilUsuario {
     text-align: center;
     color: #fff;
 }
 
-.perfil-usuario img {
+.perfilUsuarioImg {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-bottom: 20px;
 }
 
-.perfil-usuario h2 {
+.perfilUsuarioH2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
-.perfil-usuario p {
+.perfilUsuarioP {
     font-size: 18px;
     color: #fdd835;
 }

@@ -1,56 +1,56 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./ProjetoDestaque.css";
-import { Link, useNavigate } from "react-router-dom";
+import styles from "./ProjetosDestaque.module.css";
+import { useNavigate } from "react-router-dom";
 import BoxProjeto from "../BoxDestaques/BoXDestaque";
 
-function Top_Projetos() {
-  const [Projetos, setProjetos] = useState([]);
+function TopProjetos() {
+  const [projetos, setProjetos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:3001/ProjetosDestaque")
+      .get("http://localhost:3001/projetos")
       .then((response) => {
-        const data = response.data.map((Projetos) => ({
-          ...Projetos,
-          watchedBy: Projetos.watchedBy || [],
+        const data = response.data.map((projeto) => ({
+          ...projeto,
+          watchedBy: projeto.watchedBy || [],
         }));
 
-        setProjetos(data.slice(0, 4)); // Limita a exibição a 4 filmes
+        setProjetos(data.slice(0, 4)); // Limita a exibição a 4 projetos
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Erro ao carregar os Projetos:", error);
-        setError("Erro ao carregar os Projetos.");
+        console.error("Erro ao carregar os projetos:", error);
+        setError("Erro ao carregar os projetos.");
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <p>Carregando Projetos...</p>;
+  if (loading) return <p>Carregando projetos...</p>;
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="Container_ProjetosBox">
+    <div className={styles.containerProjetosBox}>
       <h1>Produções em Destaque</h1>
-      <div className="Linha-Projetos">
-        {Projetos.map((Projetos) => (
-          <BoxProjeto key={Projetos.id} Projetos={Projetos} />
+      <div className={styles.linhaProjetos}>
+        {projetos.map((projeto) => (
+          <BoxProjeto key={projeto.id} projeto={projeto} />
         ))}
       </div>
-      <div className="discubraMais-container">
-        <button className="discubraMais-btn" onClick={() => navigate('/login')}
-        >Descubra Mais</button>
-        
+      <div className={styles.descubraMaisContainer}>
+        <button 
+          className={styles.descubraMaisBtn} 
+          onClick={() => navigate('/login')}
+        >
+          Descubra Mais
+        </button>
       </div>
     </div>
   );
 }
 
-export default Top_Projetos;
-
-
+export default TopProjetos;

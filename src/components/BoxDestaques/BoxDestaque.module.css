@@ -1,4 +1,4 @@
-.Box_Destaques {
+.BoxDestaques {
   background-color: #222222; 
   padding: 10px;
   border-radius: 8px;
@@ -6,10 +6,9 @@
   width: 200px; 
   margin: 0 20px; 
   border: none;
-  
 }
 
-.Box_Destaques img {
+.BoxDestaquesImg {
   width: 100%;
   height: auto;
   border-radius: 8px;
@@ -17,7 +16,7 @@
   border: 3px solid #ffffff; 
 }
 
-.Info_Projetos h2 {
+.InfoProjetosH2 {
   font-size: 1.2rem;
   margin-top: 10px;
   color: #ffffff; 

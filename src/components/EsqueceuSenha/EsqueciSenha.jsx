@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./EsqueciSenha.css";
+import styles from "./EsqueciSenha.module.css";
 import Logo from "../../assets/Logo.png";
 
 const EsqueceuSenha = () => {
@@ -37,32 +37,36 @@ const EsqueceuSenha = () => {
   };
 
   return (
-    <div className="container-esqueci-senha">
-      <div className="logo-esqueci-senha">
+    <div className={styles.containerEsqueciSenha}>
+      <div className={styles.logoEsqueciSenha}>
         <img src={Logo} alt="Logo_IndieStream" />
       </div>
-      <h2 className="titulo-esqueci-senha">Recuperar senha</h2>
-      <p className="descricao-esqueci-senha">
+      <h2 className={styles.tituloEsqueciSenha}>Recuperar senha</h2>
+      <p className={styles.descricaoEsqueciSenha}>
         Digite o e-mail utilizado na criação de sua conta, enviaremos instruções
         para redefinir sua senha
       </p>
       <input
         type="email"
-        className="input-email"
+        className={styles.inputEmail}
         placeholder="Insira seu email"
         value={email}
         onChange={handleEmailChange}
         required
       />
-      <button onClick={handleRecoverPassword} className="botao-recuperar-senha">
+      <button
+        onClick={handleRecoverPassword}
+        className={styles.botaoRecuperarSenha}
+      >
         Recuperar
       </button>
-      <a onClick={handleGoBack} className="link-voltar-login">
+      <a onClick={handleGoBack} className={styles.linkVoltarLogin}>
         Voltar para login
       </a>
-      {message && <p className="mensagem-esqueci-senha">{message}</p>}
+      {message && <p className={styles.mensagemEsqueciSenha}>{message}</p>}
     </div>
   );
 };
 
 export default EsqueceuSenha;
+

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Flutter.css";
+import styles from "./Flutter.module.css";
 import Logo from "../../assets/Logo.png";
 import SetaCima from "../../assets/SetaCima.png";
 
@@ -13,31 +13,31 @@ function Flutter() {
   };
 
   return (
-    <div className="flutter-container">
-      <div className="flutter-conteudo">
-        <div className="flutter-secao logo-secao">
-          <img src={Logo} alt="IndieStream Logo" className="flutter-logo" />
-          <p className="Contato-info">(48) 98803-2018</p>
-          <p className="Contato-info">contact@indiestream.com</p>
+    <div className={styles.flutterContainer}>
+      <div className={styles.flutterConteudo}>
+        <div className={`${styles.flutterSecao} ${styles.logoSecao}`}>
+          <img src={Logo} alt="IndieStream Logo" className={styles.flutterLogo} />
+          <p className={styles.contatoInfo}>(48) 98803-2018</p>
+          <p className={styles.contatoInfo}>contact@indiestream.com</p>
         </div>
-        <div className="flutter-secao links-secao">
+        <div className={`${styles.flutterSecao} ${styles.linksSecao}`}>
           <FooterLink text="Sobre" />
           <FooterLink text="Growers" />
           <FooterLink text="Merchants" />
           <FooterLink text="Parcerias" />
           <FooterLink text="Contato" />
         </div>
-        <div className="flutter-secao links-secao">
+        <div className={`${styles.flutterSecao} ${styles.linksSecao}`}>
           <FooterLink text="Facebook" />
           <FooterLink text="Twitter" />
           <FooterLink text="LinkedIn" />
           <FooterLink text="Instagram" />
         </div>
       </div>
-      <div className="flutter-bottom">
+      <div className={styles.flutterBottom}>
         <p>© 2024 IndieStream. All rights reserved.</p>
       </div>
-      <button className="scroll-top-button" onClick={scrollParaCima}>
+      <button className={styles.scrollTopButton} onClick={scrollParaCima}>
         <img src={SetaCima} alt="Scroll Para Cima" />
       </button>
     </div>
@@ -45,7 +45,7 @@ function Flutter() {
 }
 
 function FooterLink({ text }) {
-  return <p className="footer-link">{text}</p>;
+  return <p className={styles.flutterLink}>{text}</p>;
 }
 
 export default Flutter;

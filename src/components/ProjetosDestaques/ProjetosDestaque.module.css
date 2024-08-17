@@ -1,23 +1,22 @@
-.Container_ProjetosBox {
+.containerProjetosBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #222222; 
-    border: 3px solid #ffffff; 
     border-radius: 10px;
     padding: 20px;
-    max-width: 80%; 
+    max-width: 100%; 
 }
 
-.Container_ProjetosBox h1 {
+.containerProjetosBox h1 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #ffffff;
     text-align: center;
 }
 
-.Linha-Projetos {
+.linhaProjetos {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -26,12 +25,12 @@
     width: 100%;
 }
 
-.discubraMais-container {
+.descubraMaisContainer {
     text-align: center;
     margin-top: 20px;
 }
 
-.discubraMais-btn {
+.descubraMaisBtn {
     background-color: #ffdd00; 
     color: #000000; 
     padding: 10px 20px;
@@ -43,10 +42,6 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75); 
 }
 
-.discover-more-btn:hover {
+.descubraMaisBtn:hover {
     background-color: #e6c800;
 }
-
-
-
-  

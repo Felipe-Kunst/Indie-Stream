@@ -1,32 +1,4 @@
 {
-  "ProjetosDestaque": [
-    {
-      "id": "1",
-      "title": "Bacurau",
-      "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster"
-    },
-    {
-      "id": "2",
-      "title": "Marighella",
-      "imagem": "https://f.i.uol.com.br/fotografia/2019/02/05/15494166625c5a38d661300_1549416662_3x2_md.jpg"
-    },
-    {
-      "id": "3",
-      "title": "Central do Brasil",
-      "imagem": "https://i.pinimg.com/736x/f0/b7/76/f0b7760fcba517412724eccfa73c5bb7.jpg"
-    },
-    {
-      "id": "4",
-      "title": "Auto da Compadecida",
-      "imagem": "https://br.web.img3.acsta.net/r_1280_720/pictures/210/416/21041683_20130919124706739.jpg"
-    },
-    {
-      "id": "5",
-      "title": "Levante",
-      "imagem": "https://www.cineweb.com.br/img/uploads/textos//0915d0d5628edd9e642ec2bde7910f9a.webp"
-    }
-  ],
-  
   "usuarios": [
     {
       "id": "1",
