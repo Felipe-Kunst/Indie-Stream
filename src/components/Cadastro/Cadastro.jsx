@@ -129,7 +129,7 @@ const Cadastro = () => {
         <span>– OU –</span>
       </div>
       <p className={styles.p}>
-        Já possui conta? <a href="/login" className={styles.link}>Entre</a>
+        Já possui conta? <a href="/PaginadeLogin" className={styles.link}>Entre</a>
       </p>
     </div>
   );

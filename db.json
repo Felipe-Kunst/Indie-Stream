@@ -6,7 +6,10 @@
       "senha": "senha123",
       "nome": "Usuário Um",
       "imagem": "https://img.freepik.com/fotos-gratis/designer-trabalhando-no-modelo-3d_23-2149371896.jpg?size=626&ext=jpg",
-      "Ramos": ["Diretor", "Produtor"],
+      "Ramos": [
+        "Diretor",
+        "Produtor"
+      ],
       "Localizacao": "Fortaleza-ce",
       "Premiom": true
     },
@@ -16,7 +19,10 @@
       "senha": "senha456",
       "nome": "Usuário Dois",
       "imagem": "https://example.com/imagem2.jpg",
-      "Ramos": ["Diretor", "Produtor"],
+      "Ramos": [
+        "Diretor",
+        "Produtor"
+      ],
       "Localizacao": "Fortaleza-ce",
       "Premiom": false
     },
@@ -24,15 +30,15 @@
       "id": "81c7",
       "email": "ManoelHackerman@email.com",
       "senha": "Manoel123",
-      "nome": "Manoel",
-      "imagem": "https://example.com/default-image.jpg",
-      "Ramos": ["Duble"],
+      "nome": "Manoel Ex-hackerman",
+      "imagem": "https://scontent.fcaw3-1.fna.fbcdn.net/v/t1.6435-1/81423525_2662535973811444_2912642645991882752_n.jpg?stp=dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=e4545e&_nc_ohc=uF-Qzr2TYoEQ7kNvgGngDsx&_nc_ht=scontent.fcaw3-1.fna&oh=00_AYAPG0f8r5zML_rUrvBtXySZevUbnBYby06LWBsl_FxQUA&oe=66EC55F3",
+      "Ramos": [
+        "Duble"
+      ],
       "Localizacao": "Fortaleza-ce",
       "premiom": true
     }
- 
   ],
-
   "projetos": [
     {
       "id": 1,

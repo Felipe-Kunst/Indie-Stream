@@ -1,20 +1,34 @@
 import React, { useEffect, useState } from 'react';
+import { useCookies } from 'react-cookie'; 
+import { useNavigate } from 'react-router-dom'; 
 import styles from './HeaderLogado.module.css';
 import Logo from '../../assets/Logo.png';
 
 const HeaderLogado = () => {
+  const [cookies, setCookie, removeCookie] = useCookies(); 
   const [usuario, setUsuario] = useState(null);
   const [menuAberto, setMenuAberto] = useState(false);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    fetch('http://localhost:3001/usuarios/1')
-      .then(response => response.json())
-      .then(data => setUsuario(data))
-      .catch(error => console.error('Erro ao buscar dados do usuário:', error));
-  }, []);
+    const userId = cookies.userId; 
+    if (userId) {
+      fetch(`http://localhost:3001/usuarios/${userId}`)
+        .then(response => response.json())
+        .then(data => setUsuario(data))
+        .catch(error => console.error('Erro ao buscar dados do usuário:', error));
+    }
+  }, [cookies.userId]);
 
   const toggleMenu = () => {
     setMenuAberto(!menuAberto);
+  };
+
+  const handleLogout = () => {
+    Object.keys(cookies).forEach((cookieName) => {
+      removeCookie(cookieName, { path: '/' });
+    });
+    navigate('/login');
   };
 
   if (!usuario) {
@@ -49,7 +63,7 @@ const HeaderLogado = () => {
         {menuAberto && (
           <div className={styles.dropdownMenu}>
             <a href="/perfil" className={styles.dropdownItem}>Ver Perfil</a>
-            <a href="/" className={`${styles.dropdownItem} ${styles.sairItem}`}>Sair</a>
+            <a href="/" className={`${styles.dropdownItem} ${styles.sairItem}`} onClick={handleLogout}>Sair</a>
           </div>
         )}
       </div>
@@ -58,3 +72,5 @@ const HeaderLogado = () => {
 };
 
 export default HeaderLogado;
+
+

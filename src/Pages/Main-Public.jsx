@@ -6,7 +6,7 @@ import Flutter from "../components/Flutter/Flutter"
 
 export default function Main() {
   return (
-    <div>
+    <div >
         <Header/>    
         <TopProjetos/>
         <AquivcPode/>

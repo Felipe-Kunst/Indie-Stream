@@ -16,13 +16,13 @@ function Header() {
                 <div className={styles.headerButtons}>
                     <button 
                         className={styles.registerButton} 
-                        onClick={() => navigate('/register')}
+                        onClick={() => navigate('/PaginadeCadastro')}
                     >
                         Registrar
                     </button>
                     <button 
                         className={styles.loginButton} 
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate('/PaginadeLogin')}
                     >
                         Login
                     </button>
