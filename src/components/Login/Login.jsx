@@ -9,7 +9,6 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [cookies, setCookie] = useCookies(['userId']);
-
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
@@ -71,7 +70,7 @@ function Login() {
         
         <button type="submit" className={styles.botao}>Login</button>
 
-        <p className={styles.text}>Não possui conta? <a href="/cadastro" className={styles.link}>Cadastre-se</a></p>
+        <p className={styles.text}>Não possui conta? <a href="/PaginadeCadastro" className={styles.link}>Cadastre-se</a></p>
       </form>
     </div>
   );

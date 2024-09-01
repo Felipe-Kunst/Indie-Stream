@@ -1,0 +1,114 @@
+{
+  "habilidades": [
+    { "id": "1", "nome": "Dançar" },
+    { "id": "2", "nome": "Fotografia" },
+    { "id": "3", "nome": "Edição de Vídeo" },
+    { "id": "4", "nome": "Direção" },
+    { "id": "5", "nome": "Atuação" },
+    { "id": "6", "nome": "Pintura" },
+    { "id": "7", "nome": "Escultura" },
+    { "id": "8", "nome": "Design Gráfico" },
+    { "id": "9", "nome": "Coreografia" },
+    { "id": "10", "nome": "Composição Musical" },
+    { "id": "11", "nome": "Roteirização" },
+    { "id": "12", "nome": "Maquiagem Artística" },
+    { "id": "13", "nome": "Desenho" },
+    { "id": "14", "nome": "Ilustração" },
+    { "id": "15", "nome": "Animação 3D" },
+    { "id": "16", "nome": "Tatuagem" },
+    { "id": "17", "nome": "Edição de Som" },
+    { "id": "18", "nome": "Figurino" },
+    { "id": "19", "nome": "Cenografia" },
+    { "id": "20", "nome": "Direção de Fotografia" }
+  ],
+  
+  "profissoes": [
+    { "id": "1", "nome": "Dublê" },
+    { "id": "2", "nome": "Produtor" },
+    { "id": "3", "nome": "Editor de Vídeo" },
+    { "id": "4", "nome": "Diretor de Fotografia" },
+    { "id": "5", "nome": "Cenógrafo" },
+    { "id": "6", "nome": "Roteirista" },
+    { "id": "7", "nome": "Ator" },
+    { "id": "8", "nome": "Compositor" },
+    { "id": "9", "nome": "Pintor" },
+    { "id": "10", "nome": "Escultor" },
+    { "id": "11", "nome": "Coreógrafo" },
+    { "id": "12", "nome": "Designer Gráfico" },
+    { "id": "13", "nome": "Diretor de Arte" },
+    { "id": "14", "nome": "Editor de Som" },
+    { "id": "15", "nome": "Maquiador" },
+    { "id": "16", "nome": "Figurinista" },
+    { "id": "17", "nome": "Ilustrador" },
+    { "id": "18", "nome": "Fotógrafo" },
+    { "id": "19", "nome": "Animador 3D" },
+    { "id": "20", "nome": "Tatuador" }
+  ],
+
+  "projetos": [
+    {
+      "id": "1",
+      "titulo": "Filme 1",
+      "descricao": "Filme legal.",
+      "localizacao": "São Paulo, SP",
+      "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
+      "tipo": "Ação",
+      "status": "Em andamento",
+      "usuariosEnvolvidos": [
+        {
+          "usuarioId": "81c7",
+          "papel": "Diretor"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "titulo": "Capivara o filme",
+      "descricao": "Filme sobre capivaras.",
+      "localizacao": "Rio de Janeiro",
+      "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
+      "tipo": "Drama",
+      "status": "Concluído",
+      "usuariosEnvolvidos": [
+        {
+          "usuarioId": "81c7",
+          "papel": "Produtor"
+        }
+      ]
+    }
+  ],
+
+  "usuarios": [
+    {
+      "id": "81c7",
+      "email": "ManoelHackerman@email.com",
+      "senha": "Manoel123",
+      "nome": "Manoel Ex-hackerman",
+      "imagem": "https://scontent.fcaw3-1.fna.fbcdn.net/v/t1.6435-1/81423525_2662535973811444_2912642645991882752_n.jpg?stp=dst-jpg_p200x200&_nc_cat=101&ccb=1-7&_nc_sid=e4545e&_nc_ohc=uF-Qzr2TYoEQ7kNvgGngDsx&_nc_ht=scontent.fcaw3-1.fna&oh=00_AYAPG0f8r5zML_rUrvBtXySZevUbnBYby06LWBsl_FxQUA&oe=66EC55F3",
+      "Ramo": ["1"],
+      "Localizacao": {
+        "estadoId": "ce",
+        "cidadeId": "1"
+      },
+      "premiom": true,
+      "RedeSociais": [
+        "https://www.facebook.com/ManoelHackerman",
+        "ManoelHackerman@email.com"
+      ],
+      "SobreMin": "Sou um hacker muito habilidoso",
+      "Habilidades": ["1", "2", "10", "13"],
+      "Projetos": [
+        {
+          "projetoId": "1",
+          "papel": "Diretor"
+        },
+        {
+          "projetoId": "2",
+          "papel": "Produtor"
+        }
+      ],
+      "ObrasFavoritas": ["1"]
+    }
+  ]
+}
+

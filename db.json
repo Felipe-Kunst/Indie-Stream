@@ -1,32 +1,6 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "email": "usuario1@example.com",
-      "senha": "senha123",
-      "nome": "Usuário Um",
-      "imagem": "https://img.freepik.com/fotos-gratis/designer-trabalhando-no-modelo-3d_23-2149371896.jpg?size=626&ext=jpg",
-      "Ramos": [
-        "Diretor",
-        "Produtor"
-      ],
-      "Localizacao": "Fortaleza-ce",
-      "Premiom": true
-    },
-    {
-      "id": "2",
-      "email": "usuario2@example.com",
-      "senha": "senha456",
-      "nome": "Usuário Dois",
-      "imagem": "https://example.com/imagem2.jpg",
-      "Ramos": [
-        "Diretor",
-        "Produtor"
-      ],
-      "Localizacao": "Fortaleza-ce",
-      "Premiom": false
-    },
-    {
       "id": "81c7",
       "email": "ManoelHackerman@email.com",
       "senha": "Manoel123",
@@ -36,12 +10,45 @@
         "Duble"
       ],
       "Localizacao": "Fortaleza-ce",
-      "premiom": true
+      "premiom": true,
+      "RedeSociais": [
+        "https://www.facebook.com/ManoelHackerman",
+        "ManoelHackerman@email.com"
+      ],
+      "SobreMin": "SOu um hacker muito habilidoso",
+      "Habilidades": [
+        "Dançar"
+      ],
+      "projetos":["id"]
+
+    },
+    {
+      "id": "eea2",
+      "email": "usuario1@example.com",
+      "senha": "senha",
+      "nome": "1",
+      "imagem": "https://example.com/default-image.jpg",
+      "Ramos": [
+        "Duble"
+      ],
+      "Localizacao": "Fortaleza-ce",
+      "premiom": true,
+      "RedeSociais": [
+        "https://www.facebook.com/ManoelHackerman",
+        "ManoelHackerman@email.com"
+      ],
+      "SobreMin": "SOu um hacker muito habilidoso",
+      "Habilidades": ["Dançar"],
+      "projetos":["id"]
+
     }
   ],
+
+
+
   "projetos": [
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Filme 1",
       "descricao": "Filme legal.",
       "localizacao": "São Paulo, SP",
@@ -50,7 +57,7 @@
       "status": "Em andamento"
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Capivara o filme",
       "descricao": "Filme sobre capivaras.",
       "localizacao": "Rio de Janeiro",
@@ -59,7 +66,7 @@
       "status": "Concluído"
     },
     {
-      "id": 3,
+      "id": "3",
       "titulo": "Capivara o filme",
       "descricao": "Filme sobre capivaras.",
       "localizacao": "Rio de Janeiro",
@@ -68,13 +75,419 @@
       "status": "Concluído"
     },
     {
-      "id": 4,
+      "id": "4",
       "titulo": "Capivara o filme",
       "descricao": "Filme sobre capivaras.",
       "localizacao": "Rio de Janeiro",
       "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
       "tipo": "Drama",
       "status": "Concluído"
+    }
+  ],
+  
+  "profissoes": [
+    {
+      "id": "1",
+      "profissao": "Diretor"
+    },
+    {
+      "id": "2",
+      "profissao": "Produtor Executivo"
+    },
+    {
+      "id": "3",
+      "profissao": "Roteirista"
+    },
+    {
+      "id": "4",
+      "profissao": "Diretor de Fotografia"
+    },
+    {
+      "id": "5",
+      "profissao": "Editor"
+    },
+    {
+      "id": "6",
+      "profissao": "Diretor de Arte"
+    },
+    {
+      "id": "7",
+      "profissao": "Designer de Produção"
+    },
+    {
+      "id": "8",
+      "profissao": "Assistente de Direção"
+    },
+    {
+      "id": "9",
+      "profissao": "Gaffer"
+    },
+    {
+      "id": "10",
+      "profissao": "Gravador de Som"
+    },
+    {
+      "id": "11",
+      "profissao": "Mixer de Som"
+    },
+    {
+      "id": "12",
+      "profissao": "Compositor de Trilha Sonora"
+    },
+    {
+      "id": "13",
+      "profissao": "Figurinista"
+    },
+    {
+      "id": "14",
+      "profissao": "Maquiador"
+    },
+    {
+      "id": "15",
+      "profissao": "Cabelereiro"
+    },
+    {
+      "id": "16",
+      "profissao": "Ator"
+    },
+    {
+      "id": "17",
+      "profissao": "Atriz"
+    },
+    {
+      "id": "18",
+      "profissao": "Assistente de Produção"
+    },
+    {
+      "id": "19",
+      "profissao": "Locador de Locais"
+    },
+    {
+      "id": "20",
+      "profissao": "Coordenador de Efeitos Especiais"
+    },
+    {
+      "id": "21",
+      "profissao": "Efeitos Visuais"
+    },
+    {
+      "id": "22",
+      "profissao": "Assistente de Câmera"
+    },
+    {
+      "id": "23",
+      "profissao": "Técnico de Iluminação"
+    },
+    {
+      "id": "24",
+      "profissao": "Cenógrafo"
+    },
+    {
+      "id": "25",
+      "profissao": "Props Master"
+    },
+    {
+      "id": "26",
+      "profissao": "Dublador"
+    },
+    {
+      "id": "27",
+      "profissao": "Editor de Som"
+    },
+    {
+      "id": "28",
+      "profissao": "Assistente de Edição"
+    },
+    {
+      "id": "29",
+      "profissao": "Diretor de Casting"
+    },
+    {
+      "id": "30",
+      "profissao": "Coordenador de Stunts"
+    },
+    {
+      "id": "31",
+      "profissao": "Coordenador de Produção"
+    },
+    {
+      "id": "32",
+      "profissao": "Diretor de Desenvolvimento"
+    },
+    {
+      "id": "33",
+      "profissao": "Diretor de Animação"
+    },
+    {
+      "id": "34",
+      "profissao": "Animador"
+    },
+    {
+      "id": "35",
+      "profissao": "Designer de Som"
+    },
+    {
+      "id": "36",
+      "profissao": "Técnico de Roteiro"
+    },
+    {
+      "id": "37",
+      "profissao": "Produtor de Linha"
+    },
+    {
+      "id": "38",
+      "profissao": "Assistente de Direção de Arte"
+    },
+    {
+      "id": "39",
+      "profissao": "Diretor de Fotografia Adjunto"
+    },
+    {
+      "id": "40",
+      "profissao": "Assistente de Figurino"
+    },
+    {
+      "id": "41",
+      "profissao": "Coordenador de Efeitos Práticos"
+    },
+    {
+      "id": "42",
+      "profissao": "Roteirista Adjunto"
+    },
+    {
+      "id": "43",
+      "profissao": "Edição de Roteiro"
+    },
+    {
+      "id": "44",
+      "profissao": "Coordenador de Stunts Adjunto"
+    },
+    {
+      "id": "45",
+      "profissao": "Supervisor de Efeitos Visuais"
+    },
+    {
+      "id": "46",
+      "profissao": "Técnico de Gravação"
+    },
+    {
+      "id": "47",
+      "profissao": "Diretor de Câmera"
+    },
+    {
+      "id": "48",
+      "profissao": "Assistente de Produção de Linha"
+    },
+    {
+      "id": "49",
+      "profissao": "Editor de Imagem"
+    },
+    {
+      "id": "50",
+      "profissao": "Coordenador de Dublagem"
+    }
+  ],
+
+  "habilidades": [
+    {
+      "id": "1",
+      "habilidade": "Atuação"
+    },
+    {
+      "id": "2",
+      "habilidade": "Canto"
+    },
+    {
+      "id": "3",
+      "habilidade": "Improvisação"
+    },
+    {
+      "id": "4",
+      "habilidade": "Dublagem"
+    },
+    {
+      "id": "5",
+      "habilidade": "Apresentação"
+    },
+    {
+      "id": "6",
+      "habilidade": "Leitura de Roteiro"
+    },
+    {
+      "id": "7",
+      "habilidade": "Memorização de Texto"
+    },
+    {
+      "id": "8",
+      "habilidade": "Interpretação de Personagens"
+    },
+    {
+      "id": "9",
+      "habilidade": "Treinamento Vocal"
+    },
+    {
+      "id": "10",
+      "habilidade": "Movimentação Corporal"
+    },
+    {
+      "id": "11",
+      "habilidade": "Expressão Facial"
+    },
+    {
+      "id": "12",
+      "habilidade": "Comunicação Não-Verbal"
+    },
+    {
+      "id": "13",
+      "habilidade": "Desenvolvimento de Personagens"
+    },
+    {
+      "id": "14",
+      "habilidade": "Técnicas de Improvisação"
+    },
+    {
+      "id": "15",
+      "habilidade": "Expressão Corporal"
+    },
+    {
+      "id": "16",
+      "habilidade": "Simulação de Emoções"
+    },
+    {
+      "id": "17",
+      "habilidade": "Participação em Ensaios"
+    },
+    {
+      "id": "18",
+      "habilidade": "Leitura de Cena"
+    },
+    {
+      "id": "19",
+      "habilidade": "Adaptação ao Papel"
+    },
+    {
+      "id": "20",
+      "habilidade": "Comunicação com a Equipe"
+    },
+    {
+      "id": "21",
+      "habilidade": "Colaboração em Grupo"
+    },
+    {
+      "id": "22",
+      "habilidade": "Gerenciamento de Tempo"
+    },
+    {
+      "id": "23",
+      "habilidade": "Preparação para Papel"
+    },
+    {
+      "id": "24",
+      "habilidade": "Análise de Roteiro"
+    },
+    {
+      "id": "25",
+      "habilidade": "Estudo de Personagens"
+    },
+    {
+      "id": "26",
+      "habilidade": "Desenvolvimento de Enredo"
+    },
+    {
+      "id": "27",
+      "habilidade": "Criatividade em Cena"
+    },
+    {
+      "id": "28",
+      "habilidade": "Resolução de Conflitos"
+    },
+    {
+      "id": "29",
+      "habilidade": "Adaptação ao Ambiente"
+    },
+    {
+      "id": "30",
+      "habilidade": "Gerenciamento de Stress"
+    },
+    {
+      "id": "31",
+      "habilidade": "Controle de Nervosismo"
+    },
+    {
+      "id": "32",
+      "habilidade": "Interpretação de Textos"
+    },
+    {
+      "id": "33",
+      "habilidade": "Entendimento de Direção"
+    },
+    {
+      "id": "34",
+      "habilidade": "Feedback Criativo"
+    },
+    {
+      "id": "35",
+      "habilidade": "Participação em Audições"
+    },
+    {
+      "id": "36",
+      "habilidade": "Análise de Personagem"
+    },
+    {
+      "id": "37",
+      "habilidade": "Trabalho em Equipe"
+    },
+    {
+      "id": "38",
+      "habilidade": "Participação em Workshops"
+    },
+    {
+      "id": "39",
+      "habilidade": "Observação de Outras Atuações"
+    },
+    {
+      "id": "40",
+      "habilidade": "Aprendizado de Novas Técnicas"
+    },
+    {
+      "id": "41",
+      "habilidade": "Feedback de Performance"
+    },
+    {
+      "id": "42",
+      "habilidade": "Expressão Artística"
+    },
+    {
+      "id": "43",
+      "habilidade": "Estudo de Estilos Cinematográficos"
+    },
+    {
+      "id": "44",
+      "habilidade": "Preparação Física para Papéis"
+    },
+    {
+      "id": "45",
+      "habilidade": "Conscientização sobre Papel"
+    },
+    {
+      "id": "46",
+      "habilidade": "Treinamento de Habilidades Especiais"
+    },
+    {
+      "id": "47",
+      "habilidade": "Ajuste de Performance"
+    },
+    {
+      "id": "48",
+      "habilidade": "Participação em Projetos de Cinema"
+    },
+    {
+      "id": "49",
+      "habilidade": "Desenvolvimento de Presença de Cena"
+    },
+    {
+      "id": "50",
+      "habilidade": "Aprimoramento Contínuo"
     }
   ]
 }

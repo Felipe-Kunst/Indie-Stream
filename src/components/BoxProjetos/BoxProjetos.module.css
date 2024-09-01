@@ -30,18 +30,23 @@
 
 .boxProjeto {
   background-color: #000;
-  border: 1px solid #fff;
+
   border-radius: 8px;
   padding: 16px;
   max-width: 296px; 
   color: #fff;
+  background-color: transparent;
 }
 
 .imagemProjeto {
   width: 296px; 
   height: 169px; 
   border-radius: 8px;
-  margin-bottom: 12px; 
+  margin-bottom: 12px;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover; 
+  border: 1px solid #fff;
 }
 
 .textoContainer {

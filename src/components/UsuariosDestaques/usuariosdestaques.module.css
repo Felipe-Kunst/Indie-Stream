@@ -1,0 +1,36 @@
+.obras-favoritas {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .obras-favoritas h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .obras-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .obra {
+    flex: 1;
+  }
+  
+  .obra img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .obra p {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  

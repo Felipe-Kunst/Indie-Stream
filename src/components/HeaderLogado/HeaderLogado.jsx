@@ -62,7 +62,7 @@ const HeaderLogado = () => {
         />
         {menuAberto && (
           <div className={styles.dropdownMenu}>
-            <a href="/perfil" className={styles.dropdownItem}>Ver Perfil</a>
+            <a href="/EditarUsuario" className={styles.dropdownItem}>Ver Perfil</a>
             <a href="/" className={`${styles.dropdownItem} ${styles.sairItem}`} onClick={handleLogout}>Sair</a>
           </div>
         )}

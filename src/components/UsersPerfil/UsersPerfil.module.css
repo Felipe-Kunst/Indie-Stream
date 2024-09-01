@@ -1,0 +1,98 @@
+.perfilContainer {
+  width: 100vh;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  background-image: url('../../assets/TeladeFundoUsers.png'); 
+}
+
+.grayContainer {
+  width: 100vh;
+  height: 150px;
+  background-color: #333333; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  position: absolute;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -60px;
+  margin-right: 80px;
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: -50px;
+}
+.role {
+  font-size: 18px;
+  color: #ffcc00;
+  margin-left: -50px;
+  margin-top: auto;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-top: -75px;
+  position: fixed;
+  margin-left: 350px;
+  font-weight: bold;
+}
+
+
+.icon {
+  margin-right: 10px;
+}
+
+.socialMedia {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.socialIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 3px;
+}
+
+.premiumButton {
+  background-color: #ffcc00;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}

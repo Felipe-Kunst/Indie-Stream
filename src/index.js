@@ -9,6 +9,7 @@ import Login from "./Pages/PaginadeLogin.jsx";
 import Cadastro from "./Pages/PaginadeCadastro.jsx";
 import ConhecaPlanos from "./Pages/ConhecaPlanosPage.jsx";
 import HomelogadoPage from "./Pages/HomeLogadoPage.jsx";
+import EditarUsuario from "./components/EditarUsuario/EditarUsuario.jsx";
 
 ReactDOM.render(
     <BrowserRouter>
@@ -20,6 +21,7 @@ ReactDOM.render(
             <Route path="PaginadeCadastro" element={<Cadastro />} />
             <Route path="HomelogadoPage" element={<HomelogadoPage />} />
             <Route path="ConhecaPlanos" element={<ConhecaPlanos />} />
+            <Route path="EditarUsuario" element={<EditarUsuario />} />
         </Routes>
     </BrowserRouter>,
     document.getElementById("root")
