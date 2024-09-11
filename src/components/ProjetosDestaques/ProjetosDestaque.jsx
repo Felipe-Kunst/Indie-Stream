@@ -13,14 +13,9 @@ function TopProjetos() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:3001/projetos")
+      .get("http://localhost:3002/projetos") 
       .then((response) => {
-        const data = response.data.map((projeto) => ({
-          ...projeto,
-          watchedBy: projeto.watchedBy || [],
-        }));
-
-        setProjetos(data.slice(0, 4)); // Limita a exibição a 4 projetos
+        setProjetos(response.data.slice(0, 4));
         setLoading(false);
       })
       .catch((error) => {

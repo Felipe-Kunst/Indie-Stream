@@ -30,12 +30,12 @@
 
 .boxProjeto {
   background-color: #000;
-
   border-radius: 8px;
   padding: 16px;
   max-width: 296px; 
   color: #fff;
   background-color: transparent;
+  margin-top: -19px;
 }
 
 .imagemProjeto {
@@ -57,21 +57,22 @@
 .titulo {
   font-size: 20px; 
   margin-bottom: 8px;
+  margin-top: -20px;
 }
 
 .descricao {
   font-size: 14px;
   color: #ccc;
-  margin-bottom: 8px;
   text-align: left; 
+  margin-top: -3px;
 }
 
 .localizacao,
 .tipo {
   font-size: 14px;
   color: #aaa;
-  margin-bottom: 8px;
   text-align: left; 
+  margin-top: -15px;
 }
 
 .statusContainer {
@@ -79,6 +80,7 @@
   align-items: center;
   margin-top: 12px;
   text-align: left; 
+  margin-top: -10PX;
 }
 
 .statusIcone {

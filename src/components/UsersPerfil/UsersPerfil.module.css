@@ -1,3 +1,50 @@
+
+
+.location {
+  align-items: center;
+  margin-top: -75px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-weight: bold;
+  color: #ffcc00;
+  width: 135px;
+  right: 24px;
+  
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+    top: 20px;
+    right: 266px;
+}
+
+.socialIcon {
+  display: flex;
+  padding: 3px;
+  width: 30px;  
+  height: 30px;
+  margin: 0 5px; 
+  
+  
+}
+
+.premiumButton {
+  background-color: #ffcc00;
+  color: #000000;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 50px;
+  position: relative;
+  right: -45px;
+}
 .perfilContainer {
   width: 100vh;
   height: 190px;
@@ -38,61 +85,33 @@
   margin-right: 80px;
 }
 
-
 .info {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-
 .name {
   font-size: 24px;
   font-weight: bold;
   margin-left: -50px;
+  margin-top: -22px;
 }
+
 .role {
   font-size: 18px;
   color: #ffcc00;
   margin-left: -50px;
-  margin-top: auto;
+  margin-top: -15px;
 }
 
 .location {
   display: flex;
   align-items: center;
-  margin-top: -75px;
-  position: fixed;
-  margin-left: 350px;
+  position: absolute;
   font-weight: bold;
+  color: #ffcc00;
+  width: 135px;
+  right: 24px;
 }
 
-
-.icon {
-  margin-right: 10px;
-}
-
-.socialMedia {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.socialIcon {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  padding: 3px;
-}
-
-.premiumButton {
-  background-color: #ffcc00;
-  color: #000000;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-}

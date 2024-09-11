@@ -1,0 +1,72 @@
+.BoxProjetos {
+    background-color: #000; 
+    border-radius: 8px;
+    padding: 16px;
+    color: #fff;
+    max-width: 296px; 
+    width: 100%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.BoxProjetosImg {
+    width: 100%;
+    height: 169px; 
+    border-radius: 8px;
+    margin-bottom: 12px;
+    object-fit: cover;
+    border: 1px solid #fff; 
+}
+
+.InfoProjetos {
+    text-align: left;
+    margin-top: 12px; 
+}
+
+.InfoProjetosH2 {
+    font-size: 20px; 
+    margin-bottom: 8px;
+    color: #f0ad4e; 
+    margin-top: -20px; 
+}
+
+.InfoProjetosDescricao {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: -3px; 
+}
+
+.InfoProjetosLocalizacao {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: -15px;
+}
+
+.statusContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    text-align: left;
+}
+
+.statusIcone {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.andamento {
+    background-color: orange;
+}
+
+.concluido {
+    background-color: green;
+}
+
+.statusTexto {
+    font-size: 14px;
+    color: #ccc;
+}

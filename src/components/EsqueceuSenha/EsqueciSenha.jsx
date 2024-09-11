@@ -17,7 +17,7 @@ const EsqueceuSenha = () => {
   };
 
   const handleRecoverPassword = () => {
-    fetch(`http://localhost:3001/usuarios?email=${email}`)
+    fetch(`http://localhost:3002/usuarios?email=${email}`) 
       .then((response) => response.json())
       .then((data) => {
         if (data.length > 0) {
@@ -69,4 +69,3 @@ const EsqueceuSenha = () => {
 };
 
 export default EsqueceuSenha;
-

@@ -9,10 +9,13 @@ import Login from "./Pages/PaginadeLogin.jsx";
 import Cadastro from "./Pages/PaginadeCadastro.jsx";
 import ConhecaPlanos from "./Pages/ConhecaPlanosPage.jsx";
 import HomelogadoPage from "./Pages/HomeLogadoPage.jsx";
-import EditarUsuario from "./components/EditarUsuario/EditarUsuario.jsx";
+import EditarUsuario from "./Pages/EditarUsuarioPage.jsx";
+import VisualizarUsuario from "./Pages/VisualizaUsuario.jsx" 
+import ResultadosPesquisa from "./Pages/ResultadoPesquisa.jsx";
 
 ReactDOM.render(
-    <BrowserRouter>
+
+    <BrowserRouter>    
         <Routes>
             <Route path="/" element={<MainPage/>}> </Route>  
             <Route path="testes" element={<Teste />} />
@@ -22,9 +25,12 @@ ReactDOM.render(
             <Route path="HomelogadoPage" element={<HomelogadoPage />} />
             <Route path="ConhecaPlanos" element={<ConhecaPlanos />} />
             <Route path="EditarUsuario" element={<EditarUsuario />} />
+            <Route path="VisualizarUsuario" element={<VisualizarUsuario />} />
+            <Route path="ResultadosPesquisa" element={<ResultadosPesquisa />} />
         </Routes>
     </BrowserRouter>,
-    document.getElementById("root")
+
+document.getElementById("root")
 );
 
 reportWebVitals();

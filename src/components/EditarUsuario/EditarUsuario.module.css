@@ -3,7 +3,7 @@
     margin: auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: #1b1b1b; 
+    background-color: transparent; 
     color: white; 
     font-family: Arial, sans-serif;
 }
@@ -17,10 +17,12 @@ h2 {
 
 .contentContainer {
     padding: 20px;
-    background-color: #2c2c2c; 
+    background-color: #1b1b1b; 
     border-radius: 10px;
     width: 700px; 
     color: #cbcbcb;
+    position: relative;
+    right: 20px;
 }
 
 .formGroup {
@@ -177,5 +179,49 @@ h2 {
 }
 
 .deleteButton:hover {
+    background-color: #e41e26;
+}
+
+.iconWrapper2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+}
+
+.habilidadesContainer {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2b2b2b; 
+    border-radius: 8px;
+    color: #cbcbcb;
+    font-size: 16px;
+}
+
+.habilidadeItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333; 
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.habilidadeItem span {
+    font-size: 16px;
+}
+
+.removeButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.removeButton:hover {
     background-color: #e41e26;
 }

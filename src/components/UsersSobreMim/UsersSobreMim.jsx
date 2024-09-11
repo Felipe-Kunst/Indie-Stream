@@ -9,7 +9,7 @@ const SobreMim = () => {
   useEffect(() => {
     const userId = cookies.userId;
     if (userId) {
-      fetch(`http://localhost:3001/usuarios/${userId}`)
+      fetch(`http://localhost:3002/usuarios/${userId}`) 
         .then(response => response.json())
         .then(data => setPerfil(data))
         .catch(error => console.error('Erro ao carregar perfil:', error));
@@ -22,7 +22,7 @@ const SobreMim = () => {
     <div className={styles.sobreMimContainer}>
       <h2 className={styles.sobreMimTitulo}>Sobre mim</h2>
       <p className={styles.sobreMimTexto}>
-        {perfil.SobreMin}
+        {perfil.sobreMin || 'Nenhuma informação disponível sobre o usuário.'}
       </p>
     </div>
   );

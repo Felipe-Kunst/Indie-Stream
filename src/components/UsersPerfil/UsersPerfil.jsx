@@ -16,11 +16,44 @@ const UsersPerfil = () => {
   const [user, setUser] = useState(null);
   const [cookies] = useCookies(['userId']); 
 
+  const profissoes = {
+    "1": "Dublê",
+    "2": "Produtor",
+    "3": "Editor de Vídeo",
+    "4": "Diretor de Fotografia",
+    "5": "Cenógrafo",
+    "6": "Roteirista",
+    "7": "Ator",
+    "8": "Compositor",
+    "9": "Pintor",
+    "10": "Escultor",
+    "11": "Coreógrafo",
+    "12": "Designer Gráfico",
+    "13": "Diretor de Arte",
+    "14": "Editor de Som",
+    "15": "Maquiador",
+    "16": "Figurinista",
+    "17": "Ilustrador",
+    "18": "Fotógrafo",
+    "19": "Animador 3D",
+    "20": "Tatuador"
+  };
+
+  const estados = {
+    "ce": "Ceará",
+    "sp": "São Paulo"
+  };
+
+  const cidades = {
+    "1": "Fortaleza",
+    "2": "São Paulo"
+  };
+
   useEffect(() => {
     const userId = cookies.userId; 
 
     if (userId) {
-      fetch(`http://localhost:3001/usuarios/${userId}`)
+      fetch(`http://localhost:3002/usuarios/${userId}`) 
         .then(response => response.json())
         .then(data => {
           setUser(data);
@@ -49,23 +82,21 @@ const UsersPerfil = () => {
 
   return (
     <div className={styles.perfilContainer}>
-      {/* Mantém o perfilContainer para o fundo */}
-      
-      {/* Início do Contêiner Cinza */}
+
       <div className={styles.grayContainer}>
         <div className={styles.header}>
           <img src={user.imagem} alt={`${user.nome}`} className={styles.profileImage} />
           <div className={styles.info}>
             <h2 className={styles.name}>{user.nome}</h2>
-            <p className={styles.role}>{user.Ramos.join('/')}</p>
+            <p className={styles.role}>{profissoes[user.ramo]}</p>
             <div className={styles.location}>
               <i className={`fa fa-map-marker ${styles.icon}`} aria-hidden="true"></i>
-              {user.Localizacao}
+              {user.localizacao ? `${cidades[user.localizacao.cidadeId]}, ${estados[user.localizacao.estadoId]}` : 'Localização não disponível'}
             </div>
           </div>
         </div>
         <div className={styles.socialMedia}>
-          {user.RedeSociais.map((rede, index) => {
+          {user.redeSociais && user.redeSociais.length > 0 ? user.redeSociais.map((rede, index) => {
             const key = rede.includes('facebook') ? 'facebook' :
                         rede.includes('instagram') ? 'instagram' :
                         rede.includes('tiktok') ? 'tiktok' :
@@ -81,11 +112,10 @@ const UsersPerfil = () => {
                 <img src={redesSociaisIcons[key]} alt={key} />
               </a>
             );
-          })}
+          }) : <p>Redes sociais não disponíveis</p>}
         </div>
         <button className={styles.premiumButton}>Impulsionar</button>
       </div>
-      {/* Fim do Contêiner Cinza */}
     </div>
   );
 };

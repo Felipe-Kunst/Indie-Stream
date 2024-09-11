@@ -8,7 +8,6 @@ const Cadastro = () => {
     senha: "",
     confirmarSenha: "",
     nome: "",
-    premiom: false,
   });
 
   const handleChange = (e) => {
@@ -32,10 +31,17 @@ const Cadastro = () => {
       senha: formData.senha,
       nome: formData.nome,
       imagem: "https://example.com/default-image.jpg",
-      premiom: formData.premiom,
+      premiom: false, 
+      ramo: "1", 
+      localizacao: {
+        estadoId: "ce", 
+        cidadeId: "1",
+      },
+      redeSociais: [],
+      sobreMin: "", 
     };
 
-    fetch("http://localhost:3001/usuarios", {
+    fetch("http://localhost:3002/usuarios", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -105,21 +111,6 @@ const Cadastro = () => {
             required
             className={styles.input}
           />
-        </div>
-        <div className={styles.grupoInput}>
-          <select
-            name="premiom"
-            value={formData.premiom}
-            onChange={(e) =>
-              setFormData({ ...formData, premiom: e.target.value === "true" })
-            }
-            required
-            className={styles.select}
-          >
-            <option value="false">Selecione seu perfil</option>
-            <option value="true">Premium</option>
-            <option value="false">Standard</option>
-          </select>
         </div>
         <button type="submit" className={styles.botaoCadastro}>
           Avançar

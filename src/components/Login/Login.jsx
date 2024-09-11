@@ -15,7 +15,7 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3001/usuarios?email=${email}`);
+      const response = await fetch(`http://localhost:3002/usuarios?email=${email}`);
       const data = await response.json();
 
       if (data.length > 0) {
@@ -29,7 +29,7 @@ function Login() {
           setError('Senha incorreta.');
         }
       } else {
-        setError('Email ou senha incorretos.');
+        setError('Email não encontrado.');
       }
     } catch (error) {
       setError('Erro ao tentar realizar o login.');
@@ -43,7 +43,7 @@ function Login() {
         <h2 className={styles.h2}>Entre em sua conta</h2>
 
         <div className={styles.grupoInput}>
-          <label htmlFor="email">Nome de usuário</label>
+          <label htmlFor="email">Email</label>
           <input 
             type="email" 
             id="email" 
@@ -77,9 +77,3 @@ function Login() {
 }
 
 export default Login;
-
-
-
-
-
-

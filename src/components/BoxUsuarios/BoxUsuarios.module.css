@@ -4,16 +4,21 @@
   padding: 15px;
   border: 2px ; 
   border-radius: 5px;
-  background-color: #1F1F1F; 
+  background-color: #2d2d2d; 
   color: white;
+  border-radius: 15px;
+
 }
 
 .imagem {
-  width: 70px; 
-  height: 70px;
+  width: 100px; 
+  height: 100px;
   border-radius: 50%; 
   object-fit: cover;
   margin-right: 20px; 
+  background-color: #2d2d2d;
+  
+
 }
 
 .infoUsuarios {
@@ -25,23 +30,18 @@
   margin: 0;
   font-size: 1.2em; 
   font-weight: bold;
+  text-align: left;
 }
 
 .ramo, .localizacao {
   margin: 0;
   padding-left: 0;
   text-align: left;
+  margin-top: -10px;
 }
 
 .localizacao {
   font-style: italic;
   color: #a0a0a0; 
+  margin-top: 5px;
 }
-
-
-
-
-
-
-
-  

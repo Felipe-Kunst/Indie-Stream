@@ -52,7 +52,7 @@ const HeaderLogado = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery) {
-      navigate(`/ResultadosPesquisa?q=${searchQuery}`);
+      navigate(`/ResultadosPesquisa?q=${searchQuery}`); // Redireciona para o componente ResultadoPesquisa.jsx com a query
     }
   };
 
@@ -70,20 +70,19 @@ const HeaderLogado = () => {
         <img src={Logo} alt="IndieStream Logo" className={styles.logo} />
       </div>
       <div className={styles.searchContainer}>
-  <form onSubmit={handleSearch} style={{ display: 'flex', width: '100%' }}>
-    <input
-      type="text"
-      className={styles.searchInput}
-      placeholder="Busque por pessoas ou projetos"
-      value={searchQuery}
-      onChange={handleInputChange}
-    />
-    <button type="submit" className={styles.filtroButton}>
-      <img src={FiltroIcon} alt="Filtro" className={styles.filtroIcon} />
-    </button>
-  </form>
-</div>
-
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            className={styles.searchInput}
+            placeholder="Busque por pessoas ou projetos"
+            value={searchQuery}
+            onChange={handleInputChange}
+          />
+          <button type="submit" className={styles.filtroButton}>
+            <img src={FiltroIcon} alt="Filtro" className={styles.filtroIcon} />
+          </button>
+        </form>
+      </div>
       <button className={styles.criarProjetoButton} onClick={handleCriarProjeto}>
         Criar Projeto
       </button>
@@ -112,3 +111,48 @@ const HeaderLogado = () => {
 };
 
 export default HeaderLogado;
+
+=============================================================================================================
+
+import React, { useEffect, useState } from "react";
+import CardPessoa from "../BoxUsuarios/BoxUsuarios";
+import VisualizarUsuario from "../../Pages/VisualizaUsuario"; // Importar o componente
+import styles from "./PessoasDestaque.module.css";
+
+const PessoasEmDestaque = () => {
+  const [usuarios, setUsuarios] = useState([]);
+  const [usuarioSelecionado, setUsuarioSelecionado] = useState(null); // Estado para armazenar o usuário selecionado
+
+  useEffect(() => {
+    fetch("http://localhost:3002/usuarios") // Atualize a porta para 3002
+      .then(response => response.json())
+      .then(data => setUsuarios(data.slice(0, 4))) // Mostrando apenas 4 usuários
+      .catch(error => console.error("Erro ao buscar dados:", error));
+  }, []);
+
+  const selecionarUsuario = (usuario) => {
+    setUsuarioSelecionado(usuario); // Define o usuário clicado
+  };
+
+  return (
+    <div className={styles.container}>
+      <section className={styles.pessoasEmDestaque}>
+        <h2>Pessoas em Destaque</h2>
+        <div className={styles.gridPessoas}>
+          {usuarios.map((usuario) => (
+            <div onClick={() => selecionarUsuario(usuario)} key={usuario.id}>
+              <CardPessoa usuario={usuario} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {usuarioSelecionado && (
+        <VisualizarUsuario usuario={usuarioSelecionado} /> // Renderiza a página com o usuário selecionado
+      )}
+    </div>
+  );
+};
+
+export default PessoasEmDestaque;
+

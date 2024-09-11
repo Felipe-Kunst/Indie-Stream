@@ -34,9 +34,9 @@ function Header() {
                     <p>Descubra produções, explore perfis profissionais e colabore em projetos independentes. Junte-se a nós para dar vida às suas ideias e impulsionar sua carreira no mundo cinematográfico.</p>
                     <button 
                         className={styles.juntarSeBtn} 
-                        onClick={() => navigate('/login')}
+                        onClick={() => navigate('/PaginadeLogin')}
                     >
-                        JUNTAR-SE
+                        Juntar-se
                     </button>
                 </div>
             </div>

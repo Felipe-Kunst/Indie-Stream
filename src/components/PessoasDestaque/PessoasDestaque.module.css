@@ -1,5 +1,5 @@
 .container {
-  background-color: #000000; 
+  background-color: #1f1f1f; 
   padding: 20px;
   border-radius: 8px; 
 }
@@ -11,6 +11,8 @@
 .pessoasEmDestaque h2 {
   font-size: 1.5em;
   margin-bottom: 20px;
+  
+  
 }
 
 .gridPessoas {
@@ -21,11 +23,13 @@
 
 .verMais {
   display: block;
-  margin-top: 20px;
+  margin-top: 45px;
   color: #ffd700;
   text-decoration: none;
   font-weight: bold;
   text-align: left;
+  background-color: #1f1f1f;
+  
 }
 
 
