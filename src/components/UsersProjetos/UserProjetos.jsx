@@ -32,10 +32,12 @@ const UserProjetos = () => {
             <div className={styles.paginate}>
                 {pagina} de {Math.ceil(projetos.length / 3)}
             </div>
-            <div className={styles.projetos}>
-                {projetos.slice((pagina - 1) * 3, pagina * 3).map((projeto) => (
-                    <BoxProjetos key={projeto.id} projeto={projeto} /> 
-                ))}
+            <div className={styles.carouselWrapper}>
+                <div className={styles.carousel}>
+                    {projetos.slice((pagina - 1) * 3, pagina * 3).map((projeto) => (
+                        <BoxProjetos key={projeto.id} projeto={projeto} />
+                    ))}
+                </div>
             </div>
             <div className={styles.paginationButtons}>
                 <button

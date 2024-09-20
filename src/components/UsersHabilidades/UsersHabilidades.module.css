@@ -3,6 +3,8 @@
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
+    background-color: #2b2b2b;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   }
   
   .habilidadesTitulo {

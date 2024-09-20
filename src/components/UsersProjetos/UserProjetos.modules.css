@@ -1,79 +1,67 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    background-color: #1a1a1a;
-    color: white;
+    width: 100%;
 }
 
 .title {
     font-size: 24px;
-    margin-bottom: 10px;
+    color: #fff;
+    margin-bottom: 20px;
 }
 
 .paginate {
     font-size: 16px;
-    margin-bottom: 20px;
-}
-.projetos {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: space-between; 
-}
-
-
-
-.projetoItem {
-    background-color: #2c2c2c;
-    padding: 10px;
-    border-radius: 5px;
-    width: 30%;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-}
-
-.projetoImagem {
-    width: 100%;
-    border-radius: 5px;
+    color: #ccc;
     margin-bottom: 10px;
 }
 
-.projetoInfo {
+.carouselWrapper {
+    width: 100%;
+    overflow: hidden; /* Para ocultar os projetos fora da tela */
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    justify-content: center;
 }
 
-.projetoTitulo {
-    font-size: 18px;
-    margin-bottom: 5px;
+.carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out; /* Para animação suave */
+    width: 100%; 
+    flex-wrap: nowrap; /* Mantém os itens em uma linha */
+    justify-content: flex-start; /* Alinhamento à esquerda */
 }
 
-.projetoDescricao, .projetoLocalizacao {
-    font-size: 14px;
-    color: #ccc;
+.projetos {
+    display: flex;
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    justify-content: center;
 }
 
 .paginationButtons {
-    display: flex;
-    justify-content: space-between;
     margin-top: 20px;
+    display: flex;
+    gap: 10px;
 }
 
 .button {
+    background-color: #f0ad4e;
+    color: #fff;
     padding: 10px 20px;
-    background-color: #ffcc00;
     border: none;
-    color: black;
-    cursor: pointer;
     border-radius: 5px;
-}
-
-.button:hover {
-    background-color: #ffb300;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .button:disabled {
-    background-color: #666;
+    background-color: #555;
     cursor: not-allowed;
+}
+
+.button:hover:enabled {
+    background-color: #e6952a;
 }

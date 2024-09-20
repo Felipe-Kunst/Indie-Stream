@@ -23,11 +23,10 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
     const [habilidades, setHabilidades] = useState([]);
     const [profissao, setProfissao] = useState('');
     const [localizacao, setLocalizacao] = useState({ estadoId: '', cidadeId: '' });
-    const [redesSociais, setRedesSociais] = useState([]);
+    const [redeSociais, setRedeSociais] = useState([]);
     const [sobreMin, setSobreMin] = useState('');
     const [todasHabilidades, setTodasHabilidades] = useState([]);
     const [showDeleteWarning, setShowDeleteWarning] = useState(false);
-
     const [estados, setEstados] = useState([]);
     const [cidades, setCidades] = useState([]);
     const [todasProfissoes, setTodasProfissoes] = useState([]);
@@ -56,10 +55,11 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
                     setNome(data.nome);
                     setFoto(data.imagem);
                     setLocalizacao(data.localizacao);
-                    setRedesSociais(data.redeSociais);
+                    setRedeSociais(data.redeSociais);
                     setSobreMin(data.sobreMin);
                     setProfissao(data.profissao);
 
+                    // Buscar habilidades relacionadas ao usuário
                     fetch(`http://localhost:3002/usuario_habilidades?usuarioId=${userId}`)
                         .then(response => response.json())
                         .then(habilidadeRelacionadas => {
@@ -68,10 +68,11 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
                                     .then(response => response.json())
                             );
                             Promise.all(habilidadesPromises).then(habilidadesData => {
-                                setHabilidades(habilidadesData.map(h => h.nome));
+                                setHabilidades(habilidadesData);
                             });
                         });
-                });
+                })
+                .catch(error => console.error("Erro ao carregar usuário:", error));
         }
     }, [cookies.userId]);
 
@@ -79,7 +80,8 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
         if (localizacao.estadoId) {
             fetch(`http://localhost:3002/cidades?estadoId=${localizacao.estadoId}`)
                 .then(response => response.json())
-                .then(data => setCidades(data));
+                .then(data => setCidades(data))
+                .catch(error => console.error("Erro ao carregar cidades:", error));
         } else {
             setCidades([]);
         }
@@ -102,7 +104,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
             return pinterestIcon;
         } else if (url.includes('@outlook') || url.includes('@hotmail')) {
             return outlookIcon;
-        } else if (url.includes('@') && !url.includes('@gmail')  && !url.includes('@hotmail')  && !url.includes('@outlook')) {
+        } else if (url.includes('@') && !url.includes('@gmail') && !url.includes('@hotmail') && !url.includes('@outlook')) {
             return EmailGenerico;
         }
         
@@ -137,19 +139,47 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
         }));
     };
 
-    const handleRedesSociaisChange = (index, value) => {
-        const novasRedes = [...redesSociais];
+    const handleRedeSociaisChange = (index, value) => {
+        const novasRedes = [...redeSociais];
         novasRedes[index] = value;
-        setRedesSociais(novasRedes);
+        setRedeSociais(novasRedes);
+
+        const userId = cookies.userId;
+        fetch(`http://localhost:3002/usuarios/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ redeSociais: novasRedes }),
+        });
     };
 
     const handleAddRedeSocial = () => {
-        setRedesSociais([...redesSociais, '']);
+        const novasRedes = [...redeSociais, ''];
+        setRedeSociais(novasRedes);
+
+        const userId = cookies.userId;
+        fetch(`http://localhost:3002/usuarios/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ redeSociais: novasRedes }),
+        });
     };
 
     const handleRemoveRedeSocial = (index) => {
-        const novasRedes = redesSociais.filter((_, i) => i !== index);
-        setRedesSociais(novasRedes);
+        const novasRedes = redeSociais.filter((_, i) => i !== index);
+        setRedeSociais(novasRedes);
+
+        const userId = cookies.userId;
+        fetch(`http://localhost:3002/usuarios/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ redeSociais: novasRedes }),
+        });
     };
 
     const handleSobreMinChange = (e) => {
@@ -160,15 +190,45 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
     };
 
     const handleHabilidadesChange = (e) => {
-        const habilidadeSelecionada = e.target.value;
-        if (habilidadeSelecionada && !habilidades.includes(habilidadeSelecionada)) {
+        const habilidadeId = e.target.value;
+        const habilidadeSelecionada = todasHabilidades.find(h => h.id === habilidadeId);
+        const userId = cookies.userId;
+
+        if (habilidadeSelecionada && !habilidades.some(h => h.id === habilidadeSelecionada.id)) {
             setHabilidades([...habilidades, habilidadeSelecionada]);
+
+            fetch('http://localhost:3002/usuario_habilidades', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    usuarioId: userId,
+                    habilidadeId: habilidadeId
+                }),
+            })
+            .catch(error => console.error("Erro ao adicionar habilidade:", error));
         }
     };
 
     const handleRemoveHabilidade = (index) => {
-        const novasHabilidades = habilidades.filter((_, i) => i !== index);
-        setHabilidades(novasHabilidades);
+        const habilidadeRemovida = habilidades[index];
+        const userId = cookies.userId;
+
+        fetch(`http://localhost:3002/usuario_habilidades?usuarioId=${userId}&habilidadeId=${habilidadeRemovida.id}`)
+            .then(response => response.json())
+            .then(([relacao]) => {
+                if (relacao && relacao.id) {
+                    fetch(`http://localhost:3002/usuario_habilidades/${relacao.id}`, {
+                        method: 'DELETE',
+                    })
+                    .then(() => {
+                        const novasHabilidades = habilidades.filter((_, i) => i !== index);
+                        setHabilidades(novasHabilidades);
+                    })
+                    .catch(error => console.error("Erro ao remover habilidade:", error));
+                }
+            });
     };
 
     const handleProfissaoChange = (e) => {
@@ -182,7 +242,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
             nome, 
             imagem: foto, 
             localizacao,
-            redesSociais,
+            redeSociais,
             sobreMin,
             habilidades,
             profissao 
@@ -220,15 +280,14 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
     };
 
     if (!usuario) {
-        return <p>Carregando...</p>;
+     return <p>Carregando...</p>;
     }
-
+    
     return (
         <div className={styles.container}>
-           
             <div className={styles.contentContainer}>
-                 <h2>Editar Usuário</h2>             
-                    <div className={styles.formGroup}>
+                <h2>Editar Usuário</h2>             
+                <div className={styles.formGroup}>
                     <div className={styles.imageContainer}>
                         {foto && <img src={foto} alt="Foto do Usuário" className={styles.preview} />}
                         <img
@@ -293,39 +352,40 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
                         ))}
                     </select>
                 </div>
-                <div className={styles.formGroup}>
-    <label>Habilidades:</label>
-    <select 
-        value="" 
-        onChange={handleHabilidadesChange} 
-        className={styles.input}
-    >
-        <option value="">Selecione uma habilidade</option>
-        {todasHabilidades.map(habilidade => (
-            <option key={habilidade.id} value={habilidade.nome}>
-                {habilidade.nome}
-            </option>
-        ))}
-    </select>
 
-    <div className={styles.habilidadesContainer}>
-        {habilidades.map((habilidade, index) => (
-            <div key={index} className={styles.habilidadeItem}>
-                <span>{habilidade}</span> 
-                <button 
-                    onClick={() => handleRemoveHabilidade(index)} 
-                    className={styles.removeButton}
-                >
-                    Remover
-                </button>
-            </div>
-        ))}
-    </div>
-</div>
+                <div className={styles.formGroup}>
+                    <label>Habilidades:</label>
+                    <select 
+                        value="" 
+                        onChange={handleHabilidadesChange} 
+                        className={styles.input}
+                    >
+                        <option value="">Selecione uma habilidade</option>
+                        {todasHabilidades.map(habilidade => (
+                            <option key={habilidade.id} value={habilidade.id}>
+                                {habilidade.nome}
+                            </option>
+                        ))}
+                    </select>
+
+                    <div className={styles.habilidadesContainer}>
+                        {habilidades.map((habilidade, index) => (
+                            <div key={index} className={styles.habilidadeItem}>
+                                <span>{habilidade.nome}</span> 
+                                <button 
+                                    onClick={() => handleRemoveHabilidade(index)} 
+                                    className={styles.removeButton}
+                                >
+                                    Remover
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
                 <div className={styles.formGroup}>
                     <label>Redes Sociais:</label>
-                    {redesSociais.map((rede, index) => (
+                    {redeSociais.map((rede, index) => (
                         <div key={index} className={styles.iconWrapper}>
                             <img
                                 src={getSocialIcon(rede)}
@@ -335,7 +395,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
                             <input 
                                 type="text" 
                                 value={rede} 
-                                onChange={(e) => handleRedesSociaisChange(index, e.target.value)} 
+                                onChange={(e) => handleRedeSociaisChange(index, e.target.value)} 
                                 className={styles.input} 
                             />
                             <img
@@ -350,6 +410,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
                         + Adicionar
                     </button>
                 </div>
+
                 <div className={styles.formGroup}>
                     <label className={styles.labelSobreMin}>Sobre Mim:</label>
                     <textarea 
