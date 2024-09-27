@@ -30,18 +30,11 @@ const Cadastro = () => {
       email: formData.email,
       senha: formData.senha,
       nome: formData.nome,
-      imagem: "https://example.com/default-image.jpg",
-      premiom: false, 
-      ramo: "1", 
-      localizacao: {
-        estadoId: "ce", 
-        cidadeId: "1",
-      },
-      redeSociais: [],
-      sobreMin: "", 
+      username: formData.email, // Usando o email como username
+      imagemUrl: "https://example.com/default-image.jpg",
     };
 
-    fetch("http://localhost:3002/usuarios", {
+    fetch("http://localhost:8080/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -120,7 +113,10 @@ const Cadastro = () => {
         <span>– OU –</span>
       </div>
       <p className={styles.p}>
-        Já possui conta? <a href="/PaginadeLogin" className={styles.link}>Entre</a>
+        Já possui conta?{" "}
+        <a href="/PaginadeLogin" className={styles.link}>
+          Entre
+        </a>
       </p>
     </div>
   );
