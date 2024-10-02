@@ -28,11 +28,16 @@
   margin: 0 5px; 
 }
 
+.socialIcon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
 .premiumButton {
   background-color: #ffcc00;
   color: #000000;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 10px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -41,8 +46,14 @@
   position: relative;
   right: -45px;
 }
+
+.premiumButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
 .perfilContainer {
-  width: 950px;
+  min-width: 1000px;
   height: 190px;
   display: flex;
   flex-direction: column;
@@ -53,10 +64,11 @@
   padding: 0;
   margin: 0;
   background-image: url('../../assets/TeladeFundoUsers.png'); 
+  
 }
 
 .grayContainer {
-  width: 950px;
+  width: 1000px;
   height: 150px;
   background-color: #333333; 
   display: flex;

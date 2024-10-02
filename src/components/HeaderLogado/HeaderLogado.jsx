@@ -89,9 +89,9 @@ const HeaderLogado = () => {
       </button>
       <nav className={styles.navLinks}>
         <a href="/planos" className={styles.navLink}>Planos</a>
-        <a href="/home" className={styles.navLink}>Home</a>
+        <a href="/HomelogadoPage" className={styles.navLink}>Home</a>
         <a href="/projetos" className={styles.navLink}>Projetos</a>
-        <a href="/pessoas" className={styles.navLink}>Pessoas</a>
+        <a href="/Usuarios" className={styles.navLink}>Pessoas</a>
       </nav>
       <div className={styles.profileContainer}>
         <img
@@ -102,7 +102,8 @@ const HeaderLogado = () => {
         />
         {menuAberto && (
           <div className={styles.dropdownMenu}>
-            <a href="/EditarUsuario" className={styles.dropdownItem}>Ver Perfil</a>
+            <a href="/EditarUsuario" className={styles.dropdownItem}>Editar perfil</a>
+            <a href="/VisualizarUsuario" className={styles.dropdownItem}>Ver Perfil</a>
             <a href="/" className={`${styles.dropdownItem} ${styles.sairItem}`} onClick={handleLogout}>Sair</a>
           </div>
         )}

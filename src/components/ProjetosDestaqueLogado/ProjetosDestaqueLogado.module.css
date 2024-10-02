@@ -22,12 +22,11 @@
   
 .link {
     display: flex;
-    margin-top: 20px;
+    margin-top: 40px;
     color: #ffd700;
     text-align: left; 
     text-decoration: none;
     font-weight: bold;
-    font-size: 10;
 }
 
   

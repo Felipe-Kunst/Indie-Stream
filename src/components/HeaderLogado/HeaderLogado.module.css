@@ -119,6 +119,7 @@
   color: #fff;
   text-decoration: none;
   text-align: left;
+  min-inline-size: max-content;
 }
 
 .dropdownItem:hover {

@@ -6,8 +6,8 @@
 }
 
 .titulo {
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 40px;
 }
 
 .projetos {
@@ -17,12 +17,14 @@
 }
 
 .link {
-  display: block;
-  margin-top: 20px;
-  color: #f0ad4e;
-  text-align: left; 
+  display: flex;
+  margin-top: 40px;
+  color: #ffd700;
+  text-align: left;
   text-decoration: none;
+  font-weight: bold;
 }
+
 
 .link:hover {
   text-decoration: underline;
@@ -34,8 +36,12 @@
   padding: 16px;
   max-width: 296px; 
   color: #fff;
-  background-color: transparent;
-  margin-top: -19px;
+  background-color: #2d2d2d;
+}
+
+.boxProjeto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .imagemProjeto {

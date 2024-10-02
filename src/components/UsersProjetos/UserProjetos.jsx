@@ -1,64 +1,91 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
-import BoxProjetos from '../BoxProjeto2/BoxProjeto2'; 
-import styles from './UserProjetos.modules.css';
+import BoxProjeto from '../BoxProjetos/BoxProjetos';
+import './UserProjetos.modules.css';
 
-const UserProjetos = () => {
-    const [projetos, setProjetos] = useState([]);
-    const [cookies, setCookie] = useCookies(['projeto_pagina']);
-    const [pagina, setPagina] = useState(cookies.projeto_pagina || 1);
+const ListaProjetos = () => {
+  const [projetos, setProjetos] = useState([]);
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [cookies] = useCookies(['userId']);
+  const itensPorPagina = 3;
 
-    useEffect(() => {
-        const fetchProjetos = async () => {
-            try {
-                const response = await axios.get('http://localhost:3002/projetos');
-                setProjetos(response.data);
-            } catch (error) {
-                console.error('Erro ao buscar projetos:', error);
-            }
-        };
+  useEffect(() => {
+    const userId = cookies.userId; 
 
-        fetchProjetos();
-    }, []);
+    if (userId) {
+      axios.get(`http://localhost:3002/projetos?userId=${userId}`)
+        .then(response => {
+          setProjetos(response.data);
+        })
+        .catch(error => {
+          console.error("Erro ao buscar os projetos do usuário:", error);
+        });
+    } else {
+      console.error("Nenhum userId encontrado no cookie");
+    }
+  }, [cookies]);
 
-    useEffect(() => {
-        setCookie('projeto_pagina', pagina, { path: '/' });
-    }, [pagina, setCookie]);
+  const indiceUltimoProjeto = paginaAtual * itensPorPagina;
+  const indicePrimeiroProjeto = indiceUltimoProjeto - itensPorPagina;
+  const projetosPaginaAtual = projetos.slice(indicePrimeiroProjeto, indiceUltimoProjeto);
+  const totalPaginas = Math.ceil(projetos.length / itensPorPagina);
 
-    return (
-        <div className={styles.container}>
-            <h2 className={styles.title}>Projetos</h2>
-            <div className={styles.paginate}>
-                {pagina} de {Math.ceil(projetos.length / 3)}
-            </div>
-            <div className={styles.carouselWrapper}>
-                <div className={styles.carousel}>
-                    {projetos.slice((pagina - 1) * 3, pagina * 3).map((projeto) => (
-                        <BoxProjetos key={projeto.id} projeto={projeto} />
-                    ))}
-                </div>
-            </div>
-            <div className={styles.paginationButtons}>
-                <button
-                    onClick={() => setPagina((prev) => Math.max(prev - 1, 1))}
-                    className={styles.button}
-                    disabled={pagina === 1}
-                >
-                    Anterior
-                </button>
-                <button
-                    onClick={() =>
-                        setPagina((prev) => Math.min(prev + 1, Math.ceil(projetos.length / 3)))
-                    }
-                    className={styles.button}
-                    disabled={pagina === Math.ceil(projetos.length / 3)}
-                >
-                    Próximo
-                </button>
-            </div>
-        </div>
-    );
+  const handlePageChange = (novaPagina) => {
+    setPaginaAtual(novaPagina);
+  };
+
+  return (
+    <div className="projetosContainer">
+      <div className="headerProjetos">
+        <h2>Projetos</h2>
+        <p>{projetos.length} Projetos</p>
+      </div>
+      <div className="gridProjetos">
+        {projetosPaginaAtual.map(projeto => (
+          <BoxProjeto key={projeto.id} projeto={projeto} />
+        ))}
+      </div>
+
+      <Paginacao 
+        totalPaginas={totalPaginas} 
+        paginaAtual={paginaAtual} 
+        onPageChange={handlePageChange} 
+      />
+    </div>
+  );
 };
 
-export default UserProjetos;
+const Paginacao = ({ totalPaginas, paginaAtual, onPageChange }) => {
+  const paginas = Array.from({ length: totalPaginas }, (_, index) => index + 1);
+
+  return (
+    <div className="paginacao">
+      <button 
+        className="paginacao-botao" 
+        onClick={() => onPageChange(1)} 
+        disabled={paginaAtual === 1}
+      >
+        «
+      </button>
+      {paginas.map(pagina => (
+        <button 
+          key={pagina} 
+          className={`paginacao-botao ${paginaAtual === pagina ? 'pagina-ativa' : ''}`} 
+          onClick={() => onPageChange(pagina)}
+        >
+          {pagina}
+        </button>
+      ))}
+      <button 
+        className="paginacao-botao" 
+        onClick={() => onPageChange(totalPaginas)} 
+        disabled={paginaAtual === totalPaginas}
+      >
+        »
+      </button>
+    </div>
+  );
+};
+
+export default ListaProjetos;

@@ -1,67 +1,66 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.projetosContainer {
+    background-color: #222;
     padding: 20px;
-    width: 100%;
-}
-
-.title {
-    font-size: 24px;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
     color: #fff;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.paginate {
-    font-size: 16px;
-    color: #ccc;
+.headerProjetos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.carouselWrapper {
-    width: 100%;
-    overflow: hidden; /* Para ocultar os projetos fora da tela */
-    display: flex;
-    justify-content: center;
+.headerProjetos h2 {
+    font-size: 24px;
 }
 
-.carousel {
-    display: flex;
-    gap: 20px;
-    transition: transform 0.5s ease-in-out; /* Para animação suave */
-    width: 100%; 
-    flex-wrap: nowrap; /* Mantém os itens em uma linha */
-    justify-content: flex-start; /* Alinhamento à esquerda */
+.headerProjetos p {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
 }
 
-.projetos {
-    display: flex;
-    flex-wrap: nowrap; /* Impede a quebra de linha */
-    justify-content: center;
-}
 
-.paginationButtons {
-    margin-top: 20px;
+.gridProjetos {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
     gap: 10px;
 }
 
-.button {
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.paginacao-botao {
+    background-color: #0e0e0e;
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.paginacao-botao:hover {
+    background-color: #555;
+}
+
+.pagina-ativa {
     background-color: #f0ad4e;
     color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.button:disabled {
-    background-color: #555;
+.paginacao-botao:disabled {
+    background-color: #333;
     cursor: not-allowed;
-}
-
-.button:hover:enabled {
-    background-color: #e6952a;
 }

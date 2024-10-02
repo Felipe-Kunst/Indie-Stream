@@ -22,7 +22,7 @@ const PessoasEmDestaque = () => {
             <CardPessoa key={usuario.id} usuario={usuario} />
           ))}
         </div>
-        <Link to="/testes" className={styles.verMais}>
+        <Link to="/Usuarios" className={styles.verMais}>
           Ver todos os resultados de pessoas
         </Link>
       </section>
