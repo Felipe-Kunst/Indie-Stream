@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'; 
-import CardPessoa from "../BoxUsuarios/BoxUsuarios";
+import CardPessoa from "../BoxUsuarios/BoxUsuarios2";
 import styles from "./PessoasDestaque.module.css";
 
 const PessoasEmDestaque = () => {

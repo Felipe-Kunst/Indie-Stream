@@ -13,6 +13,9 @@ import EditarUsuario from "./Pages/EditarUsuarioPage.jsx";
 import VisualizarUsuario from "./Pages/VisualizaUsuario.jsx" 
 import ResultadosPesquisa from "./Pages/ResultadoPesquisa.jsx";
 import ListaUsuarios from "./Pages/Usuarios.jsx";
+import UserPage from "./Pages/UserPage.jsx";
+import ListaProjetos from "./components/UsersProjetos/UserProjetos2.jsx"; // Novo componente de lista de projetos
+
 ReactDOM.render(
 
     <BrowserRouter>    
@@ -27,7 +30,10 @@ ReactDOM.render(
             <Route path="EditarUsuario" element={<EditarUsuario />} />
             <Route path="VisualizarUsuario" element={<VisualizarUsuario />} />
             <Route path="ResultadosPesquisa" element={<ResultadosPesquisa />} />
-            <Route path="Usuarios" element={<ListaUsuarios />} />
+m           <Route path="Usuarios" element={<ListaUsuarios />} />      
+            <Route path="/UserPage/:id" element={<UserPage />} />
+            <Route path="/projetos/:id" element={<ListaProjetos />} /> {/* Novo */}
+
 
         </Routes>
     </BrowserRouter>,

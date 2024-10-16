@@ -12,13 +12,21 @@
 }
 
 .socialMedia {
+  /*
     display: flex;
     justify-content: center;
     margin-top: 10px;
     position: relative;
     top: 20px;
     right: 50px;
-}
+*/
+display: flex;
+justify-content: center;
+margin-top: 50px;
+position: relative;
+right: 253px;
+flex-direction: row;
+    }
 
 .socialIcon {
   display: flex;
@@ -68,7 +76,7 @@
 }
 
 .grayContainer {
-  width: 1000px;
+  min-width: 1040px;
   height: 150px;
   background-color: #333333; 
   display: flex;
@@ -76,6 +84,7 @@
   align-items: center;
   margin-top: 100px;
   position: absolute;
+  max-width: 1040px;
 }
 
 .header {
@@ -102,22 +111,38 @@
 }
 
 .name {
+  /*
   font-size: 24px;
   font-weight: bold;
   margin-left: -50px;
   margin-top: -22px;
   position: relative;
   left: 213px;
-}
+  */
+  font-size: 24px;
+  font-weight: bold;
+  /*margin-left: 50px;*/
+  margin-top: -22px;
+  position: relative;
+  text-align: left;
+  }
 
 .role {
+  /*
   font-size: 18px;
   color: #ffcc00;
   margin-left: -50px;
   margin-top: -15px;
   position: relative;
   left: 213px;
-}
+*/
+    font-size: 18px;
+    color: #ffcc00;
+    margin-left: 55px;
+    margin-top: -15px;
+    position: relative;
+    text-align: left;
+  }
 
 .location {
   display: flex;
@@ -128,4 +153,3 @@
   width: 135px;
   right: 24px;
 }
-

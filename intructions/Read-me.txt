@@ -14,7 +14,7 @@ npm start
 
 Iniciando o Json-Server
 npm install json-server
-npx json-server --watch db.json --port 3001
+npx json-server --watch db2.json --port 3002
 
 Pegando a ultima versão do projeto (Branch Main)
 git pull

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import BoxUsuario from '../BoxUsuarios/BoxUsuarios';
+import BoxUsuario from '../BoxUsuarios/BoxUsuarios2';
 import styles from './ListaPessoas.module.css';
 
 const ListaUsuarios = () => {

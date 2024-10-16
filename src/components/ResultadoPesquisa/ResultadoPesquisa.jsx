@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import BoxProjeto from '../BoxProjetos/BoxProjetos';
-import BoxUsuario from '../BoxUsuarios/BoxUsuarios';
+import BoxUsuario from '../BoxUsuarios/BoxUsuarios2';
 import styles from './ResultadoPesquisa.module.css';
 
 const ResultadosPesquisa = () => {
