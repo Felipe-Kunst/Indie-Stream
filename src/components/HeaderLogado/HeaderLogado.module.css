@@ -1,0 +1,135 @@
+.cabecalhoLogado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  max-width: -webkit-fill-available;
+  }
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.searchContainer {
+  flex-grow: 2;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 30px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  max-width: -webkit-fill-available;
+  height: fit-content;
+}
+
+.filtroButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.filtroIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.criarProjetoButton {
+  background-color: #ffcc00;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 30px;
+}
+
+.criarProjetoButton:hover {
+  background-color: #e6b800;
+}
+
+.navLinks {
+  display: flex;
+  gap: 30px;
+  flex-grow: 1; 
+  justify-content: center;
+  margin-right: 60px;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.profileContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profileImage {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  text-align: left;
+  min-inline-size: max-content;
+}
+
+.dropdownItem:hover {
+  background-color: #444;
+}
+
+.sairItem {
+  background-color: #d9534f;
+}
+
+.sairItem:hover {
+  background-color: #c9302c;
+}

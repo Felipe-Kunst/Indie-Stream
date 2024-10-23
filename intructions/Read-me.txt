@@ -1,0 +1,46 @@
+Clonando Repositorio (Branch Main)
+git clone https://github.com/Felipe-Kunst/Indie-Stream.git
+
+Clonando Branch specifica (Branch Desenvolvimento)
+git clone https://github.com/Felipe-Kunst/Indie-Stream.git --branch Desenvolvimento  --single-branch
+
+Clonando Branch specifica (Branch Homologação.e.Testes)
+git clone https://github.com/Felipe-Kunst/Indie-Stream.git --branch Homologação.e.Testes  --single-branch
+
+Iniciando Aplicação React
+npm install
+npm install axios 
+npm start
+
+Iniciando o Json-Server
+npm install json-server
+npx json-server --watch db2.json --port 3002
+
+Pegando a ultima versão do projeto (Branch Main)
+git pull
+
+Pegando a ultima versão do projeto (Branch Desenvolvimento)
+git checkout Desenvolvimento 
+pull origin Desenvolvimento
+
+Pegando a ultima versão do projeto (Branch Homologação.e.Testes)
+git checkout Homologação.e.Testes 
+pull origin Homologação.e.Testes
+
+Enviando o projeto para o github (Branch Main)
+git status
+git add .
+commit -m "Mensagem do que voce fez"
+git push
+
+Enviando o projeto para o github para Branch especifica (Branch Desenvolvimento)
+git status
+git add .
+commit -m "Mensagem do que voce fez"
+git push origin Desenvolvimento
+
+Enviando o projeto para o github para Branch especifica (Branch Homologação.e.Testes)
+git status
+git add .
+commit -m "Mensagem do que voce fez"
+git push origin Homologação.e.Testes

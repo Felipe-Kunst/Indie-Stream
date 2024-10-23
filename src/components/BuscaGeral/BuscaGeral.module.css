@@ -1,0 +1,63 @@
+.container {
+    background-color: #2c2c2c; 
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px; 
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    background-color: #f0f0f0; 
+    font-size: 14px;
+    color: #6c757d; 
+    text-align: center;
+  }
+  
+  .input::placeholder {
+    color: #6c757d;
+  }
+  
+  .filterButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .createButton {
+    background-color: #ffeb3b; 
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  
+  .createButton:hover,
+  .filterButton:hover {
+    opacity: 0.8;
+  }
+  

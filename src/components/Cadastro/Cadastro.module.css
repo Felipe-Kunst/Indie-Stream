@@ -1,0 +1,94 @@
+
+
+.containerCadastro {
+    background-color: #2a2a2a;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.containerCadastro img {
+    width: 125px;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.grupoInput {
+    margin-bottom: 20px;
+}
+
+.grupoInput label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b3b3b3;
+}
+
+.input,
+.select {
+    width: 350px;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 14px;
+}
+
+.input::placeholder,
+.select {
+    color: #b3b3b3;
+}
+
+.select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.botaoCadastro {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffce00;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botaoCadastro:hover {
+    background-color: #e6b800;
+}
+
+.separator {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+.link {
+    color: #ffce00;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

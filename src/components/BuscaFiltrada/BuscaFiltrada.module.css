@@ -1,0 +1,53 @@
+.resultContainer {
+    background-color: #2c2c2c; 
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .usuariosSection, .projetosSection {
+    margin-bottom: 20px;
+  }
+  
+  .resultItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #3d3d3d; 
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .resultItem h5 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .resultItem p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  h3, h4 {
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 5px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  

@@ -1,0 +1,155 @@
+.location {
+  align-items: center;
+  margin-top: -75px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-weight: bold;
+  color: #ffcc00;
+  width: 135px;
+  right: 24px;
+  
+}
+
+.socialMedia {
+  /*
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+    top: 20px;
+    right: 50px;
+*/
+display: flex;
+justify-content: center;
+margin-top: 50px;
+position: relative;
+right: 253px;
+flex-direction: row;
+    }
+
+.socialIcon {
+  display: flex;
+  padding: 3px;
+  width: 30px;  
+  height: 30px;
+  margin: 0 5px; 
+}
+
+.socialIcon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.premiumButton {
+  background-color: #ffcc00;
+  color: #000000;
+  border: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 50px;
+  position: relative;
+  right: -45px;
+}
+
+.premiumButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.perfilContainer {
+  min-width: 1000px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  background-image: url('../../assets/TeladeFundoUsers.png'); 
+  
+}
+
+.grayContainer {
+  min-width: 1040px;
+  height: 150px;
+  background-color: #333333; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  position: absolute;
+  max-width: 1040px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: -60px;
+  margin-right: 80px;
+  position: absolute;
+  left: 75px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  /*
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: -50px;
+  margin-top: -22px;
+  position: relative;
+  left: 213px;
+  */
+  font-size: 24px;
+  font-weight: bold;
+  /*margin-left: 50px;*/
+  margin-top: -22px;
+  position: relative;
+  text-align: left;
+  }
+
+.role {
+  /*
+  font-size: 18px;
+  color: #ffcc00;
+  margin-left: -50px;
+  margin-top: -15px;
+  position: relative;
+  left: 213px;
+*/
+    font-size: 18px;
+    color: #ffcc00;
+    margin-left: 55px;
+    margin-top: -15px;
+    position: relative;
+    text-align: left;
+  }
+
+.location {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-weight: bold;
+  color: #ffcc00;
+  width: 135px;
+  right: 24px;
+}

@@ -1,0 +1,50 @@
+.obrasFavoritas {
+  padding: 20px;
+  background-color: #1c1c1c;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.titulo {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.obrasContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.obraItem {
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  width: 180px;
+}
+
+.obraImagem {
+  width: 100%;
+  height: auto;
+}
+
+.infoObra {
+  padding: 10px;
+}
+
+.obraTitulo {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px;
+}
+
+.obraAno {
+  font-size: 14px;
+  color: #999;
+}

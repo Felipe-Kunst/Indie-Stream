@@ -1,0 +1,85 @@
+.resultadosContainer {
+  padding: 20px;
+  background-color: #222222;
+  color: #fff;
+  border-radius: 30px;
+  margin-top: 20px;
+  max-width: 1210px;
+}
+
+.resultadosContainer h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.resultadosContainer h2 {
+  text-align: left;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.tituloUsuarios {
+  margin-bottom: 10px; 
+}
+
+.tituloUsuarios h3 {
+  color: #f0ad4e;
+  margin-top: 45px;
+  text-align: center;
+}
+
+.tituloProjetos {
+  margin-bottom: 10px; 
+}
+
+.tituloProjetos h3 {
+  color: #f0ad4e;
+  margin-top: 45px;
+  text-align: center;
+}
+
+.usuariosContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  padding: 10px 0;
+  margin-top: 20px;
+  min-width: 1040px;
+}
+
+.projetosContainer {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+  padding: 10px 0;
+  margin-top: 20px;
+  min-width: 1040px;
+  align-content: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #555;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f0ad4e;
+}
+

@@ -1,0 +1,60 @@
+.container {
+  background-color: #1f1f1f;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+  max-width: 1200px; 
+  margin: 20px auto; 
+  min-width: 1200px; 
+}
+
+.titulo {
+  color: #fff;
+  margin-bottom: 20px; 
+}
+
+.usuarioContainer {
+  margin-top: 10px; 
+}
+
+
+.inputPesquisa {
+  width: 100%; 
+  padding: 10px;
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  background-color: #2d2d2d;
+  color: #fff; 
+}
+
+.usuarios {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+}
+
+.paginacao {
+  display: flex; 
+  justify-content: center; 
+  margin-top: 20px; 
+}
+
+.paginacaoBotao {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px; 
+  cursor: pointer;
+  margin: 0 5px; 
+  transition: background-color 0.3s; 
+}
+
+.paginacaoBotao:hover {
+  background-color: #555; 
+}
+
+.paginaAtiva {
+  background-color: #f0ad4e; 
+}

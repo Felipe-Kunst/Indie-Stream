@@ -1,0 +1,41 @@
+.secaoAquivcpode {
+  background-color: #FFCC00;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.secaoAquivcpodeH2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.FuncionalidadesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.FuncionalidadesCard {
+  background-color: #333;
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.EstrelaIcon {
+  width: 50px; 
+  margin-right: 20px;
+}
+
+.FuncionalidadesCardP {
+  font-size: 18px;
+  margin: 0;
+}
+
+  

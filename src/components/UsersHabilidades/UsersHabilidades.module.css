@@ -1,0 +1,39 @@
+.habilidadesContainer {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #2b2b2b;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .habilidadesTitulo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+
+  }
+  
+  .habilidadesLinha {
+    border: none;
+    height: 2px;
+    background-color: #bbbbbb;
+    margin: 10px 0;
+  }
+  
+  .habilidadesLista {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .habilidade {
+    background-color: #e0e0e0;
+    color: #1d1d1d;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  

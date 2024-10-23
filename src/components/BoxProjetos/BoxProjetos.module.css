@@ -1,0 +1,110 @@
+.container {
+  padding: 20px;
+  background-color: #0e0e0e;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.titulo {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+.projetos {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; 
+}
+
+.link {
+  display: flex;
+  margin-top: 40px;
+  color: #ffd700;
+  text-align: left;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.boxProjeto {
+  background-color: #000;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 296px; 
+  color: #fff;
+  background-color: #2d2d2d;
+}
+
+.boxProjeto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.imagemProjeto {
+  width: 296px; 
+  height: 169px; 
+  border-radius: 8px;
+  margin-bottom: 12px;
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover; 
+  border: 1px solid #fff;
+}
+
+.textoContainer {
+  margin-top: 12px;
+  text-align: left; 
+}
+
+.titulo {
+  font-size: 20px; 
+  margin-bottom: 8px;
+  margin-top: -20px;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #ccc;
+  text-align: left; 
+  margin-top: -3px;
+}
+
+.localizacao,
+.tipo {
+  font-size: 14px;
+  color: #aaa;
+  text-align: left; 
+  margin-top: -15px;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  text-align: left; 
+  margin-top: -10PX;
+}
+
+.statusIcone {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.andamento {
+  background-color: orange;
+}
+
+.concluido {
+  background-color: green;
+}
+
+.statusTexto {
+  font-size: 14px;
+  color: #ccc;
+}
