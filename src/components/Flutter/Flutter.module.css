@@ -3,6 +3,10 @@
   padding: 20px 40px;
   color: white;
   position: relative;
+  width: calc(100vw - 20px);
+  box-sizing: border-box;
+  margin-top: 20px;
+  overflow-x: hidden;
 }
 
 .flutterConteudo {
@@ -10,6 +14,7 @@
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 .flutterSecao {
