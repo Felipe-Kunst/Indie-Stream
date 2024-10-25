@@ -16,7 +16,7 @@ import ResultadosPesquisa from "./Pages/ResultadoPesquisa.jsx";
 import ListaUsuarios from "./Pages/Usuarios.jsx";
 import UserPage from "./Pages/UserPage.jsx";
 import ListaProjetos from "./components/UsersProjetos/UserProjetos2.jsx"; // Novo componente de lista de projetos
-import CriarProjeto from "./Pages/PaginaCriarProjeto.jsx  ";
+import CriarProjeto from "./Pages/PaginaCriarProjeto.jsx";
 
 ReactDOM.render(
   <BrowserRouter>
