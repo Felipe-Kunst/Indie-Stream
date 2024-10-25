@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
-import styles from './HeaderLogado.module.css';
-import Logo from '../../assets/Logo.png';
-import FiltroIcon from '../../assets/IconeFiltro.png';
+import React, { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
+import styles from "./HeaderLogado.module.css";
+import Logo from "../../assets/Logo.png";
+import FiltroIcon from "../../assets/IconeFiltro.png";
 
 const HeaderLogado = () => {
-  const [cookies, , removeCookie] = useCookies(['userId']);
+  const [cookies, , removeCookie] = useCookies(["userId"]);
   const [usuario, setUsuario] = useState(null);
   const [menuAberto, setMenuAberto] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const userId = cookies.userId;
     if (userId) {
       fetch(`http://localhost:3002/usuarios/${userId}`)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           fetch(`http://localhost:3002/usuario_habilidades?usuarioId=${userId}`)
-            .then(response => response.json())
-            .then(habilidadesRelacionadas => {
-              const habilidadesPromises = habilidadesRelacionadas.map(uh =>
-                fetch(`http://localhost:3002/habilidades/${uh.habilidadeId}`)
-                  .then(response => response.json())
+            .then((response) => response.json())
+            .then((habilidadesRelacionadas) => {
+              const habilidadesPromises = habilidadesRelacionadas.map((uh) =>
+                fetch(
+                  `http://localhost:3002/habilidades/${uh.habilidadeId}`
+                ).then((response) => response.json())
               );
-              Promise.all(habilidadesPromises).then(habilidades => {
+              Promise.all(habilidadesPromises).then((habilidades) => {
                 setUsuario({ ...data, habilidades });
               });
             });
         })
-        .catch(error => console.error('Erro ao buscar dados do usuário:', error));
+        .catch((error) =>
+          console.error("Erro ao buscar dados do usuário:", error)
+        );
     }
   }, [cookies.userId]);
 
@@ -40,13 +43,13 @@ const HeaderLogado = () => {
 
   const handleLogout = () => {
     Object.keys(cookies).forEach((cookieName) => {
-      removeCookie(cookieName, { path: '/' });
+      removeCookie(cookieName, { path: "/" });
     });
-    navigate('/login');
+    navigate("/login");
   };
 
   const handleCriarProjeto = () => {
-    navigate('/criar-projeto');
+    navigate("/criarprojeto");
   };
 
   const handleSearch = (e) => {
@@ -67,31 +70,50 @@ const HeaderLogado = () => {
   return (
     <header className={styles.cabecalhoLogado}>
       <div className={styles.logoContainer}>
-        <img src={Logo} alt="IndieStream Logo" className={styles.logo} />
+        <img
+          src={Logo}
+          alt="IndieStream Logo"
+          className={styles.logo}
+          onClick={() => navigate("/HomeLogadoPage")}
+        />
       </div>
       <div className={styles.searchContainer}>
-  <form onSubmit={handleSearch} style={{ display: 'flex', width: '100%' }}>
-    <input
-      type="text"
-      className={styles.searchInput}
-      placeholder="Busque por pessoas ou projetos"
-      value={searchQuery}
-      onChange={handleInputChange}
-    />
-    <button type="submit" className={styles.filtroButton}>
-      <img src={FiltroIcon} alt="Filtro" className={styles.filtroIcon} />
-    </button>
-  </form>
-</div>
+        <form
+          onSubmit={handleSearch}
+          style={{ display: "flex", width: "100%" }}
+        >
+          <input
+            type="text"
+            className={styles.searchInput}
+            placeholder="Busque por pessoas ou projetos"
+            value={searchQuery}
+            onChange={handleInputChange}
+          />
+          <button type="submit" className={styles.filtroButton}>
+            <img src={FiltroIcon} alt="Filtro" className={styles.filtroIcon} />
+          </button>
+        </form>
+      </div>
 
-      <button className={styles.criarProjetoButton} onClick={handleCriarProjeto}>
+      <button
+        className={styles.criarProjetoButton}
+        onClick={handleCriarProjeto}
+      >
         Criar Projeto
       </button>
       <nav className={styles.navLinks}>
-        <a href="/planos" className={styles.navLink}>Planos</a>
-        <a href="/HomelogadoPage" className={styles.navLink}>Home</a>
-        <a href="/projetos" className={styles.navLink}>Projetos</a>
-        <a href="/Usuarios" className={styles.navLink}>Pessoas</a>
+        <a href="/planos" className={styles.navLink}>
+          Planos
+        </a>
+        <a href="/HomelogadoPage" className={styles.navLink}>
+          Home
+        </a>
+        <a href="/projetos" className={styles.navLink}>
+          Projetos
+        </a>
+        <a href="/Usuarios" className={styles.navLink}>
+          Pessoas
+        </a>
       </nav>
       <div className={styles.profileContainer}>
         <img
@@ -102,9 +124,19 @@ const HeaderLogado = () => {
         />
         {menuAberto && (
           <div className={styles.dropdownMenu}>
-            <a href="/EditarUsuario" className={styles.dropdownItem}>Editar perfil</a>
-            <a href="/VisualizarUsuario" className={styles.dropdownItem}>Ver Perfil</a>
-            <a href="/" className={`${styles.dropdownItem} ${styles.sairItem}`} onClick={handleLogout}>Sair</a>
+            <a href="/EditarUsuario" className={styles.dropdownItem}>
+              Editar perfil
+            </a>
+            <a href="/VisualizarUsuario" className={styles.dropdownItem}>
+              Ver Perfil
+            </a>
+            <a
+              href="/"
+              className={`${styles.dropdownItem} ${styles.sairItem}`}
+              onClick={handleLogout}
+            >
+              Sair
+            </a>
           </div>
         )}
       </div>

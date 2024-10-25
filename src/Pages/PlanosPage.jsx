@@ -1,15 +1,15 @@
 import React from "react";
 
-import ResultadosPesquisa from "./../components/ResultadoPesquisa/ResultadoPesquisa";
 import Flutter from "../components/Flutter/Flutter";
 import HeaderLogado from "../components/HeaderLogado/HeaderLogado";
+import Planos from "../components/Planos/Planos";
 
 export default function Main() {
   return (
     <div className="containerGeral">
       {/* Espaço para o header fixo */}
       <HeaderLogado />
-      <ResultadosPesquisa />
+      <Planos />
       <Flutter />
     </div>
   );
