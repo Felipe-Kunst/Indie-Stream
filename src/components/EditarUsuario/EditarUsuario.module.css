@@ -1,225 +1,224 @@
 .container {
-    max-width: 700px; 
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: transparent; 
-    color: white; 
-    font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: white;
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: white;
 }
 
 .contentContainer {
-    padding: 20px;
-    background-color: #1b1b1b; 
-    border-radius: 10px;
-    width: 700px; 
-    color: #cbcbcb;
-    position: relative;
-    right: 20px;
+  padding: 20px;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  width: 700px;
+  color: #cbcbcb;
+  position: relative;
+  right: 20px;
 }
 
 .formGroup {
-    margin-bottom: 20px;
-    position: relative;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .input {
-     
-    padding: 9px; 
-    background-color: #333; 
-    border: 1px solid #555; 
-    border-radius: 8px;
-    color: #cbcbcb;
-    font-size: 16px;  
-    width: -webkit-fill-available; 
-    margin:auto;
+  padding: 9px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #cbcbcb;
+  font-size: 16px;
+  width: -webkit-fill-available;
+  margin: auto;
 }
 
 .preview {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%; 
-    display: block;
-    margin: 10px auto;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 10px auto;
 }
 
 .imageContainer {
-    text-align: center;
-    position: relative;
+  text-align: center;
+  position: relative;
 }
 
 .editIcon {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 42%; 
-    top: 95%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 42%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .labelSobreMin {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .inputSobreMin {
-    width: 96%; 
-    padding: 15px; 
-    background-color: #333;
-    border: 1px solid #555;
-    border-radius: 8px;
-    color: white;
-    resize: none; 
-    font-size: 16px; 
+  width: 96%;
+  padding: 15px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: white;
+  resize: none;
+  font-size: 16px;
 }
 
 .charCount {
-    text-align: right;
-    font-size: 14px; 
-    color: #ccc;
+  text-align: right;
+  font-size: 14px;
+  color: #ccc;
 }
 
 .iconWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    gap: 15px; 
-    background-color: #333;
-    padding: 7px;
-    border-radius: 8px;
-    margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: #333;
+  padding: 7px;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 .socialIcon {
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
 }
 
 .deleteIcon {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
 }
 
 .addButton {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px; 
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 15px;
-    font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
 }
 
 .addButton:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .saveButton {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    flex: 1;
-    margin-right: 10px;
-    text-align: center;
+  background-color: #4caf50;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  flex: 1;
+  margin-right: 10px;
+  text-align: center;
 }
 
 .deleteButton {
-    background-color: #f44336;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    flex: 1;
-    margin-left: 10px;
-    text-align: center;
+  background-color: #f44336;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  flex: 1;
+  margin-left: 10px;
+  text-align: center;
 }
 
 .saveButton:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
 .deleteButton:hover {
-    background-color: #e41e26;
+  background-color: #e41e26;
 }
 
 .iconWrapper2 {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
 }
 
 .habilidadesContainer {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #2b2b2b; 
-    border-radius: 8px;
-    color: #cbcbcb;
-    font-size: 16px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  color: #cbcbcb;
+  font-size: 16px;
 }
 
 .habilidadeItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333; 
-    padding: 8px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .habilidadeItem span {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .removeButton {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 14px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .removeButton:hover {
-    background-color: #e41e26;
+  background-color: #e41e26;
 }

@@ -1,7 +1,8 @@
 .container {
-  background-color: #1f1f1f; 
+  background-color: #1f1f1f;
   padding: 20px;
-  border-radius: 8px; 
+  border-radius: 8px;
+  margin: 0px 20px;
 }
 
 .pessoasEmDestaque {
@@ -26,9 +27,4 @@
   font-weight: bold;
   text-align: left;
   background-color: #1f1f1f;
-  
 }
-
-
-
-  

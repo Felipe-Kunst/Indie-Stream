@@ -1,0 +1,75 @@
+.containerProjeto {
+  background-color: #282828; /* Fundo escuro para combinar com o tema */
+  padding: 40px; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos arredondados */
+  width: 800px; /* Largura aumentada */
+  margin: 0 auto; /* Centraliza a página */
+  color: #fff; /* Cor do texto */
+  display: flex; /* Usar flexbox para centralizar conteúdo */
+  flex-direction: column; /* Organiza os filhos em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.containerProjeto img {
+  width: 150px; /* Largura da logo */
+  display: block; /* Exibe a imagem como um bloco */
+  margin: 0 auto 20px; /* Margem abaixo da imagem */
+}
+
+.formProjeto {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h2 {
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+.grupoInput {
+  margin-bottom: 15px; /* Espaço abaixo de cada grupo de input */
+  width: 100%; /* Largura total do grupo de input */
+}
+
+.grupoInput label {
+  display: block; /* Exibe o rótulo como um bloco */
+  margin-bottom: 5px; /* Espaço abaixo do rótulo */
+  width: 100%; /* Largura total da label */
+}
+
+.input {
+  width: 100%; /* Largura total */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 4px; /* Cantos arredondados */
+  border: 1px solid #ccc; /* Borda padrão */
+  font-size: 14px; /* Tamanho da fonte */
+}
+
+.inputErro {
+  border: 1px solid #ff0000; /* Borda vermelha para erro */
+}
+
+.botao {
+  width: 80%; /* Largura do botão ajustada para 80% do container */
+  padding: 10px; /* Espaçamento interno */
+  background-color: #fdd835; /* Cor de fundo do botão */
+  border: none; /* Remove borda padrão */
+  border-radius: 4px; /* Cantos arredondados */
+  color: #000; /* Cor do texto do botão */
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.botao:hover {
+  background-color: #fbc02d; /* Cor do botão ao passar o mouse */
+}
+
+.erro {
+  color: #ff6b6b; /* Cor do texto de erro */
+  text-align: center; /* Centraliza a mensagem de erro */
+  margin-top: 10px; /* Espaço acima da mensagem de erro */
+}

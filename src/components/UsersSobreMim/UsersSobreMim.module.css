@@ -7,6 +7,7 @@
   margin-top: 80px;
   max-width: 1000px;
   position: relative;
+  width: 100%;
 }
 
 .sobreMimTitulo {
@@ -16,7 +17,6 @@
   border-bottom: 1px solid #5c5c5c;
   padding-bottom: 20px;
   text-align: left;
-
 }
 
 .sobreMimTexto {
@@ -24,5 +24,5 @@
   line-height: 1.6;
   white-space: pre-wrap;
   word-wrap: break-word;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
 }

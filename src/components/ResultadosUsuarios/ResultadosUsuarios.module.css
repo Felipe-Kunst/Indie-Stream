@@ -46,6 +46,7 @@
   padding: 10px 0;
   margin-top: 20px;
   min-width: 1040px;
+  flex-wrap: wrap;
 }
 
 .projetosContainer {
