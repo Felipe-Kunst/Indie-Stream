@@ -1,0 +1,74 @@
+.linhaDoTempoSection {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: auto;
+  margin-top: -27px;
+  min-width: 855px;
+  max-width: 855px;
+}
+
+.linhaDoTempoContainer {
+  text-align: center;
+}
+
+.linhaDoTempoImagem {
+  max-width: 450px;
+  height: auto;
+  border-radius: 5px;
+  margin: 35px auto;
+  display: block;
+  object-fit: contain;
+}
+
+.descricao {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5;
+  font-size: medium;
+  margin-top: 40px;
+}
+
+
+
+.linhaDoTempoSection h3 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.linhaDoTempoSection hr {
+  width: 70%;
+  border: none;
+  border-top: 1px solid #fff;
+  margin: 10px auto;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.pagina {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+
+.paginaAtiva {
+  background-color: #ffc107;
+  color: #000;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.pagina:hover {
+  background-color: #555;
+}

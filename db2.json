@@ -171,7 +171,41 @@
       "localizacao": "São Paulo, SP",
       "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
       "tipo": "Ação",
-      "status": "Em andamento"
+      "status": "Em andamento",
+      "PessoasEnvolvidas": [
+        {
+          "usuarioid": "81c7"
+        },
+        {
+          "usuarioid": "f843"
+        },
+        {
+          "usuarioid": "81c7"
+        },
+        {
+          "usuarioid": "f843"
+        },
+        {
+          "usuarioid": "81c7"
+        },
+        {
+          "usuarioid": "f843"
+        }
+      ],
+      "Comentarios": [
+        {
+          "usuarioid": "81c7",
+          "comentario": "Que projeto bacana"
+        },
+        {
+          "usuarioid": "c497",
+          "comentario": "teste"
+        },
+        {
+          "usuarioid": "c497",
+          "comentario": "teste 2"
+        }
+      ]
     },
     {
       "id": "2",
@@ -180,7 +214,11 @@
       "localizacao": "Rio de Janeiro",
       "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmsuKchfwupHMxMJ1YRD1D-6dPBZ8STW_BqA&s",
       "tipo": "Drama",
-      "status": "Concluído"
+      "status": "Concluído",
+      "PessoasEnvolvidas": [
+        {}
+      ],
+      "Comentarios": []
     },
     {
       "id": "3",
@@ -189,7 +227,11 @@
       "localizacao": "São Paulo, SP",
       "imagem": "https://cinema10.com.br/upload/filmes/filmes_12149_0636548.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg?default=poster",
       "tipo": "Ação",
-      "status": "Em andamento"
+      "status": "Em andamento",
+      "PessoasEnvolvidas": [
+        {}
+      ],
+      "Comentarios": []
     },
     {
       "id": "4",
@@ -198,7 +240,11 @@
       "localizacao": "Rio de Janeiro",
       "imagem": "https://br.web.img3.acsta.net/r_1920_1080/pictures/23/11/06/12/20/5026353.jpg",
       "tipo": "Drama",
-      "status": "Concluído"
+      "status": "Concluído",
+      "PessoasEnvolvidas": [
+        {}
+      ],
+      "Comentarios": []
     }
   ],
   "usuarios": [
@@ -208,7 +254,6 @@
       "senha": "Manoel123",
       "nome": "Manoel Ex-hackerman",
       "imagem": "data:image/webp;base64,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",
-      "ramo": "1",
       "localizacao": {
         "estadoId": "ce",
         "cidadeId": "1"
@@ -222,13 +267,14 @@
         "ManoelHackerman@email.com"
       ],
       "sobreMin": "Sou um hacker muito habilidox",
-      "profissao": "Compositor",
       "habilidades": [
         {
           "id": "9",
           "nome": "Coreografia"
         }
-      ]
+      ],
+      "ramo": "1",
+      "profissoes": "Animador3D"
     },
     {
       "id": "c497",
@@ -237,13 +283,20 @@
       "nome": "Teste",
       "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh6DskSKGsHUZijI43eEasV-h3mBTCUGpspQ&s",
       "premiom": false,
-      "ramo": "1",
       "localizacao": {
         "estadoId": "ce",
         "cidadeId": "1"
       },
       "redeSociais": [],
-      "sobreMin": ""
+      "sobreMin": "Um pequenho sobre mim",
+      "habilidades": [
+        {
+          "id": "9",
+          "nome": "Coreografia"
+        }
+      ],
+      "ramo": "1",
+      "profissoes": "Animador3D"
     },
     {
       "id": "f843",
@@ -252,13 +305,20 @@
       "nome": "Felipe Martins",
       "imagem": "https://www.pngplay.com/wp-content/uploads/12/User-Avatar-Profile-PNG-Free-File-Download.png",
       "premiom": true,
-      "ramo": "1",
       "localizacao": {
         "estadoId": "ce",
         "cidadeId": "1"
       },
       "redeSociais": [],
-      "sobreMin": "Sou um novo Haker :D"
+      "sobreMin": ":D",
+      "habilidades": [
+        {
+          "id": "9",
+          "nome": "Coreografia"
+        }
+      ],
+      "ramo": "1",
+      "profissoes": "Animador3D"
     },
     {
       "id": "f842",
@@ -267,7 +327,6 @@
       "nome": "Mario Neto",
       "imagem": "https://sm.ign.com/ign_br/cover/s/super-mari/super-mario-run_aqb9.jpg",
       "premiom": true,
-      "ramo": "1",
       "localizacao": {
         "estadoId": "ce",
         "cidadeId": "1"
@@ -275,13 +334,35 @@
       "redeSociais": [],
       "sobreMin": "Sou um novo Haker :D",
       "redesSociais": [],
-      "habilidades": []
+      "habilidades": [
+        {
+          "id": "9",
+          "nome": "Coreografia"
+        }
+      ],
+      "ramo": "1",
+      "profissoes": "Animador3D"
     }
   ],
   "usuario_habilidades": [
     {
       "id": "8ec6",
       "usuarioId": "81c7",
+      "habilidadeId": "9"
+    },
+    {
+      "id": "x341",
+      "usuarioId": "c497",
+      "habilidadeId": "9"
+    },
+    {
+      "id": "x561",
+      "usuarioId": "f843",
+      "habilidadeId": "9"
+    },
+    {
+      "id": "x761",
+      "usuarioId": "f842",
       "habilidadeId": "9"
     }
   ],
@@ -340,11 +421,30 @@
       "estadoId": "sp"
     }
   ],
-  "localizacao": [
+  "projeto_LinhaDoTempo": [
     {
-      "estadoId": "ce",
-      "cidadeId": "1",
-      "id": "157f"
+      "projeto_id": "1",
+      "linhaDoTempoId": "1",
+      "id": "2885"
+    }
+  ],
+  "linhaDoTempo": [
+    {
+      "id": "1",
+      "imagem": "https://www.aicinema.com.br/wp-content/uploads/2018/04/intensivo_direcao-fotografia-e1651152957571.jpg",
+      "descricao": "Começamos a filmagem"
+    },
+    {
+      "id": "2",
+      "imagem": "https://s2-g1.glbimg.com/rAx68z02QdexMuCW1ZAqNOL8E3c=/0x0:1296x730/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/1/9/8BrlePS762o5XyVXXqHg/friends-reunion-key-art-final-vertical.jpg",
+      "descricao": "Inicio das gravações de nosso novo filme, com todo elenco e todos os envolvidos na produção. "
+    }
+  ],
+  "PessoasEnvolvidas": [
+    {
+      "PessoasInvolvidas_id": "1",
+      "usuario_id": "8ec6",
+      "id": "fa70"
     }
   ]
 }

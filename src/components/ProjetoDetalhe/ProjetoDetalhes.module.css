@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2a2a2a;
+}
+
+.projetoSection {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  min-width: 850px;
+  max-width: 850px;
+  height: fit-content;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.divider {
+  width: 65%;
+  border: 1px solid #fff;
+  margin: 10px auto;
+}
+
+.projetoNome {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  margin: 15px 0;
+}
+
+.projetoImagem {
+  width: 350px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 15px 0;
+  border-style: solid;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.andamento .statusDot {
+  background-color: orange;
+}
+
+.concluido .statusDot {
+  background-color: green;
+}
+
+.status {
+  color: #fff;
+  font-size: 16px;
+}
+
+.contatoButton {
+  background-color: #ffc107;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.contatoButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
