@@ -7,6 +7,7 @@ const fetchDados = async () => {
     fetch("http://localhost:3002/profissoes"),
     fetch("http://localhost:3002/cidades"),
     fetch("http://localhost:3002/estados"),
+
   ]);
   const [profissoes, cidades, estados] = await Promise.all([
     profissoesResponse.json(),
@@ -20,37 +21,50 @@ function CardPessoa({ usuario }) {
   const [profissoes, setProfissoes] = useState([]);
   const [cidades, setCidades] = useState([]);
   const [estados, setEstados] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate(); // Hook para navegar entre páginas
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     fetchDados().then(({ profissoes, cidades, estados }) => {
       setProfissoes(profissoes);
       setCidades(cidades);
       setEstados(estados);
+      setLoading(false);
+    }).catch((error) => {
+      console.error('Erro ao buscar os dados:', error);
+      setLoading(false);
     });
   }, []);
+
+  if (!usuario) {
+    return <div>Usuário não encontrado.</div>; 
+  }
 
   const { id, imagem, nome, ramo, localizacao } = usuario;
 
   const obterNomeProfissao = (id) => {
     const profissao = profissoes.find(p => p.id === id);
-    return profissao ? profissao.nome : 'Desconhecido';
+    return profissao ? profissao.nome : 'Profissão desconhecida';
   };
 
   const obterNomeCidade = (id) => {
     const cidade = cidades.find(c => c.id === id);
-    return cidade ? cidade.nome : 'Desconhecida';
+    return cidade ? cidade.nome : 'Cidade desconhecida';
   };
 
   const obterNomeEstado = (id) => {
     const estado = estados.find(e => e.id === id);
-    return estado ? estado.nome : 'Desconhecido';
+    return estado ? estado.nome : 'Estado desconhecido';
   };
 
   const handleClick = () => {
-    navigate(`/UserPage/${id}`); // Navega para a página de usuário com o ID específico
+    navigate(`/UserPage/${id}`); 
   };
+
+  if (loading) {
+    return <div>Carregando informações...</div>;
+  }
 
   return (
     <div className={styles.boxDestaques} onClick={handleClick} style={{ cursor: 'pointer' }}>
@@ -59,7 +73,8 @@ function CardPessoa({ usuario }) {
         <h2 className={styles.nome}>{nome}</h2>
         <p className={styles.ramo}>{obterNomeProfissao(ramo)}</p>
         <p className={styles.localizacao}>
-          {obterNomeCidade(localizacao.cidadeId)}, {obterNomeEstado(localizacao.estadoId)}
+          {localizacao && localizacao.cidadeId ? obterNomeCidade(localizacao.cidadeId) : 'Cidade não informada'}, 
+          {localizacao && localizacao.estadoId ? obterNomeEstado(localizacao.estadoId) : 'Estado não informado'}
         </p>
       </div>
     </div>

@@ -15,13 +15,16 @@ import VisualizarUsuario from "./Pages/VisualizaUsuario.jsx";
 import ResultadosPesquisa from "./Pages/ResultadoPesquisa.jsx";
 import ListaUsuarios from "./Pages/Usuarios.jsx";
 import UserPage from "./Pages/UserPage.jsx";
-import ListaProjetos from "./components/UsersProjetos/UserProjetos2.jsx"; // Novo componente de lista de projetos
+import ProjetoDetalhe from "./Pages/ProjetoDetalhe.jsx";
 import CriarProjeto from "./Pages/PaginaCriarProjeto.jsx";
+import ListaProjetos from "./components/UsersProjetos/UserProjetos2.jsx";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={<MainPage />}>
+        {" "}
+      </Route>
       <Route path="testes" element={<Teste />} />
       <Route path="EsqueceuSenha" element={<EsqueceuSenha />} />
       <Route path="PaginadeLogin" element={<Login />} />
@@ -31,10 +34,11 @@ ReactDOM.render(
       <Route path="EditarUsuario" element={<EditarUsuario />} />
       <Route path="VisualizarUsuario" element={<VisualizarUsuario />} />
       <Route path="ResultadosPesquisa" element={<ResultadosPesquisa />} />
-      <Route path="Usuarios" element={<ListaUsuarios />} />
+      m <Route path="Usuarios" element={<ListaUsuarios />} />
       <Route path="CriarProjeto" element={<CriarProjeto />} />
       <Route path="/UserPage/:id" element={<UserPage />} />
-      <Route path="/projetos/:id" element={<ListaProjetos />} /> {/* Novo */}
+      <Route path="/projetos/:id" element={<ListaProjetos />} />
+      <Route path="/ProjetoDetalhe/:id" element={<ProjetoDetalhe />} />
     </Routes>
   </BrowserRouter>,
 
