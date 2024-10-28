@@ -1,0 +1,89 @@
+.container {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.comentariosList {
+  margin-bottom: 20px;
+}
+
+.comentarioItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.comentarioImagem {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.usuarioImagem {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.divisor {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 10px 0;
+}
+
+.novoComentario {
+  display: flex;
+  align-items: flex-start;
+}
+
+.textarea {
+  max-width: 705px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background-color: #333;
+  color: #fff;
+  resize: none;
+  min-height: 100px;
+  min-width: 705px;
+  margin-right: 10px;
+  position: relative;
+  top: 30px;
+}
+
+.botaoAdicionar {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f0ad4e;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 640px;
+}
+
+.botaoAdicionar:hover {
+  background-color: #ec971f;
+}
+
+.comentarioTexto {
+  flex-grow: 1;
+  color: #fff;
+}
+
+.divider {
+  width: 65%;
+  border: 1px solid #fff;
+  margin: 35px auto;
+}
+
+.container h3 {
+font-weight:bold;
+text-align: center;
+}
