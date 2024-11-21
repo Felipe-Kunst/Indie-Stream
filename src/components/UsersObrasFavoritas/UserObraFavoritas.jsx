@@ -1,46 +1,42 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useCookies } from 'react-cookie';
-import styles from './UserObraFavorita.module.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useCookies } from "react-cookie";
+import styles from "./UserObraFavorita.module.css";
 
 function UserObraFavorita() {
   const [obras, setObras] = useState([]);
-  const [cookies] = useCookies(['userId']);
-  const [shouldRender, setShouldRender] = useState(true);
+  const [cookies] = useCookies(["userId"]);
 
   useEffect(() => {
     const fetchObrasFavoritas = async () => {
       try {
         const usuarioId = cookies.userId;
         if (!usuarioId) {
-          setShouldRender(false);
+          console.error("Usuário não encontrado nos cookies.");
           return;
         }
 
-        const response = await axios.get(`http://localhost:3002/obras_favoritas?usuarioId=${usuarioId}`);
+        // Busca os dados do usuário, incluindo obras favoritas
+        const response = await axios.get(
+          `http://localhost:8080/user/${usuarioId}`
+        );
+        const usuario = response.data;
 
-        if (response.data.length === 0) {
-          setShouldRender(false);
-          return;
+        if (usuario.obrasFavoritas && usuario.obrasFavoritas.length > 0) {
+          setObras(usuario.obrasFavoritas);
+        } else {
+          console.log("Usuário não possui obras favoritas.");
         }
-
-        const obrasData = await Promise.all(response.data.map(async (obraFavorita) => {
-          const projetoResponse = await axios.get(`http://localhost:3002/projetos/${obraFavorita.projetoId}`);
-          return projetoResponse.data;
-        }));
-
-        setObras(obrasData);
       } catch (error) {
-        console.error('Erro ao buscar obras favoritas:', error);
-        setShouldRender(false);
+        console.error("Erro ao buscar obras favoritas:", error);
       }
     };
 
     fetchObrasFavoritas();
   }, [cookies]);
 
-  if (!shouldRender || obras.length === 0) {
-    return null; 
+  if (obras.length === 0) {
+    return null; // Oculta o componente se não houver obras favoritas
   }
 
   return (
@@ -49,10 +45,14 @@ function UserObraFavorita() {
       <div className={styles.obrasContainer}>
         {obras.map((obra) => (
           <div key={obra.id} className={styles.obraItem}>
-            <img src={obra.imagem} alt={obra.titulo} className={styles.obraImagem} />
+            <img
+              src={obra.imagemUrl} // Atualizado para usar o campo correto do backend
+              alt={obra.titulo}
+              className={styles.obraImagem}
+            />
             <div className={styles.infoObra}>
               <h2 className={styles.obraTitulo}>{obra.titulo}</h2>
-              <p className={styles.obraAno}>{obra.descricao}</p>
+              {/* <p className={styles.obraDescricao}>{obra.descricao}</p> */}
             </div>
           </div>
         ))}

@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { useCookies } from 'react-cookie'; 
-import BoxProjeto from '../BoxProjetos/BoxProjetos'; 
-import './UserProjetos.modules.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import BoxProjeto from "../BoxProjetos/BoxProjetos";
+import "./UserProjetos.modules.css";
 
 const ListaProjetos = () => {
   const { id } = useParams();
-  const [cookies] = useCookies(['userId']); 
+  const [cookies] = useCookies(["userId"]);
   const [projetos, setProjetos] = useState([]);
-  const [usuarioProjetos, setUsuarioProjetos] = useState([]); 
   const [paginaAtual, setPaginaAtual] = useState(1);
   const itensPorPagina = 3;
 
   useEffect(() => {
     const fetchProjetos = async () => {
-      const userId = id || cookies.userId; 
+      const userId = id || cookies.userId;
       if (userId) {
         try {
-          const usuarioProjetosResponse = await axios.get(`http://localhost:3002/usuario_projetos?usuarioId=${userId}`);
-          const usuarioProjetosData = usuarioProjetosResponse.data;
-          setUsuarioProjetos(usuarioProjetosData);
+          // Busca todos os projetos diretamente do backend
+          const response = await axios.get(`http://localhost:8080/projetos`);
+          const allProjetos = response.data;
 
-          const projetosPromises = usuarioProjetosData.map(async (item) => {
-            const projetoResponse = await axios.get(`http://localhost:3002/projetos/${item.projetoId}`);
-            return projetoResponse.data; 
-          });
+          // Filtra os projetos onde o usuário está envolvido
+          const projetosDoUsuario = allProjetos.filter((projeto) =>
+            projeto.pessoasEnvolvidas.some(
+              (pessoa) => pessoa.id === Number(userId)
+            )
+          );
 
-          const projetosDetalhados = await Promise.all(projetosPromises);
-          setProjetos(projetosDetalhados);
+          setProjetos(projetosDoUsuario);
         } catch (error) {
           console.error("Erro ao buscar os projetos do usuário:", error);
         }
@@ -42,7 +42,10 @@ const ListaProjetos = () => {
 
   const indiceUltimoProjeto = paginaAtual * itensPorPagina;
   const indicePrimeiroProjeto = indiceUltimoProjeto - itensPorPagina;
-  const projetosPaginaAtual = projetos.slice(indicePrimeiroProjeto, indiceUltimoProjeto);
+  const projetosPaginaAtual = projetos.slice(
+    indicePrimeiroProjeto,
+    indiceUltimoProjeto
+  );
   const totalPaginas = Math.ceil(projetos.length / itensPorPagina);
 
   const handlePageChange = (novaPagina) => {
@@ -56,15 +59,15 @@ const ListaProjetos = () => {
         <p>{projetos.length} Projetos</p>
       </div>
       <div className="gridProjetos">
-        {projetosPaginaAtual.map(projeto => (
+        {projetosPaginaAtual.map((projeto) => (
           <BoxProjeto key={projeto.id} projeto={projeto} />
         ))}
       </div>
 
-      <Paginacao 
-        totalPaginas={totalPaginas} 
-        paginaAtual={paginaAtual} 
-        onPageChange={handlePageChange} 
+      <Paginacao
+        totalPaginas={totalPaginas}
+        paginaAtual={paginaAtual}
+        onPageChange={handlePageChange}
       />
     </div>
   );
@@ -75,25 +78,27 @@ const Paginacao = ({ totalPaginas, paginaAtual, onPageChange }) => {
 
   return (
     <div className="paginacao">
-      <button 
-        className="paginacao-botao" 
-        onClick={() => onPageChange(1)} 
+      <button
+        className="paginacao-botao"
+        onClick={() => onPageChange(1)}
         disabled={paginaAtual === 1}
       >
         «
       </button>
-      {paginas.map(pagina => (
-        <button 
-          key={pagina} 
-          className={`paginacao-botao ${paginaAtual === pagina ? 'pagina-ativa' : ''}`} 
+      {paginas.map((pagina) => (
+        <button
+          key={pagina}
+          className={`paginacao-botao ${
+            paginaAtual === pagina ? "pagina-ativa" : ""
+          }`}
           onClick={() => onPageChange(pagina)}
         >
           {pagina}
         </button>
       ))}
-      <button 
-        className="paginacao-botao" 
-        onClick={() => onPageChange(totalPaginas)} 
+      <button
+        className="paginacao-botao"
+        onClick={() => onPageChange(totalPaginas)}
         disabled={paginaAtual === totalPaginas}
       >
         »
