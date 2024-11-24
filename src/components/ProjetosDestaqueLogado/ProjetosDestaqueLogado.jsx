@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import BoxProjetos from '../BoxProjetos/BoxProjetos';
-import styles from './ProjetosDestaqueLogado.module.css';
+import React, { useState, useEffect } from "react";
+import BoxProjetos from "../BoxProjetos/BoxProjetos";
+import styles from "./ProjetosDestaqueLogado.module.css";
 
 const ProjetoDestaqueLogado = () => {
   const [projetos, setProjetos] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3002/projetos?_limit=3')
+    fetch("http://localhost:8080/projetos?_limit=3")
       .then((response) => response.json())
       .then((data) => setProjetos(data))
-      .catch((error) => console.error('Erro ao buscar projetos:', error));
+      .catch((error) => console.error("Erro ao buscar projetos:", error));
   }, []);
 
   return (
@@ -24,7 +24,6 @@ const ProjetoDestaqueLogado = () => {
         Ver todos os resultados em projetos
       </a>
     </div>
-    
   );
 };
 

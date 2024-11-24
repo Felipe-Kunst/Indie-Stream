@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 import styles from "./CriarProjeto.module.css";
 import Logo from "../../assets/Logo.png";
 
@@ -11,22 +12,30 @@ function CriarProjeto() {
   const [tipo, setTipo] = useState("");
   const [status, setStatus] = useState("Em andamento");
   const [error, setError] = useState("");
+  const [cookies] = useCookies(["userId"]); // Obter o userId do cookie
   const navigate = useNavigate();
 
   const handleCriarProjeto = async (event) => {
     event.preventDefault();
 
+    const userId = cookies.userId; // Recuperar o usuário logado
+    if (!userId) {
+      setError("Usuário não está logado.");
+      return;
+    }
+
     const novoProjeto = {
       titulo,
       descricao,
       localizacao,
-      imagem,
+      imagemUrl: imagem,
       tipo,
       status,
+      pessoasEnvolvidas: [{ id: userId }], // Adicionar o usuário logado
     };
 
     try {
-      const response = await fetch("http://localhost:3002/projetos", {
+      const response = await fetch("http://localhost:8080/projetos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(novoProjeto),

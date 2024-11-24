@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { useCookies } from 'react-cookie';
-import styles from './UsersHabilidades.module.css';
+import React, { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import styles from "./UsersHabilidades.module.css";
 
 const Habilidades = () => {
   const [habilidades, setHabilidades] = useState([]);
-  const [cookies] = useCookies(['userId']);
+  const [cookies] = useCookies(["userId"]);
 
   useEffect(() => {
     const fetchHabilidades = async () => {
       try {
-        const [usuarioResponse, usuarioHabilidadesResponse, habilidadesResponse] = await Promise.all([
-          fetch(`http://localhost:3002/usuarios/${cookies.userId}`), 
-          fetch(`http://localhost:3002/usuario_habilidades?usuarioId=${cookies.userId}`), 
-          fetch(`http://localhost:3002/habilidades`),
-        ]);
+        if (!cookies.userId) {
+          console.error("Nenhum usuário logado.");
+          return;
+        }
 
-        const usuarioData = await usuarioResponse.json();
-        const usuarioHabilidadesData = await usuarioHabilidadesResponse.json();
-        const habilidadesData = await habilidadesResponse.json();
+        // Busca os dados do usuário logado (incluindo habilidades)
+        const response = await axios.get(
+          `http://localhost:8080/user/${cookies.userId}`
+        );
+        const usuario = response.data;
 
-        const habilidadesDoUsuario = usuarioHabilidadesData.map(uh => {
-          const habilidade = habilidadesData.find(h => h.id === uh.habilidadeId);
-          return habilidade ? habilidade.nome : 'Habilidade desconhecida';
-        });
+        // Extraindo as habilidades do usuário
+        const habilidadesDoUsuario = usuario.habilidades.map(
+          (habilidade) => habilidade.nome
+        );
 
         setHabilidades(habilidadesDoUsuario);
       } catch (error) {
-        console.error('Erro ao carregar habilidades:', error);
+        console.error("Erro ao carregar habilidades:", error);
       }
     };
 
-    if (cookies.userId) {
-      fetchHabilidades();
-    }
+    fetchHabilidades();
   }, [cookies]);
 
   return (
@@ -40,11 +40,17 @@ const Habilidades = () => {
       <h2 className={styles.habilidadesTitulo}>Habilidades</h2>
       <hr className={styles.habilidadesLinha} />
       <div className={styles.habilidadesLista}>
-        {habilidades.map((habilidade, index) => (
-          <span key={index} className={styles.habilidade}>
-            {habilidade}
-          </span>
-        ))}
+        {habilidades.length > 0 ? (
+          habilidades.map((habilidade, index) => (
+            <span key={index} className={styles.habilidade}>
+              {habilidade}
+            </span>
+          ))
+        ) : (
+          <p className={styles.semHabilidades}>
+            Nenhuma habilidade cadastrada.
+          </p>
+        )}
       </div>
     </div>
   );

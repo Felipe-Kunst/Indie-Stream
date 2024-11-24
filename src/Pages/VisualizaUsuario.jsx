@@ -6,6 +6,7 @@ import UsersHabilidades from "../components/UsersHabilidades/UsersHabilidades";
 import ObrasFavoritas from "./../components/UsersObrasFavoritas/UserObraFavoritas";
 import UserProjetos from "./../components/UsersProjetos/UserProjetos";
 import HeaderLogado from "../components/HeaderLogado/HeaderLogado";
+import Flutter from "../components/Flutter/Flutter";
 
 export default function Main() {
   return (
@@ -15,7 +16,9 @@ export default function Main() {
       <UsersSobreMim />
       <UserProjetos />
       <UsersHabilidades />
+
       <ObrasFavoritas />
+      <Flutter />
     </div>
   );
 }

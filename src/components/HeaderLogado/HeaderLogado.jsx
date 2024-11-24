@@ -15,21 +15,11 @@ const HeaderLogado = () => {
   useEffect(() => {
     const userId = cookies.userId;
     if (userId) {
-      fetch(`http://localhost:3002/usuarios/${userId}`)
+      fetch(`http://localhost:8080/user/${userId}`)
         .then((response) => response.json())
         .then((data) => {
-          fetch(`http://localhost:3002/usuario_habilidades?usuarioId=${userId}`)
-            .then((response) => response.json())
-            .then((habilidadesRelacionadas) => {
-              const habilidadesPromises = habilidadesRelacionadas.map((uh) =>
-                fetch(
-                  `http://localhost:3002/habilidades/${uh.habilidadeId}`
-                ).then((response) => response.json())
-              );
-              Promise.all(habilidadesPromises).then((habilidades) => {
-                setUsuario({ ...data, habilidades });
-              });
-            });
+          setUsuario(data);
+          console.log(data);
         })
         .catch((error) =>
           console.error("Erro ao buscar dados do usuário:", error)
@@ -117,7 +107,7 @@ const HeaderLogado = () => {
       </nav>
       <div className={styles.profileContainer}>
         <img
-          src={usuario.imagem}
+          src={usuario.imagemUrl}
           alt={`Perfil de ${usuario.nome}`}
           className={styles.profileImage}
           onClick={toggleMenu}
