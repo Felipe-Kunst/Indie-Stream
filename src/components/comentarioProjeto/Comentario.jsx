@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useCookies } from 'react-cookie';
-import { useParams } from 'react-router-dom';
-import styles from './Comentario.module.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
+import styles from "./Comentario.module.css";
 
 const Comentarios = () => {
   const { id: projetoId } = useParams();
   const [comentarios, setComentarios] = useState([]);
-  const [novoComentario, setNovoComentario] = useState('');
-  const [cookies] = useCookies(['userId']);
-  const [usuarios, setUsuarios] = useState({});
+  const [novoComentario, setNovoComentario] = useState("");
+  const [cookies] = useCookies(["userId"]);
   const [usuarioLogado, setUsuarioLogado] = useState(null);
 
   useEffect(() => {
     const fetchUsuarioLogado = async () => {
       try {
         if (cookies.userId) {
-          const response = await axios.get(`http://localhost:3002/usuarios/${cookies.userId}`);
+          const response = await axios.get(
+            `http://localhost:8080/user/${cookies.userId}`
+          );
           setUsuarioLogado(response.data);
         }
       } catch (error) {
-        console.error('Erro ao buscar o usuário logado:', error);
+        console.error("Erro ao buscar o usuário logado:", error);
       }
     };
 
@@ -28,26 +29,14 @@ const Comentarios = () => {
       try {
         if (!projetoId) return;
 
-        const responseProjeto = await axios.get(`http://localhost:3002/projetos/${projetoId}`);
-        const projeto = responseProjeto.data;
+        const response = await axios.get(
+          `http://localhost:8080/projetos/${projetoId}`
+        );
 
-        if (projeto && Array.isArray(projeto.Comentarios)) {
-          setComentarios(projeto.Comentarios);
-
-          const usuarioIds = [...new Set(projeto.Comentarios.map(c => c.usuarioid))];
-          const usuariosResponse = await Promise.all(
-            usuarioIds.map(id => axios.get(`http://localhost:3002/usuarios/${id}`))
-          );
-
-          const usuariosData = {};
-          usuariosResponse.forEach(response => {
-            const usuario = response.data;
-            usuariosData[usuario.id] = usuario;
-          });
-          setUsuarios(usuariosData);
-        }
+        // Assumimos que os comentários estão no campo 'comentarios'
+        setComentarios(response.data.comentarios);
       } catch (error) {
-        console.error('Erro ao buscar os comentários:', error);
+        console.error("Erro ao buscar os comentários:", error);
       }
     };
 
@@ -58,36 +47,34 @@ const Comentarios = () => {
   const handleAddComentario = async () => {
     if (!novoComentario.trim()) return;
 
-    const usuarioId = cookies.userId;
-    const novoComentarioObj = { usuarioid: usuarioId, comentario: novoComentario };
-
     try {
-      const responseProjeto = await axios.get(`http://localhost:3002/projetos/${projetoId}`);
-      const projeto = responseProjeto.data;
-      const comentariosAtualizados = [...projeto.Comentarios, novoComentarioObj];
+      const usuarioId = cookies.userId;
 
-      await axios.patch(`http://localhost:3002/projetos/${projetoId}`, {
-        Comentarios: comentariosAtualizados
-      });
+      // Adiciona o novo comentário ao backend
+      const response = await axios.post(
+        `http://localhost:8080/comentarios/projeto/${projetoId}/usuario/${usuarioId}`,
+        { texto: novoComentario }
+      );
 
-      setComentarios(comentariosAtualizados);
-      setNovoComentario('');
+      // Atualiza os comentários localmente com o novo dado retornado
+      setComentarios((prev) => [...prev, response.data]);
+      setNovoComentario("");
     } catch (error) {
-      console.error('Erro ao adicionar o comentário:', error);
+      console.error("Erro ao adicionar o comentário:", error);
     }
   };
 
   return (
     <div className={styles.container}>
-        <h3>Comentários</h3>
-        <hr className={styles.divider} />
+      <h3>Comentários</h3>
+      <hr className={styles.divider} />
       <div className={styles.novoComentario}>
         <div className={styles.comentarioItem}>
           {usuarioLogado && (
-            <img 
-              src={usuarioLogado.imagem} 
-              alt={`Imagem de ${usuarioLogado.nome}`} 
-              className={styles.usuarioImagem} 
+            <img
+              src={usuarioLogado.imagemUrl}
+              alt={`Imagem de ${usuarioLogado.nome}`}
+              className={styles.usuarioImagem}
             />
           )}
           <textarea
@@ -99,37 +86,33 @@ const Comentarios = () => {
         </div>
       </div>
       <button onClick={handleAddComentario} className={styles.botaoAdicionar}>
-            Adicionar Comentário
-          </button>
+        Adicionar Comentário
+      </button>
 
       <div className={styles.comentariosList}>
         {comentarios.length > 0 ? (
-          comentarios.map((comentario, index) => {
-            const usuario = usuarios[comentario.usuarioid];
-            return (
-              <div key={index}>
-                <div className={styles.comentarioItem}>
-                  {usuario && (
-                    <img 
-                      src={usuario.imagem} 
-                      alt={`Imagem de ${usuario.nome}`} 
-                      className={styles.comentarioImagem} 
-                    />
-                  )}
-                  <div className={styles.comentarioTexto}>
-                    <p>{comentario.comentario}</p>
-                  </div>
+          comentarios.map((comentario) => (
+            <div key={comentario.id}>
+              <div className={styles.comentarioItem}>
+                <img
+                  src={comentario.usuarioImagemUrl}
+                  alt={`Imagem de ${comentario.usuarioNome}`}
+                  className={styles.comentarioImagem}
+                />
+                <div className={styles.comentarioTexto}>
+                  <p>
+                    <strong>{comentario.usuarioNome}</strong>:{" "}
+                    {comentario.texto}
+                  </p>
                 </div>
-                <hr className={styles.divisor} />
               </div>
-            );
-          })
+              <hr className={styles.divisor} />
+            </div>
+          ))
         ) : (
           <p>Nenhum comentário ainda.</p>
         )}
       </div>
-
-      
     </div>
   );
 };

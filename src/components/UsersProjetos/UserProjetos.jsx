@@ -5,7 +5,7 @@ import { useCookies } from "react-cookie";
 import BoxProjeto from "../BoxProjetos/BoxProjetos";
 import "./UserProjetos.modules.css";
 
-const ListaProjetos = () => {
+const ListaUserProjetos = () => {
   const { id } = useParams(); // ID do usuário vindo da URL
   const [cookies] = useCookies(["userId"]); // ID do usuário logado
   const [projetos, setProjetos] = useState([]);
@@ -100,4 +100,4 @@ const Paginacao = ({ totalPaginas, paginaAtual, onPageChange }) => {
   );
 };
 
-export default ListaProjetos;
+export default User;

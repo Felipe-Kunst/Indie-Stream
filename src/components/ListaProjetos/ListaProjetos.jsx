@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import BoxUsuario from "../BoxUsuarios/BoxUsuarios2";
-import styles from "./ListaPessoas.module.css";
+import BoxProjeto from "../BoxProjetos/BoxProjetos"; // Crie este componente para exibir os detalhes do projeto
+import styles from "./ListaProjetos.module.css";
 
-const ListaUsuarios = () => {
-  const [usuarios, setUsuarios] = useState([]);
+const ListaProjetos = () => {
+  const [projetos, setProjetos] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const itensPorPagina = 12;
   const [filtro, setFiltro] = useState("");
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/user")
+      .get("http://localhost:8080/projetos") // Altere a URL conforme necessário
       .then((response) => {
-        setUsuarios(response.data);
+        setProjetos(response.data);
       })
       .catch((error) => {
-        console.error("Houve um erro ao buscar os usuários:", error);
+        console.error("Houve um erro ao buscar os projetos:", error);
       });
   }, []);
 
-  const usuariosFiltrados = usuarios.filter((usuario) =>
-    usuario.nome.toLowerCase().includes(filtro.toLowerCase())
+  const projetosFiltrados = projetos.filter((projeto) =>
+    projeto.titulo.toLowerCase().includes(filtro.toLowerCase())
   );
 
-  const indiceUltimoUsuario = paginaAtual * itensPorPagina;
-  const indicePrimeiroUsuario = indiceUltimoUsuario - itensPorPagina;
-  const usuariosPaginaAtual = usuariosFiltrados.slice(
-    indicePrimeiroUsuario,
-    indiceUltimoUsuario
+  const indiceUltimoProjeto = paginaAtual * itensPorPagina;
+  const indicePrimeiroProjeto = indiceUltimoProjeto - itensPorPagina;
+  const projetosPaginaAtual = projetosFiltrados.slice(
+    indicePrimeiroProjeto,
+    indiceUltimoProjeto
   );
 
-  const totalPaginas = Math.ceil(usuariosFiltrados.length / itensPorPagina);
+  const totalPaginas = Math.ceil(projetosFiltrados.length / itensPorPagina);
 
   const handlePageChange = (novaPagina) => {
     setPaginaAtual(novaPagina);
@@ -39,19 +39,19 @@ const ListaUsuarios = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.titulo}>Busca de Usuários</h2>
+      <h2 className={styles.titulo}>Busca de Projetos</h2>
       <input
         type="text"
-        placeholder="Pesquisar usuários"
+        placeholder="Pesquisar projetos"
         value={filtro}
         onChange={(e) => setFiltro(e.target.value)}
         className={styles.inputPesquisa}
       />
-      <p>{usuariosFiltrados.length} Usuários encontrados na Busca</p>
-      <div className={styles.usuarios}>
-        {usuariosPaginaAtual.map((usuario) => (
-          <div key={usuario.id} className={styles.usuarioContainer}>
-            <BoxUsuario usuario={usuario} />
+      <p>{projetosFiltrados.length} Projetos encontrados na Busca</p>
+      <div className={styles.projetos}>
+        {projetosPaginaAtual.map((projeto) => (
+          <div key={projeto.id} className={styles.projetoContainer}>
+            <BoxProjeto projeto={projeto} />
           </div>
         ))}
       </div>
@@ -102,4 +102,4 @@ const Paginacao = ({ totalPaginas, paginaAtual, onPageChange }) => {
   );
 };
 
-export default ListaUsuarios;
+export default ListaProjetos;

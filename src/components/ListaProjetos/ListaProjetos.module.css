@@ -13,7 +13,7 @@
   margin-bottom: 20px;
 }
 
-.usuarioContainer {
+.projetoContainer {
   margin-top: 10px;
 }
 
@@ -27,7 +27,7 @@
   color: #fff;
 }
 
-.usuarios {
+.projetos {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

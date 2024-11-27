@@ -1,72 +1,65 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import styles from './LinhadoTempo.module.css';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import styles from "./LinhadoTempo.module.css";
 
 const LinhaDoTempo = () => {
-  const { id } = useParams();
-  const [projeto, setProjeto] = useState([]);
+  const { id } = useParams(); // ID do projeto da URL
+  const [linhaDoTempo, setLinhaDoTempo] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const itensPorPagina = 1;
-  const [dadosCarregados, setDadosCarregados] = useState(false);
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchLinhaDoTempo = async () => {
       try {
-        const projetoResponse = await axios.get(`http://localhost:3002/projeto_LinhaDoTempo?projeto_id=${id}`);
-        console.log('Resposta do projeto:', projetoResponse.data);
-
-        if (projetoResponse.data.length > 0) {
-          const linhaDoTempoResponse = await axios.get(`http://localhost:3002/linhaDoTempo?projeto_id=${id}`);
-          console.log('Resposta da linha do tempo:', linhaDoTempoResponse.data);
-
-          if (linhaDoTempoResponse.data.length > 0) {
-            setProjeto(linhaDoTempoResponse.data);
-          } else {
-            setProjeto([]); 
-          }
-        }
-
-        setDadosCarregados(true);
+        const response = await axios.get(
+          `http://localhost:8080/linhaDoTempo/projeto/${id}`
+        );
+        setLinhaDoTempo(response.data);
       } catch (error) {
-        console.error('Erro ao buscar os dados:', error);
-        setDadosCarregados(true);
+        console.error("Erro ao buscar a linha do tempo:", error);
       }
     };
 
-    fetchData();
+    fetchLinhaDoTempo();
   }, [id]);
 
-  if (!dadosCarregados) {
-    return <div>Carregando...</div>; 
-  }
-  if (projeto.length === 0) {
-    return null; 
+  if (linhaDoTempo.length === 0) {
+    return <div>Sem dados na linha do tempo para este projeto.</div>;
   }
 
-  const indexUltimoItem = paginaAtual * itensPorPagina;
-  const indexPrimeiroItem = indexUltimoItem - itensPorPagina;
-  const itensPaginaAtual = projeto.slice(indexPrimeiroItem, indexUltimoItem);
-  const totalPaginas = Math.ceil(projeto.length / itensPorPagina); 
+  const indiceUltimoItem = paginaAtual * itensPorPagina;
+  const indicePrimeiroItem = indiceUltimoItem - itensPorPagina;
+  const itensPaginaAtual = linhaDoTempo.slice(
+    indicePrimeiroItem,
+    indiceUltimoItem
+  );
+  const totalPaginas = Math.ceil(linhaDoTempo.length / itensPorPagina);
 
-  const paginas = Array.from({ length: totalPaginas }, (_, i) => i + 1); 
+  const paginas = Array.from({ length: totalPaginas }, (_, i) => i + 1);
 
   return (
     <div className={styles.container}>
       <section className={styles.linhaDoTempoSection}>
         <h3>Linha do Tempo</h3>
         <hr className={styles.divider} />
-        {itensPaginaAtual.map(item => (
+        {itensPaginaAtual.map((item) => (
           <div key={item.id} className={styles.linhaDoTempoContainer}>
-            <img src={item.imagem} alt="Linha do tempo" className={styles.linhaDoTempoImagem} />
+            <img
+              src={item.imagem}
+              alt="Linha do tempo"
+              className={styles.linhaDoTempoImagem}
+            />
             <p className={styles.descricao}>{item.descricao}</p>
           </div>
         ))}
-
         <div className={styles.paginacao}>
-          {paginas.map(numero => (
+          {paginas.map((numero) => (
             <button
               key={numero}
-              className={`${styles.pagina} ${numero === paginaAtual ? styles.paginaAtiva : ''}`}
+              className={`${styles.pagina} ${
+                numero === paginaAtual ? styles.paginaAtiva : ""
+              }`}
               onClick={() => setPaginaAtual(numero)}
             >
               {numero}

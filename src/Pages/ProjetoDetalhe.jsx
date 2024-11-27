@@ -10,8 +10,8 @@ export default function Main() {
       <HeaderLogado />
       <VisualizarProjeto />
       <VisualizarPessoasEnvolvidas />
-      {/*LinhaDoTempo />
-      <Comentarios /> */}
+      <LinhaDoTempo />
+      <Comentarios />
     </div>
   );
 }
