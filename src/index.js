@@ -32,7 +32,7 @@ ReactDOM.render(
       <Route path="HomelogadoPage" element={<HomelogadoPage />} />
       <Route path="Planos" element={<Planos />} />
       <Route path="EditarUsuario" element={<EditarUsuario />} />
-      <Route path="VisualizarUsuario" element={<VisualizarUsuario />} />
+      <Route path="VisualizarUsuario/:id" element={<VisualizarUsuario />} />
       <Route path="ResultadosPesquisa" element={<ResultadosPesquisa />} />
       m <Route path="Usuarios" element={<ListaUsuarios />} />
       <Route path="CriarProjeto" element={<CriarProjeto />} />

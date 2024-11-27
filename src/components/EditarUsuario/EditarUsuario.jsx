@@ -27,7 +27,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
     cidadeId: "",
   });
   const [redeSociais, setRedeSociais] = useState([]);
-  const [sobreMin, setSobreMin] = useState("");
+  const [sobreMim, setSobreMin] = useState("");
   const [todasHabilidades, setTodasHabilidades] = useState([]);
   const [showDeleteWarning, setShowDeleteWarning] = useState(false);
   const [estados, setEstados] = useState([]);
@@ -35,15 +35,15 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
   const [todasProfissoes, setTodasProfissoes] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3002/estados")
+    fetch("http://localhost:8080/estados")
       .then((response) => response.json())
       .then((data) => setEstados(data));
 
-    fetch("http://localhost:3002/habilidades")
+    fetch("http://localhost:8080/habilidades")
       .then((response) => response.json())
       .then((data) => setTodasHabilidades(data));
 
-    fetch("http://localhost:3002/profissoes")
+    fetch("http://localhost:8080/profissoes")
       .then((response) => response.json())
       .then((data) => setTodasProfissoes(data));
   }, []);
@@ -51,30 +51,20 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
   useEffect(() => {
     const userId = cookies.userId;
     if (userId) {
-      fetch(`http://localhost:3002/usuarios/${userId}`)
+      fetch(`http://localhost:8080/user/${userId}`)
         .then((response) => response.json())
         .then((data) => {
           setUsuario(data);
           setNome(data.nome);
-          setFoto(data.imagem);
-          setLocalizacao(data.localizacao);
-          setRedeSociais(data.redeSociais);
-          setSobreMin(data.sobreMin);
-          setProfissao(data.profissao);
-
-          // Buscar habilidades relacionadas ao usuário
-          fetch(`http://localhost:3002/usuario_habilidades?usuarioId=${userId}`)
-            .then((response) => response.json())
-            .then((habilidadeRelacionadas) => {
-              const habilidadesPromises = habilidadeRelacionadas.map((uh) =>
-                fetch(
-                  `http://localhost:3002/habilidades/${uh.habilidadeId}`
-                ).then((response) => response.json())
-              );
-              Promise.all(habilidadesPromises).then((habilidadesData) => {
-                setHabilidades(habilidadesData);
-              });
-            });
+          setFoto(data.imagemUrl);
+          setLocalizacao({
+            estadoId: data.estadoId || "",
+            cidadeId: data.cidadeId || "",
+          });
+          setRedeSociais(data.redesSociais || []);
+          setSobreMin(data.sobreMim || "");
+          setProfissao(data.profissaoId || "");
+          setHabilidades(data.habilidades || []);
         })
         .catch((error) => console.error("Erro ao carregar usuário:", error));
     }
@@ -82,7 +72,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
 
   useEffect(() => {
     if (localizacao.estadoId) {
-      fetch(`http://localhost:3002/cidades?estadoId=${localizacao.estadoId}`)
+      fetch(`http://localhost:8080/cidades?estadoId=${localizacao.estadoId}`)
         .then((response) => response.json())
         .then((data) => setCidades(data))
         .catch((error) => console.error("Erro ao carregar cidades:", error));
@@ -90,35 +80,6 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
       setCidades([]);
     }
   }, [localizacao.estadoId]);
-
-  const getSocialIcon = (url) => {
-    if (url.includes("facebook.com")) {
-      return facebookIcon;
-    } else if (url.includes("twitter.com")) {
-      return twitterIcon;
-    } else if (url.includes("instagram.com")) {
-      return instagramIcon;
-    } else if (url.includes("tiktok.com")) {
-      return ticktokIcon;
-    } else if (url.includes("linkedin.com")) {
-      return LinkedinIcon;
-    } else if (url.includes("@gmail")) {
-      return gmailIcon;
-    } else if (url.includes("pinterest.com")) {
-      return pinterestIcon;
-    } else if (url.includes("@outlook") || url.includes("@hotmail")) {
-      return outlookIcon;
-    } else if (
-      url.includes("@") &&
-      !url.includes("@gmail") &&
-      !url.includes("@hotmail") &&
-      !url.includes("@outlook")
-    ) {
-      return EmailGenerico;
-    }
-
-    return noneIcon;
-  };
 
   const handleNomeChange = (e) => {
     setNome(e.target.value);
@@ -152,43 +113,6 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
     const novasRedes = [...redeSociais];
     novasRedes[index] = value;
     setRedeSociais(novasRedes);
-
-    const userId = cookies.userId;
-    fetch(`http://localhost:3002/usuarios/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ redeSociais: novasRedes }),
-    });
-  };
-
-  const handleAddRedeSocial = () => {
-    const novasRedes = [...redeSociais, ""];
-    setRedeSociais(novasRedes);
-
-    const userId = cookies.userId;
-    fetch(`http://localhost:3002/usuarios/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ redeSociais: novasRedes }),
-    });
-  };
-
-  const handleRemoveRedeSocial = (index) => {
-    const novasRedes = redeSociais.filter((_, i) => i !== index);
-    setRedeSociais(novasRedes);
-
-    const userId = cookies.userId;
-    fetch(`http://localhost:3002/usuarios/${userId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ redeSociais: novasRedes }),
-    });
   };
 
   const handleSobreMinChange = (e) => {
@@ -201,55 +125,20 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
   const handleHabilidadesChange = (e) => {
     const habilidadeId = e.target.value;
     const habilidadeSelecionada = todasHabilidades.find(
-      (h) => h.id === habilidadeId
+      (h) => h.id === parseInt(habilidadeId, 10)
     );
-    const userId = cookies.userId;
 
     if (
       habilidadeSelecionada &&
       !habilidades.some((h) => h.id === habilidadeSelecionada.id)
     ) {
       setHabilidades([...habilidades, habilidadeSelecionada]);
-
-      fetch("http://localhost:3002/usuario_habilidades", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          usuarioId: userId,
-          habilidadeId: habilidadeId,
-        }),
-      }).catch((error) =>
-        console.error("Erro ao adicionar habilidade:", error)
-      );
     }
   };
 
   const handleRemoveHabilidade = (index) => {
-    const habilidadeRemovida = habilidades[index];
-    const userId = cookies.userId;
-
-    fetch(
-      `http://localhost:3002/usuario_habilidades?usuarioId=${userId}&habilidadeId=${habilidadeRemovida.id}`
-    )
-      .then((response) => response.json())
-      .then(([relacao]) => {
-        if (relacao && relacao.id) {
-          fetch(`http://localhost:3002/usuario_habilidades/${relacao.id}`, {
-            method: "DELETE",
-          })
-            .then(() => {
-              const novasHabilidades = habilidades.filter(
-                (_, i) => i !== index
-              );
-              setHabilidades(novasHabilidades);
-            })
-            .catch((error) =>
-              console.error("Erro ao remover habilidade:", error)
-            );
-        }
-      });
+    const novasHabilidades = habilidades.filter((_, i) => i !== index);
+    setHabilidades(novasHabilidades);
   };
 
   const handleProfissaoChange = (e) => {
@@ -259,17 +148,18 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
   const handleSave = () => {
     const userId = cookies.userId;
     const updatedUser = {
-      ...usuario,
+      id: userId,
       nome,
-      imagem: foto,
-      localizacao,
-      redeSociais,
-      sobreMin,
-      habilidades,
-      profissao,
+      imagemUrl: foto,
+      estadoId: localizacao.estadoId,
+      cidadeId: localizacao.cidadeId,
+      redesSociais: redeSociais,
+      sobreMim,
+      habilidades: habilidades.map((h) => h.id),
+      profissaoId: profissao,
     };
 
-    fetch(`http://localhost:3002/usuarios/${userId}`, {
+    fetch(`http://localhost:8080/user/${userId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -287,7 +177,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
   const confirmDelete = () => {
     setShowDeleteWarning(false);
     const userId = cookies.userId;
-    fetch(`http://localhost:3002/usuarios/${userId}`, {
+    fetch(`http://localhost:8080/user/${userId}`, {
       method: "DELETE",
     }).then(() => {
       onDelete(userId);
@@ -297,6 +187,44 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
 
   const cancelDelete = () => {
     setShowDeleteWarning(false);
+  };
+
+  const handleAddRedeSocial = () => {
+    setRedeSociais([...redeSociais, ""]);
+  };
+
+  const handleRemoveRedeSocial = (index) => {
+    const novasRedes = redeSociais.filter((_, i) => i !== index);
+    setRedeSociais(novasRedes);
+  };
+
+  const getSocialIcon = (url) => {
+    if (url.includes("facebook.com")) {
+      return facebookIcon;
+    } else if (url.includes("twitter.com")) {
+      return twitterIcon;
+    } else if (url.includes("instagram.com")) {
+      return instagramIcon;
+    } else if (url.includes("tiktok.com")) {
+      return ticktokIcon;
+    } else if (url.includes("linkedin.com")) {
+      return LinkedinIcon;
+    } else if (url.includes("@gmail")) {
+      return gmailIcon;
+    } else if (url.includes("pinterest.com")) {
+      return pinterestIcon;
+    } else if (url.includes("@outlook") || url.includes("@hotmail")) {
+      return outlookIcon;
+    } else if (
+      url.includes("@") &&
+      !url.includes("@gmail") &&
+      !url.includes("@hotmail") &&
+      !url.includes("@outlook")
+    ) {
+      return EmailGenerico;
+    }
+
+    return noneIcon;
   };
 
   if (!usuario) {
@@ -376,7 +304,7 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
           >
             <option value="">Selecione uma profissão</option>
             {todasProfissoes.map((profissao) => (
-              <option key={profissao.id} value={profissao.nome}>
+              <option key={profissao.id} value={profissao.id}>
                 {profissao.nome}
               </option>
             ))}
@@ -444,11 +372,11 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
         <div className={styles.formGroup}>
           <label className={styles.labelSobreMin}>Sobre Mim:</label>
           <textarea
-            value={sobreMin}
+            value={sobreMim}
             onChange={handleSobreMinChange}
             className={styles.inputSobreMin}
           />
-          <p className={styles.charCount}>{sobreMin.length}/1000</p>
+          <p className={styles.charCount}>{sobreMim.length}/1000</p>
         </div>
         <div className={styles.buttons}>
           <button onClick={handleSave} className={styles.saveButton}>

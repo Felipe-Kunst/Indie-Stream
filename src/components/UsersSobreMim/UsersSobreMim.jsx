@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
 import styles from "./UsersSobreMim.module.css";
 
 const SobreMim = () => {
   const [perfil, setPerfil] = useState(null);
-  const [cookies] = useCookies(["userId"]);
+  const { id } = useParams(); // Pega o ID do usuário da URL
 
   useEffect(() => {
-    const userId = cookies.userId;
-    if (userId) {
-      fetch(`http://localhost:8080/user/${userId}`)
+    if (id) {
+      fetch(`http://localhost:8080/user/${id}`) // Usa o ID da URL
         .then((response) => response.json())
         .then((data) => setPerfil(data))
         .catch((error) => console.error("Erro ao carregar perfil:", error));
     }
-  }, [cookies]);
+  }, [id]);
 
   if (!perfil) return <p>Carregando...</p>;
 

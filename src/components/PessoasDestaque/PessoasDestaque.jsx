@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'; 
+import { Link } from "react-router-dom";
 import CardPessoa from "../BoxUsuarios/BoxUsuarios2";
 import styles from "./PessoasDestaque.module.css";
 
@@ -7,10 +7,10 @@ const PessoasEmDestaque = () => {
   const [usuarios, setUsuarios] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3002/usuarios") 
-      .then(response => response.json())
-      .then(data => setUsuarios(data.slice(0, 4))) 
-      .catch(error => console.error("Erro ao buscar dados:", error));
+    fetch("http://localhost:8080/user")
+      .then((response) => response.json())
+      .then((data) => setUsuarios(data.slice(0, 4)))
+      .catch((error) => console.error("Erro ao buscar dados:", error));
   }, []);
 
   return (

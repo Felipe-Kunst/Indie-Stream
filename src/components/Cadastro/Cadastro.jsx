@@ -31,7 +31,8 @@ const Cadastro = () => {
       senha: formData.senha,
       nome: formData.nome,
       username: formData.email, // Usando o email como username
-      imagemUrl: "https://example.com/default-image.jpg",
+      imagemUrl:
+        "https://img.freepik.com/vecteurs-premium/pictogramme-personne_764382-14126.jpg",
     };
 
     fetch("http://localhost:8080/user", {

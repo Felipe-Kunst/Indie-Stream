@@ -1,47 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import BoxUsuario2 from '../BoxUsuarios/BoxUsuarios';
-import styles from './PessoasEnvolvidas.module.css';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import CardPessoa from "../BoxUsuarios/BoxUsuarios2";
+import styles from "./PessoasEnvolvidas.module.css";
 
 const VisualizarPessoasEnvolvidas = () => {
-  const { id } = useParams(); 
-  const [projeto, setProjeto] = useState(null);
+  const { id } = useParams(); // ID do projeto da URL
   const [usuariosEnvolvidos, setUsuariosEnvolvidos] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
-  const usuariosPorPagina = 4; 
-  const [renderizar, setRenderizar] = useState(true); 
+  const usuariosPorPagina = 4;
 
   useEffect(() => {
-    const fetchProjeto = async () => {
+    const fetchPessoasEnvolvidas = async () => {
       try {
-        const projetoResponse = await axios.get(`http://localhost:3002/projetos/${id}`);
-        setProjeto(projetoResponse.data);
+        // Obtém as informações do projeto
+        const projetoResponse = await fetch(
+          `http://localhost:8080/projetos/${id}`
+        );
+        const projeto = await projetoResponse.json();
 
-        const pessoasEnvolvidas = projetoResponse.data?.PessoasEnvolvidas || [];
-        const usuariosIds = pessoasEnvolvidas.map(pessoa => pessoa.usuarioid);
-        setUsuariosEnvolvidos(usuariosIds);
-
-        setRenderizar(usuariosIds.length > 0);
+        // Verifica se pessoasEnvolvidas está presente
+        if (projeto && projeto.pessoasEnvolvidas) {
+          console.log("Pessoas Envolvidas:", projeto.pessoasEnvolvidas); // Debug
+          setUsuariosEnvolvidos(projeto.pessoasEnvolvidas);
+        } else {
+          console.error("Nenhuma pessoa encontrada no projeto.");
+        }
       } catch (error) {
-        console.error('Erro ao buscar o projeto:', error);
+        console.error("Erro ao buscar o projeto:", error);
       }
     };
 
-    fetchProjeto();
+    fetchPessoasEnvolvidas();
   }, [id]);
 
-  if (!projeto) {
-    return <div>Carregando...</div>;
-  }
-
-  if (!renderizar) {
-    return null; 
+  if (usuariosEnvolvidos.length === 0) {
+    return <div>Nenhuma pessoa envolvida neste projeto.</div>;
   }
 
   const indiceUltimoUsuario = paginaAtual * usuariosPorPagina;
   const indicePrimeiroUsuario = indiceUltimoUsuario - usuariosPorPagina;
-  const usuariosExibidos = usuariosEnvolvidos.slice(indicePrimeiroUsuario, indiceUltimoUsuario);
+  const usuariosExibidos = usuariosEnvolvidos.slice(
+    indicePrimeiroUsuario,
+    indiceUltimoUsuario
+  );
 
   const mudarPagina = (numeroPagina) => {
     setPaginaAtual(numeroPagina);
@@ -54,11 +55,15 @@ const VisualizarPessoasEnvolvidas = () => {
       <section className={styles.pessoasSection}>
         <h3>Pessoas Envolvidas</h3>
         <div className={styles.pessoasContainer}>
-          {usuariosExibidos.map((usuarioId) => (
-            <div key={usuarioId} className={styles.pessoaItem}>
-              <BoxUsuario2 usuarioId={usuarioId} />
-            </div>
-          ))}
+          {usuariosExibidos.length > 0 ? (
+            usuariosExibidos.map((usuario) => (
+              <div key={usuario.id} className={styles.pessoaItem}>
+                <CardPessoa usuario={usuario} />
+              </div>
+            ))
+          ) : (
+            <p>Nenhuma pessoa envolvida neste projeto.</p>
+          )}
         </div>
         {totalPaginas > 1 && (
           <div className={styles.paginacao}>
@@ -66,7 +71,9 @@ const VisualizarPessoasEnvolvidas = () => {
               <button
                 key={index}
                 onClick={() => mudarPagina(index + 1)}
-                className={paginaAtual === index + 1 ? styles.paginaAtiva : styles.pagina}
+                className={
+                  paginaAtual === index + 1 ? styles.paginaAtiva : styles.pagina
+                }
               >
                 {index + 1}
               </button>
