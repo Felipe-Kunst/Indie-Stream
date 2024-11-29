@@ -22,7 +22,6 @@ const BoxProjetos = ({ projeto }) => {
       />
       <div className={styles.textoContainer}>
         <h3 className={styles.titulo}>{projeto.titulo}</h3>
-        <p className={styles.descricao}>{projeto.descricao}</p>
         <p className={styles.localizacao}>Localização: {projeto.localizacao}</p>
         <p className={styles.tipo}>Tipo: {projeto.tipo}</p>
         <div className={styles.statusContainer}>

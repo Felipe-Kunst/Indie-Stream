@@ -1,3 +1,4 @@
+/* Geral */
 .container {
   display: flex;
   justify-content: center;
@@ -10,34 +11,39 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-  min-width: 850px;
-  max-width: 850px;
-  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0px;
+  width: 70vw;
+  max-width: 1300px;
+  min-width: 1000px;
 }
 
 .title {
-  font-size: 24px;
+  font-size: x-large;
   font-weight: bold;
   color: #fff;
+  width: 80%;
 }
 
 .divider {
-  width: 65%;
+  width: 80%;
   border: 1px solid #fff;
   margin: 10px auto;
 }
 
 .projetoNome {
-  font-size: 22px;
+  padding-top: 20px;
+  font-size: xx-large;
   font-weight: bold;
   color: #fff;
   margin: 15px 0;
 }
 
 .projetoImagem {
-  width: 350px;
-  height: 225px;
+  width: 500px;
+  height: 300px;
   object-fit: cover;
   border-radius: 5px;
   margin: 15px 0;
@@ -51,6 +57,7 @@
   line-height: 1.5;
 }
 
+/* Status */
 .statusContainer {
   display: flex;
   align-items: center;
@@ -78,18 +85,68 @@
   font-size: 16px;
 }
 
+/* Botão de Contato */
 .contatoButton {
-  background-color: #ffc107;
+  width: 300px;
+  padding: 15px;
+  background-color: #fdd835;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  border-radius: 4px;
   color: #000;
+  font-size: 16px;
+  font-family: "Epilogue";
   cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: large;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contatoButton:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Card do Criador */
+.criadorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.criadoPor {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.linkCriador {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #2d2d2d;
+  padding: 10px;
+  border-radius: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.linkCriador:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.criadorImagem {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.criadorNome {
+  font-size: 16px;
+  font-weight: bold;
 }

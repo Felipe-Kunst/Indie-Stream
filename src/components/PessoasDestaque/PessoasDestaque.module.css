@@ -1,30 +1,85 @@
 .container {
+  padding: 40px 60px; /* Ajustando o padding */
   background-color: #1f1f1f;
-  padding: 20px;
-  border-radius: 8px;
-  margin: 0px 20px;
+  border-radius: 10px; /* Tornando o raio mais consistente */
+  color: #fff;
+  margin: 20px 0px;
+  width: 70vw;
+  max-width: 1300px;
+  min-width: 1000px;
 }
 
 .pessoasEmDestaque {
   color: white;
 }
 
-.pessoasEmDestaque h2 {
-  font-size: 1.5em;
+.pessoasEmDestaque .titulo {
+  font-size: xx-large;
+  margin-bottom: 30px; /* Espaço semelhante ao segundo exemplo */
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ffd700; /* Adicionando uma linha para destaque */
 }
 
 .gridPessoas {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* Define 2 colunas */
+  gap: 20px; /* Espaçamento entre os cards */
+  justify-content: center; /* Centraliza o grid horizontalmente */
+  align-items: center; /* Alinha os itens verticalmente */
+  margin-top: 20px;
 }
 
 .verMais {
-  display: block;
-  margin-top: 45px;
+  display: flex;
+  margin-top: 40px;
   color: #ffd700;
+  text-align: left;
   text-decoration: none;
   font-weight: bold;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.verMais:hover {
+  text-decoration: underline;
+}
+
+.boxPessoa {
+  background-color: #1c1c1c;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
   text-align: left;
-  background-color: #1f1f1f;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.imagemPessoa {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.textoContainer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.nomePessoa {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.descricaoPessoa {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.localizacaoPessoa {
+  font-size: 12px;
+  color: #ccc;
 }

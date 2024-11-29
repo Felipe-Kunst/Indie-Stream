@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./BoxDestaque.module.css";
 
-function BoxDestaques({ projeto }) { 
+function BoxDestaques({ projeto }) {
   if (!projeto) {
-    return null;  
+    return null;
   }
 
-  const { imagem, titulo } = projeto;
+  const { imagemUrl, titulo } = projeto;
 
   return (
     <div className={styles.BoxDestaques}>
-      <img src={imagem} alt={titulo} className={styles.BoxDestaquesImg} />
+      <img src={imagemUrl} alt={titulo} className={styles.BoxDestaquesImg} />
       <div className={styles.InfoProjetos}>
         <h2 className={styles.InfoProjetosH2}>{titulo}</h2>
       </div>

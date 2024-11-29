@@ -13,7 +13,7 @@ function TopProjetos() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:3002/projetos") 
+      .get("http://localhost:8080/projetos")
       .then((response) => {
         setProjetos(response.data.slice(0, 4));
         setLoading(false);
@@ -37,9 +37,9 @@ function TopProjetos() {
         ))}
       </div>
       <div className={styles.descubraMaisContainer}>
-        <button 
-          className={styles.descubraMaisBtn} 
-          onClick={() => navigate('/login')}
+        <button
+          className={styles.descubraMaisBtn}
+          onClick={() => navigate("/login")}
         >
           Descubra Mais
         </button>

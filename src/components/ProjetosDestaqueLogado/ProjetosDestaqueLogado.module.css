@@ -1,14 +1,19 @@
 .container {
-  padding: 20px;
+  padding: 40px 60px;
   background-color: #1f1f1f;
   border-radius: 10px;
   color: #fff;
-  margin: 100px 20px 0px 20px;
+  margin: 20px 0px;
+  width: 70vw;
+  max-width: 1300px;
+  min-width: 1000px;
 }
 
 .titulo {
-  font-size: 1.5em;
+  font-size: xx-large;
   margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #ffd700;
 }
 
 .projetos {
@@ -53,11 +58,6 @@
 .textoContainer {
   margin-top: 10px;
   text-align: center;
-}
-
-.titulo {
-  font-size: 1.5em;
-  margin-bottom: 20px;
 }
 
 .descricao {

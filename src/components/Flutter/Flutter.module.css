@@ -11,7 +11,8 @@
 
 .flutterConteudo {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 200px;
   align-items: center;
   text-align: center;
   width: 100%;

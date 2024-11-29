@@ -1,5 +1,5 @@
 .secaoAquivcpode {
-  background-color: #FFCC00;
+  background-color: #ffcc00;
   padding: 50px 0;
   text-align: center;
 }
@@ -8,6 +8,7 @@
   font-size: 36px;
   color: #333;
   margin-bottom: 40px;
+  margin-top: 0;
 }
 
 .FuncionalidadesGrid {
@@ -29,13 +30,12 @@
 }
 
 .EstrelaIcon {
-  width: 50px; 
+  width: 50px;
   margin-right: 20px;
 }
 
 .FuncionalidadesCardP {
   font-size: 18px;
   margin: 0;
+  width: 100%;
 }
-
-  

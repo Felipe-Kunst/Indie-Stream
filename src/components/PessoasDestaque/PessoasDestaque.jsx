@@ -16,7 +16,7 @@ const PessoasEmDestaque = () => {
   return (
     <div className={styles.container}>
       <section className={styles.pessoasEmDestaque}>
-        <h2>Pessoas em Destaque</h2>
+        <h2 className={styles.titulo}>Pessoas em Destaque</h2>
         <div className={styles.gridPessoas}>
           {usuarios.map((usuario) => (
             <CardPessoa key={usuario.id} usuario={usuario} />

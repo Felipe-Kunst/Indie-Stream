@@ -147,6 +147,8 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
 
   const handleSave = () => {
     const userId = cookies.userId;
+
+    // Criando o objeto atualizado SEM incluir o campo senha
     const updatedUser = {
       id: userId,
       nome,
@@ -167,7 +169,10 @@ const EditarUsuario = ({ onSave = () => {}, onDelete = () => {} }) => {
       body: JSON.stringify(updatedUser),
     })
       .then((response) => response.json())
-      .then((data) => onSave(data));
+      .then((data) => {
+        onSave(data);
+      })
+      .catch((error) => console.error("Erro ao salvar usuário:", error));
   };
 
   const handleDelete = () => {
