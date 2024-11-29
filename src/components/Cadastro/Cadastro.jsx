@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Cadastro.module.css";
 import Logo from "../../assets/Logo.png";
 
@@ -9,6 +10,8 @@ const Cadastro = () => {
     confirmarSenha: "",
     nome: "",
   });
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,7 +25,7 @@ const Cadastro = () => {
     e.preventDefault();
 
     if (formData.senha !== formData.confirmarSenha) {
-      alert("As senhas não coincidem!");
+      setError("As senhas não coincidem!");
       return;
     }
 
@@ -31,7 +34,8 @@ const Cadastro = () => {
       senha: formData.senha,
       nome: formData.nome,
       username: formData.email, // Usando o email como username
-      imagemUrl: "https://example.com/default-image.jpg",
+      imagemUrl:
+        "https://img.freepik.com/vecteurs-premium/pictogramme-personne_764382-14126.jpg",
     };
 
     fetch("http://localhost:8080/user", {
@@ -44,6 +48,7 @@ const Cadastro = () => {
       .then((response) => {
         if (response.ok) {
           alert("Cadastro realizado com sucesso!");
+          navigate("/PaginadeLogin");
         } else {
           alert("Erro ao realizar o cadastro. Tente novamente.");
         }
@@ -55,69 +60,82 @@ const Cadastro = () => {
   };
 
   return (
-    <div className={styles.containerCadastro}>
-      <div className={styles.logo}>
-        <img src={Logo} alt="Logo_IndieStream" />
+    <div className="containerGeralLoginRegister">
+      <div className={styles.containerCadastro}>
+        <form className={styles.formCadastro} onSubmit={handleSubmit}>
+          <img src={Logo} alt="Logo_IndieStream" className={styles.logo} />
+          <h2 className={styles.h2}>Cadastre sua conta</h2>
+
+          {error && <p className={styles.error}>{error}</p>}
+
+          <div className={styles.grupoInput}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Insira seu email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.grupoInput}>
+            <label htmlFor="nome">Nome</label>
+            <input
+              type="text"
+              name="nome"
+              id="nome"
+              placeholder="Insira seu nome"
+              value={formData.nome}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.grupoInput}>
+            <label htmlFor="senha">Senha</label>
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              placeholder="Insira sua senha"
+              value={formData.senha}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.grupoInput}>
+            <label htmlFor="confirmarSenha">Confirme sua senha</label>
+            <input
+              type="password"
+              name="confirmarSenha"
+              id="confirmarSenha"
+              placeholder="Confirme sua senha"
+              value={formData.confirmarSenha}
+              onChange={handleChange}
+              required
+              className={styles.input}
+            />
+          </div>
+
+          <button type="submit" className={styles.botaoCadastro}>
+            Cadastrar
+          </button>
+
+          <p className={styles.text}>
+            Já possui conta?{" "}
+            <a href="/PaginadeLogin" className={styles.link}>
+              Entre
+            </a>
+          </p>
+        </form>
       </div>
-      <h2 className={styles.h2}>Cadastre sua conta</h2>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.grupoInput}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Insira seu email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.grupoInput}>
-          <input
-            type="text"
-            name="nome"
-            placeholder="Insira seu nome"
-            value={formData.nome}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.grupoInput}>
-          <input
-            type="password"
-            name="senha"
-            placeholder="Insira sua senha"
-            value={formData.senha}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.grupoInput}>
-          <input
-            type="password"
-            name="confirmarSenha"
-            placeholder="Confirme sua senha"
-            value={formData.confirmarSenha}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
-        </div>
-        <button type="submit" className={styles.botaoCadastro}>
-          Avançar
-        </button>
-      </form>
-      <div className={styles.separator}>
-        <span>– OU –</span>
-      </div>
-      <p className={styles.p}>
-        Já possui conta?{" "}
-        <a href="/PaginadeLogin" className={styles.link}>
-          Entre
-        </a>
-      </p>
     </div>
   );
 };

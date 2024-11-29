@@ -1,13 +1,13 @@
 import React from "react";
 
-import EditarUsuario from "../components/EditarUsuario/EditarUsuario";
 import HeaderLogado from "../components/HeaderLogado/HeaderLogado";
+import ListaProjetos from "../components/ListaProjetos/ListaProjetos";
 
 export default function Main() {
   return (
     <div className="containerGeral">
       <HeaderLogado />
-      <EditarUsuario />
+      <ListaProjetos />
     </div>
   );
 }

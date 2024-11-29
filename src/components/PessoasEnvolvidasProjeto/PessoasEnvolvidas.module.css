@@ -12,7 +12,6 @@
   margin: 0 5px;
   cursor: pointer;
   border-radius: 10px;
-
 }
 
 .paginaAtiva {
@@ -32,6 +31,10 @@
   border-radius: 10px;
   margin-bottom: 20px;
   max-height: 450px;
+  margin: 20px 0px;
+  width: 70vw;
+  max-width: 1300px;
+  min-width: 1000px;
 }
 
 .pessoasContainer {
@@ -47,4 +50,5 @@
   font-weight: bold;
   color: #fff;
   margin-bottom: 40px;
+  font-size: x-large;
 }

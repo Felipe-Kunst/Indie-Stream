@@ -1,94 +1,92 @@
-
-
 .containerCadastro {
-    background-color: #2a2a2a;
-    padding: 40px;
-    border-radius: 10px;
-    width: 400px;
-    margin: 0 auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
-    text-align: center;
-    margin-top: 100px;
+  background-color: #282828;
+  padding: 40px;
+  border-radius: 8px;
+  width: 400px;
+  margin: 0 auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
-.containerCadastro img {
-    width: 125px;
-    margin: 0 auto 20px;
-    display: block;
+.logo {
+  width: 220px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.formCadastro {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
 .h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .grupoInput {
-    margin-bottom: 20px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .grupoInput label {
-    display: block;
-    margin-bottom: 5px;
-    color: #b3b3b3;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.input,
-.select {
-    width: 350px;
-    padding: 15px;
-    border-radius: 5px;
-    border: none;
-    background-color: #3a3a3a;
-    color: #fff;
-    font-size: 14px;
-}
-
-.input::placeholder,
-.select {
-    color: #b3b3b3;
-}
-
-.select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+.input {
+  width: 370px;
+  padding: 15px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  font-family: "Epilogue";
+  background-color: #3a3a3a;
+  color: #fff;
 }
 
 .botaoCadastro {
-    width: 100%;
-    padding: 15px;
-    background-color: #ffce00;
-    border: none;
-    border-radius: 5px;
-    color: #000;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  width: 60%;
+  padding: 15px;
+  background-color: #fdd835;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  font-size: 16px;
+  font-family: "Epilogue";
+  cursor: pointer;
+  font-weight: 700;
+  font-size: large;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .botaoCadastro:hover {
-    background-color: #e6b800;
+  background-color: #fbc02d;
 }
 
-.separator {
-    margin: 20px 0;
-    font-size: 14px;
-    color: #b3b3b3;
+.text {
+  text-align: center;
+  margin-top: 10px;
 }
 
-.p {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #d3d3d3;
+.text a {
+  color: #fdd835;
+  text-decoration: none;
+  font-weight: 500;
 }
 
-.link {
-    color: #ffce00;
-    text-decoration: none;
-}
-
-.link:hover {
-    text-decoration: underline;
+.text a:hover {
+  text-decoration: underline;
 }

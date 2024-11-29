@@ -13,7 +13,8 @@
 .projetos {
   display: flex;
   justify-content: space-between;
-  gap: 20px; 
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .link {
@@ -25,18 +26,17 @@
   font-weight: bold;
 }
 
-
 .link:hover {
   text-decoration: underline;
 }
 
 .boxProjeto {
-  background-color: #000;
+  background-color: #2d2d2d;
   border-radius: 8px;
   padding: 16px;
-  max-width: 296px; 
+  max-width: 296px;
   color: #fff;
-  background-color: #2d2d2d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves */
 }
 
 .boxProjeto:hover {
@@ -45,31 +45,42 @@
 }
 
 .imagemProjeto {
-  width: 296px; 
-  height: 169px; 
+  width: 296px;
+  height: 169px;
   border-radius: 8px;
   margin-bottom: 12px;
   max-width: 300px;
   max-height: 300px;
-  object-fit: cover; 
+  object-fit: cover;
   border: 1px solid #fff;
+  transition: transform 0.3s ease;
+}
+
+.imagemProjeto:hover {
+  transform: scale(1.02);
 }
 
 .textoContainer {
   margin-top: 12px;
-  text-align: left; 
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
 .titulo {
-  font-size: 20px; 
+  font-size: 20px;
   margin-bottom: 8px;
-  margin-top: -20px;
+  margin-top: -15px;
+  margin-bottom: 20px;
 }
 
 .descricao {
   font-size: 14px;
   color: #ccc;
-  text-align: left; 
+  text-align: left;
   margin-top: -3px;
 }
 
@@ -77,7 +88,7 @@
 .tipo {
   font-size: 14px;
   color: #aaa;
-  text-align: left; 
+  text-align: left;
   margin-top: -15px;
 }
 
@@ -85,8 +96,8 @@
   display: flex;
   align-items: center;
   margin-top: 12px;
-  text-align: left; 
-  margin-top: -10PX;
+  text-align: left;
+  margin-top: -10px;
 }
 
 .statusIcone {

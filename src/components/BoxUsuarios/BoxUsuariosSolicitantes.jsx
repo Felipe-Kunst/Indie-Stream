@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./BoxUsuarios.module.css";
+import aceitarIcon from "../../assets/aceitar.svg";
+import recusarIcon from "../../assets/recusar.svg";
 
-function CardPessoa({ usuario }) {
+function CardPessoaSolicitante({ usuario, onAceitar, onRecusar }) {
   const navigate = useNavigate();
 
   if (!usuario || Object.keys(usuario).length === 0) {
@@ -32,9 +34,29 @@ function CardPessoa({ usuario }) {
           {cidadeNome || "Cidade não informada"}{" "}
           {estadoNome ? `, ${estadoNome}` : ""}
         </p>
+        <div className={styles.acaoContainer}>
+          <img
+            src={aceitarIcon}
+            alt="Aceitar"
+            className={styles.iconeAcao}
+            onClick={(e) => {
+              e.stopPropagation(); // Impede o clique no card
+              onAceitar(id);
+            }}
+          />
+          <img
+            src={recusarIcon}
+            alt="Recusar"
+            className={styles.iconeAcao}
+            onClick={(e) => {
+              e.stopPropagation(); // Impede o clique no card
+              onRecusar(id);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-export default CardPessoa;
+export default CardPessoaSolicitante;

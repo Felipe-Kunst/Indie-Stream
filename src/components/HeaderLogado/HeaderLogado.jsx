@@ -117,7 +117,10 @@ const HeaderLogado = () => {
             <a href="/EditarUsuario" className={styles.dropdownItem}>
               Editar perfil
             </a>
-            <a href="/VisualizarUsuario" className={styles.dropdownItem}>
+            <a
+              href={`/VisualizarUsuario/${usuario.id}`} // Usando o ID do usuário logado
+              className={styles.dropdownItem}
+            >
               Ver Perfil
             </a>
             <a

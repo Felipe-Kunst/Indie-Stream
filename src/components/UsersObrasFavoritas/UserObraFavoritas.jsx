@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
 import styles from "./UserObraFavorita.module.css";
 
 function UserObraFavorita() {
   const [obras, setObras] = useState([]);
-  const [cookies] = useCookies(["userId"]);
+  const { id } = useParams(); // Obtém o ID do usuário da URL
 
   useEffect(() => {
     const fetchObrasFavoritas = async () => {
       try {
-        const usuarioId = cookies.userId;
-        if (!usuarioId) {
-          console.error("Usuário não encontrado nos cookies.");
+        if (!id) {
+          console.error("ID do usuário não encontrado na URL.");
           return;
         }
 
         // Busca os dados do usuário, incluindo obras favoritas
-        const response = await axios.get(
-          `http://localhost:8080/user/${usuarioId}`
-        );
+        const response = await axios.get(`http://localhost:8080/user/${id}`);
         const usuario = response.data;
 
         if (usuario.obrasFavoritas && usuario.obrasFavoritas.length > 0) {
@@ -33,7 +30,7 @@ function UserObraFavorita() {
     };
 
     fetchObrasFavoritas();
-  }, [cookies]);
+  }, [id]);
 
   if (obras.length === 0) {
     return null; // Oculta o componente se não houver obras favoritas
@@ -52,7 +49,6 @@ function UserObraFavorita() {
             />
             <div className={styles.infoObra}>
               <h2 className={styles.obraTitulo}>{obra.titulo}</h2>
-              {/* <p className={styles.obraDescricao}>{obra.descricao}</p> */}
             </div>
           </div>
         ))}

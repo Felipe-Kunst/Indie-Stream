@@ -53,54 +53,56 @@ function Login() {
   };
 
   return (
-    <div className={styles.containerLogin}>
-      <form onSubmit={handleLogin}>
-        <img src={Logo} alt="Logo_IndieStream" className={styles.logo} />
-        <h2 className={styles.h2}>Entre em sua conta</h2>
+    <div className="containerGeralLoginRegister">
+      <div className={styles.containerLogin}>
+        <form className={styles.formLogin} onSubmit={handleLogin}>
+          <img src={Logo} alt="Logo_IndieStream" className={styles.logo} />
+          <h2 className={styles.h2}>Entre em sua conta</h2>
 
-        <div className={styles.grupoInput}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Insira seu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={
-              error ? `${styles.input} ${styles.inputErro}` : styles.input
-            }
-          />
-        </div>
+          <div className={styles.grupoInput}>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Insira seu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={
+                error ? `${styles.input} ${styles.inputErro}` : styles.input
+              }
+            />
+          </div>
 
-        <div className={styles.grupoInput}>
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Insira sua senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={
-              error ? `${styles.input} ${styles.inputErro}` : styles.input
-            }
-          />
-        </div>
+          <div className={styles.grupoInput}>
+            <label htmlFor="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Insira sua senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={
+                error ? `${styles.input} ${styles.inputErro}` : styles.input
+              }
+            />
+          </div>
 
-        <a href="/EsqueceuSenha" className={styles.linkEsqueciSenha}>
-          Esqueceu sua senha?
-        </a>
-
-        <button type="submit" className={styles.botao}>
-          Login
-        </button>
-
-        <p className={styles.text}>
-          Não possui conta?{" "}
-          <a href="/PaginadeCadastro" className={styles.link}>
-            Cadastre-se
+          <a href="/EsqueceuSenha" className={styles.linkEsqueciSenha}>
+            Esqueceu sua senha?
           </a>
-        </p>
-      </form>
+
+          <button type="submit" className={styles.botao}>
+            Login
+          </button>
+
+          <p className={styles.text}>
+            Não possui conta?{" "}
+            <a href="/PaginadeCadastro" className={styles.link}>
+              Cadastre-se
+            </a>
+          </p>
+        </form>
+      </div>
     </div>
   );
 }

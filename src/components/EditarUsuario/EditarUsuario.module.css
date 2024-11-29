@@ -5,7 +5,7 @@
   border-radius: 10px;
   background-color: transparent;
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: "Epilogue";
 }
 
 .title {
@@ -44,7 +44,7 @@
   color: #cbcbcb;
   font-size: 16px;
   width: -webkit-fill-available;
-  margin: auto;
+  margin-top: 5px;
 }
 
 .preview {

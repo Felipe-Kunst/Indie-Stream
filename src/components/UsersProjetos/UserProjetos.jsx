@@ -6,29 +6,22 @@ import BoxProjeto from "../BoxProjetos/BoxProjetos";
 import "./UserProjetos.modules.css";
 
 const ListaProjetos = () => {
-  const { id } = useParams();
-  const [cookies] = useCookies(["userId"]);
+  const { id } = useParams(); // ID do usuário vindo da URL
+  const [cookies] = useCookies(["userId"]); // ID do usuário logado
   const [projetos, setProjetos] = useState([]);
   const [paginaAtual, setPaginaAtual] = useState(1);
   const itensPorPagina = 3;
 
   useEffect(() => {
     const fetchProjetos = async () => {
-      const userId = id || cookies.userId;
+      const userId = id || cookies.userId; // Usa o ID da URL ou do cookie
       if (userId) {
         try {
-          // Busca todos os projetos diretamente do backend
-          const response = await axios.get(`http://localhost:8080/projetos`);
-          const allProjetos = response.data;
-
-          // Filtra os projetos onde o usuário está envolvido
-          const projetosDoUsuario = allProjetos.filter((projeto) =>
-            projeto.pessoasEnvolvidas.some(
-              (pessoa) => pessoa.id === Number(userId)
-            )
+          const response = await axios.get(
+            `http://localhost:8080/projetos?userId=${userId}`
           );
 
-          setProjetos(projetosDoUsuario);
+          setProjetos(response.data);
         } catch (error) {
           console.error("Erro ao buscar os projetos do usuário:", error);
         }
@@ -55,7 +48,7 @@ const ListaProjetos = () => {
   return (
     <div className="projetosContainer">
       <div className="headerProjetos">
-        <h2>Projetos Criados</h2>
+        <h2>Projetos Envolvidos</h2>
         <p>{projetos.length} Projetos</p>
       </div>
       <div className="gridProjetos">

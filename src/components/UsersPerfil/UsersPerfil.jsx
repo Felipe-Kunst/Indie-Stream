@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
 import styles from "./UsersPerfil.module.css";
 
 import facebookIcon from "../../assets/Facebook.png";
@@ -12,13 +13,15 @@ import LinkedinIcon from "../../assets/Linkedin.png";
 import gmailIcon from "../../assets/Gmail.png";
 import EmailGenerico from "../../assets/EmailGenerico.png";
 
-const UsersPerfil = () => {
+const UsersPerfil = ({ userIdFromProps }) => {
   const [user, setUser] = useState(null);
   const [cookies] = useCookies(["userId"]);
+  const { id: userIdFromUrl } = useParams(); // Pega o ID da URL
+
+  // Determina o ID final do usuário a ser exibido
+  const userId = userIdFromProps || userIdFromUrl || cookies.userId;
 
   useEffect(() => {
-    const userId = cookies.userId;
-
     if (userId) {
       fetch(`http://localhost:8080/user/${userId}`)
         .then((response) => response.json())
@@ -27,9 +30,9 @@ const UsersPerfil = () => {
         })
         .catch((error) => console.error("Erro ao buscar dados:", error));
     } else {
-      console.error("userId não encontrado nos cookies.");
+      console.error("Nenhum userId fornecido.");
     }
-  }, [cookies]);
+  }, [userId]);
 
   const redesSociaisIcons = {
     facebook: facebookIcon,
@@ -47,6 +50,12 @@ const UsersPerfil = () => {
     return <div>Carregando...</div>;
   }
 
+  const uniqueSocials = new Set();
+
+  // Verifica se o perfil exibido é do usuário logado
+  const isCurrentUser = cookies.userId == userId;
+  console.log(cookies.userId, " , ", userId);
+
   return (
     <div className={styles.perfilContainer}>
       <div className={styles.grayContainer}>
@@ -59,7 +68,9 @@ const UsersPerfil = () => {
             />
             <div className={styles.info}>
               <h2 className={styles.name}>{user.nome}</h2>
-              <p className={styles.role}>{user.profissaoNome}</p>
+              <p className={styles.role}>
+                {user.profissaoNome || "Profissão não informada"}
+              </p>
               <div className={styles.socialMedia}>
                 {user.redesSociais && user.redesSociais.length > 0 ? (
                   user.redesSociais.map((rede, index) => {
@@ -80,6 +91,12 @@ const UsersPerfil = () => {
                       : rede.includes("twitter")
                       ? "twitter"
                       : "email";
+
+                    // Evita links duplicados
+                    if (uniqueSocials.has(rede)) {
+                      return null;
+                    }
+                    uniqueSocials.add(rede);
 
                     return (
                       <a
@@ -107,8 +124,9 @@ const UsersPerfil = () => {
                 ? `${user.cidadeNome}, ${user.estadoNome}`
                 : "Localização não disponível"}
             </div>
-
-            <button className={styles.premiumButton}>Impulsionar</button>
+            {isCurrentUser && (
+              <button className={styles.premiumButton}>Impulsionar</button>
+            )}
           </div>
         </div>
       </div>

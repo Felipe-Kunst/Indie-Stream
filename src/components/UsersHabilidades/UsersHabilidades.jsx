@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useCookies } from "react-cookie";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./UsersHabilidades.module.css";
 
 const Habilidades = () => {
   const [habilidades, setHabilidades] = useState([]);
-  const [cookies] = useCookies(["userId"]);
+  const { id } = useParams(); // Pega o ID da URL
 
   useEffect(() => {
     const fetchHabilidades = async () => {
       try {
-        if (!cookies.userId) {
-          console.error("Nenhum usuário logado.");
+        if (!id) {
+          console.error("Nenhum ID fornecido na URL.");
           return;
         }
 
-        // Busca os dados do usuário logado (incluindo habilidades)
-        const response = await axios.get(
-          `http://localhost:8080/user/${cookies.userId}`
-        );
+        // Busca os dados do usuário específico (incluindo habilidades)
+        const response = await axios.get(`http://localhost:8080/user/${id}`);
         const usuario = response.data;
 
         // Extraindo as habilidades do usuário
@@ -33,7 +31,7 @@ const Habilidades = () => {
     };
 
     fetchHabilidades();
-  }, [cookies]);
+  }, [id]);
 
   return (
     <div className={styles.habilidadesContainer}>

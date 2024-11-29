@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
   padding: 15px;
-  border: 2px ; 
-  border-radius: 5px;
-  background-color: #2d2d2d; 
-  color: white;
+  border: 2px;
   border-radius: 15px;
+  background-color: #2d2d2d;
+  color: white;
   min-width: 360px;
-
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves */
 }
 
 .boxDestaques:hover {
@@ -17,38 +16,65 @@
 }
 
 .imagem {
-  width: 100px; 
+  width: 100px;
   height: 100px;
-  border-radius: 50%; 
+  border-radius: 50%;
   object-fit: cover;
-  margin-right: 20px; 
+  margin-right: 20px;
   background-color: #2d2d2d;
-  
+  transition: transform 0.3s ease; /* Adiciona transição suave para a imagem */
+}
 
+.imagem:hover {
+  transform: scale(1.05); /* Leve zoom na imagem ao passar o mouse */
 }
 
 .infoUsuarios {
-  flex: 1; 
-  text-align: left; 
+  flex: 1;
+  text-align: left;
 }
 
 .nome {
   margin: 0;
-  font-size: 1.2em; 
+  font-size: 1.2em;
   font-weight: bold;
   text-align: left;
+  padding-bottom: 10px;
+  position: relative; /* Necessário para o uso de ::after */
 }
 
-.ramo{
-    margin: 0;
-    padding-left: 0;
-    text-align: left;
-    margin-top: 10px;
-    margin-bottom: -10px;
+/* Borda Abaixo */
+.nome::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: #747474;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 70px;
+}
+
+.ramo {
+  margin: 0;
+  padding-left: 0;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: -10px;
 }
 
 .localizacao {
   font-style: italic;
-  color: #a0a0a0; 
+  color: #a0a0a0;
   text-align: left;
+}
+
+.iconeAcao {
+  width: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iconeAcao:hover {
+  transform: scale(1.05);
 }

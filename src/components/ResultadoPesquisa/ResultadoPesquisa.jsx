@@ -18,10 +18,10 @@ const ResultadosPesquisa = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const usuarios = await fetch(`http://localhost:3002/usuarios`).then(
-          (res) => res.json()
+        const usuarios = await fetch(`http://localhost:8080/user`).then((res) =>
+          res.json()
         );
-        const projetos = await fetch(`http://localhost:3002/projetos`).then(
+        const projetos = await fetch(`http://localhost:8080/projetos`).then(
           (res) => res.json()
         );
 

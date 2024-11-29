@@ -1,47 +1,51 @@
 .containerProjetosBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #222222; 
-    border-radius: 10px;
-    padding: 44px;
-    max-width: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #222222;
+  border-radius: 10px;
+  padding: 44px;
+  max-width: 100%;
 }
 
 .containerProjetosBox h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-    text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
 }
 
 .linhaProjetos {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 8px; 
-    padding: 20px;
-    width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  width: 100%;
 }
 
 .descubraMaisContainer {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .descubraMaisBtn {
-    background-color: #ffdd00; 
-    color: #000000; 
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75); 
+  margin-left: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 7px;
+  width: 220px;
+  height: 60px;
+  font-family: "Epilogue";
+  font-weight: 700;
+  font-size: medium;
+  border: none;
+  color: #222222;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .descubraMaisBtn:hover {
-    background-color: #e6c800;
+  background-color: #e6c800;
+  transform: scale(1.05);
 }
