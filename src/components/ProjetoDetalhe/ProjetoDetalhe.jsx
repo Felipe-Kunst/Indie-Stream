@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { FaTrash } from "react-icons/fa"; // Ícone de lixeira
 import styles from "./ProjetoDetalhes.module.css";
 
 const VisualizarProjeto = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [cookies] = useCookies(["userId"]);
   const [projeto, setProjeto] = useState(null);
   const [usuarioLogado, setUsuarioLogado] = useState(null);
@@ -15,13 +17,11 @@ const VisualizarProjeto = () => {
   useEffect(() => {
     const usuarioId = parseInt(cookies.userId, 10);
 
-    // Buscar o projeto pelo ID
     axios
       .get(`http://localhost:8080/projetos/${id}`)
       .then((response) => {
         setProjeto(response.data);
 
-        // Verificar se o usuário logado já está na lista de solicitantes
         if (
           response.data.usuariosSolicitantes &&
           response.data.usuariosSolicitantes.some(
@@ -31,7 +31,6 @@ const VisualizarProjeto = () => {
           setSolicitado(true);
         }
 
-        // Verificar se o usuário logado já está na lista de pessoas envolvidas
         if (
           response.data.pessoasEnvolvidas &&
           response.data.pessoasEnvolvidas.some(
@@ -43,7 +42,6 @@ const VisualizarProjeto = () => {
       })
       .catch((error) => console.error("Erro ao buscar o projeto:", error));
 
-    // Buscar informações do usuário logado
     if (usuarioId) {
       axios
         .get(`http://localhost:8080/user/${usuarioId}`)
@@ -58,18 +56,17 @@ const VisualizarProjeto = () => {
     return <div>Carregando...</div>;
   }
 
-  const {
-    titulo,
-    imagemUrl,
-    descricao,
-    status,
-    usuarioCriador,
-    usuariosSolicitantes,
-    pessoasEnvolvidas,
-  } = projeto;
-
-  const statusClass =
-    status === "Concluído" ? styles.concluido : styles.andamento;
+  const handleDeletarProjeto = () => {
+    if (window.confirm("Tem certeza que deseja deletar este projeto?")) {
+      axios
+        .delete(`http://localhost:8080/projetos/${id}`)
+        .then(() => {
+          alert("Projeto deletado com sucesso.");
+          navigate("/Projetos");
+        })
+        .catch((error) => console.error("Erro ao deletar o projeto:", error));
+    }
+  };
 
   const handleSolicitar = () => {
     const usuarioId = cookies.userId;
@@ -81,7 +78,6 @@ const VisualizarProjeto = () => {
         )
         .then(() => {
           setSolicitado(true);
-          // Atualizar a lista de solicitantes localmente
           setProjeto((prev) => ({
             ...prev,
             usuariosSolicitantes: [
@@ -96,39 +92,44 @@ const VisualizarProjeto = () => {
     }
   };
 
-  const isCriador = usuarioCriador && usuarioCriador.id === cookies.userId;
+  const isCriador = projeto.usuarioCriador?.id === parseInt(cookies.userId, 10);
 
   return (
     <div className={styles.container}>
       <section className={styles.projetoSection}>
         <h2 className={styles.title}>Visualizar Projeto</h2>
         <hr className={styles.divider} />
-        <h3 className={styles.projetoNome}>{titulo}</h3>
-        {imagemUrl && (
-          <img src={imagemUrl} alt={titulo} className={styles.projetoImagem} />
+        <h3 className={styles.projetoNome}>{projeto.titulo}</h3>
+        {projeto.imagemUrl && (
+          <img
+            src={projeto.imagemUrl}
+            alt={projeto.titulo}
+            className={styles.projetoImagem}
+          />
         )}
-        <p className={styles.descricao}>{descricao}</p>
-        <div className={`${styles.statusContainer} ${statusClass}`}>
+        <p className={styles.descricao}>{projeto.descricao}</p>
+        <div className={`${styles.statusContainer} ${styles[projeto.status]}`}>
           <span className={styles.statusDot}></span>
-          <span className={styles.status}>{status}</span>
+          <span className={styles.status}>{projeto.status}</span>
         </div>
 
         <div className={styles.criadorContainer}>
           <span className={styles.criadoPor}>Criado por:</span>
           <Link
-            to={`/VisualizarUsuario/${usuarioCriador.id}`}
+            to={`/VisualizarUsuario/${projeto.usuarioCriador?.id}`}
             className={styles.linkCriador}
           >
             <img
-              src={usuarioCriador.imagemUrl}
-              alt={usuarioCriador.nome}
+              src={projeto.usuarioCriador?.imagemUrl}
+              alt={projeto.usuarioCriador?.nome}
               className={styles.criadorImagem}
             />
-            <span className={styles.criadorNome}>{usuarioCriador.nome}</span>
+            <span className={styles.criadorNome}>
+              {projeto.usuarioCriador?.nome}
+            </span>
           </Link>
         </div>
 
-        {/* Botão de solicitar aparece apenas se o usuário não for o criador, não for um envolvido, e ainda não tiver solicitado */}
         {!isCriador && !isEnvolvido && (
           <button
             className={styles.contatoButton}
@@ -136,6 +137,15 @@ const VisualizarProjeto = () => {
             disabled={solicitado}
           >
             {solicitado ? "Solicitado" : "Entrar em contato"}
+          </button>
+        )}
+
+        {isCriador && (
+          <button
+            className={styles.deletarButton}
+            onClick={handleDeletarProjeto}
+          >
+            <FaTrash className={styles.deletarIcon} /> Deletar
           </button>
         )}
       </section>

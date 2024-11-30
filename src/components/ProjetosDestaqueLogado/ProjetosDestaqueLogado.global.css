@@ -1,0 +1,35 @@
+/* Ajuste do contêiner principal */
+.slick-slider {
+  width: 100%;
+  margin: 20px 0;
+  padding: 30px;
+  padding-left: 90px;
+}
+
+/* Botões de navegação */
+.slick-prev,
+.slick-next {
+  color: #ffd700;
+  z-index: 10;
+  font-size: 20px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: #ffeb3b;
+}
+
+/* Dots de navegação */
+.slick-dots li button:before {
+  color: #ffd700;
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ffeb3b;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 35px;
+}

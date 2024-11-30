@@ -31,15 +31,18 @@ function CriarProjeto() {
       imagemUrl: imagem,
       tipo,
       status,
-      pessoasEnvolvidas: [{ id: userId }], // Adicionar o usuário logado
+      pessoasEnvolvidas: [{ id: userId }],
     };
 
     try {
-      const response = await fetch("http://localhost:8080/projetos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(novoProjeto),
-      });
+      const response = await fetch(
+        `http://localhost:8080/projetos?usuarioCriadorId=${userId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(novoProjeto),
+        }
+      );
 
       if (response.ok) {
         setError("");
