@@ -98,3 +98,37 @@
   font-size: 12px;
   color: #fff;
 }
+
+.slider {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slick-slide {
+  padding: 10px;
+  box-sizing: border-box; /* Garante espaçamento consistente */
+}
+
+.slick-prev,
+.slick-next {
+  color: #ffd700;
+  z-index: 1;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: #ffeb3b;
+}
+
+.slick-dots li button:before {
+  color: #ffd700;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ffeb3b;
+}

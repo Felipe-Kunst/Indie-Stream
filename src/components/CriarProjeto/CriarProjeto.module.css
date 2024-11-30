@@ -3,7 +3,7 @@
   padding: 40px; /* Espaçamento interno */
   border-radius: 8px; /* Cantos arredondados */
   width: 800px; /* Largura aumentada */
-  margin: 0 auto; /* Centraliza a página */
+  margin: 20px auto;
   color: #fff; /* Cor do texto */
   display: flex; /* Usar flexbox para centralizar conteúdo */
   flex-direction: column; /* Organiza os filhos em coluna */
